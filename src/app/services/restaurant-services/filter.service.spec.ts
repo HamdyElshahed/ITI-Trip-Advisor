@@ -13,4 +13,8 @@ describe('FilterService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  
+  it('query fun', () => {
+    expect(service.queryFor("Reservation")).toHaveBeenCalledTimes(1);
+  });
 });
