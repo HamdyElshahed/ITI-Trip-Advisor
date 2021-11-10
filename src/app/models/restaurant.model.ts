@@ -1,5 +1,6 @@
 
 export interface Restaurant {
+    id:           number;
     rating:       number;
     price:        number;
     categories:   Categories;

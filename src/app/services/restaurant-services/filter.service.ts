@@ -13,21 +13,25 @@ import { Restaurant } from 'src/app/models/restaurant.model';
  */
 export class FilterService {
 
-  filteredRestaurantsList:Set<Restaurant>;
+  filteredRestaurantsList:Restaurant[];
   allRestaurantList!:Observable<Restaurant[]>;
   constructor(private firestore: AngularFirestore) {
-     this.filteredRestaurantsList=new Set<Restaurant>();
+     this.filteredRestaurantsList=[];
      this.allRestaurantList=this.getRestaurants()
   }
 
   updateRestaurantList(restaurantArr:Restaurant[]){
-    restaurantArr.forEach(val=>{
-      if (!this.filteredRestaurantsList.has(val)) {
-      this.filteredRestaurantsList.add(val);
-    }
-    })
+
+    if (restaurantArr.length!==0) {
+      this.filteredRestaurantsList=[...restaurantArr];
+
+    const arrayUniqueByKey = [...new Map(this.filteredRestaurantsList.map(item =>
+      [item['id'], item])).values()];
+    this.filteredRestaurantsList=[...arrayUniqueByKey];
     console.log("filteredRestaurantList updated");
     console.log(this.filteredRestaurantsList);
+    }
+    
     
   }
 
