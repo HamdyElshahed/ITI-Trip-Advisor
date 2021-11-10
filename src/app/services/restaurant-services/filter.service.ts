@@ -13,11 +13,25 @@ import { Restaurant } from 'src/app/models/restaurant.model';
  */
 export class FilterService {
 
+  private itemsCollection: AngularFirestoreCollection<Restaurant>;
+
+
   filteredRestaurantsList:Restaurant[];
   allRestaurantList!:Observable<Restaurant[]>;
   constructor(private firestore: AngularFirestore) {
      this.filteredRestaurantsList=[];
      this.allRestaurantList=this.getRestaurants()
+
+     this.itemsCollection = firestore.collection<Restaurant>('restaurant');
+  }
+
+
+//temp function for adding new restaurant ,it will be moved later to its own component
+  addItem(item: Restaurant) {
+    let id=this.itemsCollection.doc().ref.id;
+    console.log(id);
+    item.id=id;
+    this.itemsCollection.doc(id).set(item);
   }
 
   updateRestaurantList(restaurantArr:Restaurant[]){
@@ -28,8 +42,6 @@ export class FilterService {
     const arrayUniqueByKey = [...new Map(this.filteredRestaurantsList.map(item =>
       [item['id'], item])).values()];
     this.filteredRestaurantsList=[...arrayUniqueByKey];
-    console.log("filteredRestaurantList updated");
-    console.log(this.filteredRestaurantsList);
     }
     
     
