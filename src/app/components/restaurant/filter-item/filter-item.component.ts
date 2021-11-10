@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Restaurant, FEATURES } from 'src/app/models/restaurant.model';
+import { Restaurant, FEATURES, Location } from 'src/app/models/restaurant.model';
 import { FilterService } from 'src/app/services/restaurant-services/filter.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class FilterItemComponent implements OnInit {
   queryResult: Restaurant[] = [];
   filterItemList: string[] = [];
   filterItemListLength!: number;
+  filterItemListFullAddress: string[] = []; //used for the nighborhood address full text insteated the splited one below 
   /**
    * This is how the component will look lick
    *    filterItemName
@@ -30,21 +31,31 @@ export class FilterItemComponent implements OnInit {
      * depending on the filterItemName ! fill the filterItemList , OK!
      */
     switch (this.filterItemName) {
+      //In case feature ? then go ahead and get the list stored locally in 'src/app/models/restaurant.model'
       case 'Features':
-        //In case feature ? then go ahead and get the list stored locally in 'src/app/models/restaurant.model'
         this.filterItemList = FEATURES;
         break;
-
+      //In case Neighborhoods ? then go ahead and get all restaurants filter them by address
       case 'Neighborhoods':
-        const cities = new Set<string>();
-        this.filterService.allRestaurantList.subscribe((queryRes) => {
-          queryRes.filter((val) => {
-            cities.add(val.location.city)
+        const restaurantSplitedAddrr = new Set<string>();
+        const restaurantFulldAddrr = new Set<string>();
+        this.filterService.queryForNeighborhoods(this.filterService.locatoion.city,"city")
+          .subscribe((queryRes) => {
+            queryRes.filter((val) => {
+              //get the last part of the address wich is the street
+              console.log(val.location.address.split(" ").slice(1).join(" "));
+              restaurantSplitedAddrr.add(val.location.address.split(" ").slice(1).join(" "));
+              restaurantFulldAddrr.add(val.location.address);
+            })
+            this.filterItemList = []; //this is important to not dublicate the list items
+            for (let item of restaurantSplitedAddrr) {
+              this.filterItemList.push(item); //push the street names into filter item list
+            }
+            for (let item of restaurantFulldAddrr) {
+              this.filterItemListFullAddress.push(item);//push the FULL address names into filterItemListFullAddress
+            }
+            console.log(this.filterItemListFullAddress);
           })
-          for (let item of cities) {
-            this.filterItemList.push(item);
-          }
-        })
 
         break;
 
@@ -52,8 +63,10 @@ export class FilterItemComponent implements OnInit {
         const categories = new Set<string>();
         this.filterService.allRestaurantList.subscribe((queryRes) => {
           queryRes.filter((val) => {
+            console.log(val.categories.title);
             categories.add(val.categories.title)
           })
+          this.filterItemList = [];
           for (let item of categories) {
             this.filterItemList.push(item);
           }
@@ -74,18 +87,21 @@ export class FilterItemComponent implements OnInit {
         case "Features":
           this.filterService.queryForFeatures((e.target as HTMLInputElement).value)
             .subscribe((queryRes) => {
+              console.log(queryRes);
               this.filterService.updateRestaurantList(queryRes);
             })
           break;
         case "Categories":
           this.filterService.queryForCategory((e.target as HTMLInputElement).value)
             .subscribe((queryRes) => {
+              console.log(queryRes);
               this.filterService.updateRestaurantList(queryRes);
             })
           break;
         case "Neighborhoods":
-          this.filterService.queryForNeighborhoods((e.target as HTMLInputElement).value)
+          this.filterService.queryForNeighborhoods((e.target as HTMLInputElement).name,"address")  // . name because the full address stored there
             .subscribe((queryRes) => {
+              console.log(queryRes);
               this.filterService.updateRestaurantList(queryRes);
             })
           break;
@@ -97,44 +113,44 @@ export class FilterItemComponent implements OnInit {
 
     }
     //iportant Restaurant template for adding new restaurant dont delete you will use it later
-  //   this.filterService.addItem({
-  //     image_url: "https://s3-media4.fl.yelpcdn.com/bphoto/JXi5a8UeGPrKwbGBA4ZImA/o.jpg",
-  //     phone: "+1859122222600",
-  //     is_closed: true,
-  //     url: "https://www.yelp.com/biz/obc-kitchen-lexington?adjust_creative=isHnLZ2-HnajgMvg5U-9-A&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=isHnLZ2-HnajgMvg5U-9-A",
-  //     price: 200,
-  //     review_count: 1110,
-  //     coordinates: {
-  //         longitude: -84.4964695004246,
-  //         latitude: 37.9950994324964
-  //     },
-  //     categories: {
-  //         title: "Bizza"
-  //     },
-  //     transactions: "delivery",
-  //     is_claimed: false,
-  //     name: "fhfhggh",
-  //     location: {
-  //         state: "CA",
-  //         address: "3373 Tates Creek Rd",
-  //         city: "Cairo",
-  //         country: "US"
-  //     },
-  //     features: [
-  //         "Reservations",
-  //         "Has TV",
-  //         "Offers Takeout",
-  //         "Staff wears masks",
-  //         "Good for Groups"
-  //     ],
-  //     id: "G3D2FGjtsFOeLiyAZgEQ",
-  //     rating: 460,
-  //     photos: [
-  //         "https://s3-media4.fl.yelpcdn.com/bphoto/JXi5a8UeGPrKwbGBA4ZImA/o.jpg",
-  //         "https://s3-media1.fl.yelpcdn.com/bphoto/7f_WdNLCGZmjUQEw6h6xoQ/o.jpg",
-  //         "https://s3-media2.fl.yelpcdn.com/bphoto/eqMn--a_zt-qU-62tWuYUw/o.jpg"
-  //     ]
-  // })
-    
+    //   this.filterService.addItem({
+    //     image_url: "https://s3-media4.fl.yelpcdn.com/bphoto/JXi5a8UeGPrKwbGBA4ZImA/o.jpg",
+    //     phone: "+1859122222600",
+    //     is_closed: true,
+    //     url: "https://www.yelp.com/biz/obc-kitchen-lexington?adjust_creative=isHnLZ2-HnajgMvg5U-9-A&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=isHnLZ2-HnajgMvg5U-9-A",
+    //     price: 200,
+    //     review_count: 1110,
+    //     coordinates: {
+    //         longitude: -84.4964695004246,
+    //         latitude: 37.9950994324964
+    //     },
+    //     categories: {
+    //         title: "Bizza"
+    //     },
+    //     transactions: "delivery",
+    //     is_claimed: false,
+    //     name: "fhfhggh",
+    //     location: {
+    //         state: "CA",
+    //         address: "3373 Tates Creek Rd",
+    //         city: "Alex",
+    //         country: "US"
+    //     },
+    //     features: [
+    //         "Reservations",
+    //         "Has TV",
+    //         "Offers Takeout",
+    //         "Staff wears masks",
+    //         "Good for Groups"
+    //     ],
+    //     id: "G3D2FGjtsFOeLiyAZgEQ",
+    //     rating: 460,
+    //     photos: [
+    //         "https://s3-media4.fl.yelpcdn.com/bphoto/JXi5a8UeGPrKwbGBA4ZImA/o.jpg",
+    //         "https://s3-media1.fl.yelpcdn.com/bphoto/7f_WdNLCGZmjUQEw6h6xoQ/o.jpg",
+    //         "https://s3-media2.fl.yelpcdn.com/bphoto/eqMn--a_zt-qU-62tWuYUw/o.jpg"
+    //     ]
+    // })
+
   }
 }

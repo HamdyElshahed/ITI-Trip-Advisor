@@ -1,19 +1,18 @@
 <h5 class="">{{filterItemName}}</h5>
 
 <!-- Default checkbox -->
-<div *ngFor="let item of filterItemList | slice:0:4 ; let l=count" class="form-check"  >
-  <input class="form-check-input" type="checkbox" value="{{item}}" id="flexCheckDefault" (change)="onCheckBoxChange($event)" />
-  <label class="form-check-label" for="flexCheckDefault">
+<div *ngFor="let item of filterItemList | slice:0:4 ; let indx=index" class="form-check"  >
+  <input class="form-check-input" type="checkbox" value="{{item}}" name="{{filterItemListFullAddress[indx]}}" id="flexCheckBox{{item}}" (change)="onCheckBoxChange($event)" />
+  <label class="form-check-label" for="flexCheckBox{{item}}">
     {{item}} 
     </label>
 </div>
 
 
-<div >
 <div   class="collapse" id={{filterItemName}}>
   <div *ngFor="let item of filterItemList | slice:4:filterItemListLength" class="form-check">
-    <input class="form-check-input" type="checkbox" value="{{item}}" id="flexCheckChecked" />
-    <label class="form-check-label" for="flexCheckChecked">
+    <input class="form-check-input" type="checkbox" value="{{item}}" id="flexCheckChecked{{item}}" (change)="onCheckBoxChange($event)" />
+    <label class="form-check-label" for="flexCheckChecked{{item}}">
      {{item}}
     </label>
   </div>
@@ -24,4 +23,3 @@
   aria-expanded="false" aria-controls="collapseExample">
   Show more
 </a>
-</div>

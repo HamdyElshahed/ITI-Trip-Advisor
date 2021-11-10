@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, QueryDocumentSnapshot} from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { Restaurant } from 'src/app/models/restaurant.model';
+import { Location, Restaurant } from 'src/app/models/restaurant.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +12,21 @@ import { Restaurant } from 'src/app/models/restaurant.model';
  * https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md
  */
 export class FilterService {
-
+  locatoion:Location;
   private itemsCollection: AngularFirestoreCollection<Restaurant>;
 
-
   filteredRestaurantsList:Restaurant[];
-  allRestaurantList!:Observable<Restaurant[]>;
+  allRestaurantList!:Observable<Restaurant[]>;//for filter items to set list values
+
   constructor(private firestore: AngularFirestore) {
+
+    // default location
+    this.locatoion={
+              state: "CA",
+              address: "3373 Tates Creek Rd",
+              city: "Cairo",
+              country: "EG"
+            }
      this.filteredRestaurantsList=[];
      this.allRestaurantList=this.getRestaurants()
 
@@ -28,7 +36,8 @@ export class FilterService {
 
 //temp function for adding new restaurant ,it will be moved later to its own component
   addItem(item: Restaurant) {
-    let id=this.itemsCollection.doc().ref.id;
+    // let id=this.itemsCollection.doc().ref.id;
+    const id = this.firestore.createId();
     console.log(id);
     item.id=id;
     this.itemsCollection.doc(id).set(item);
@@ -36,12 +45,23 @@ export class FilterService {
 
   updateRestaurantList(restaurantArr:Restaurant[]){
 
-    if (restaurantArr.length!==0) {
-      this.filteredRestaurantsList=[...restaurantArr];
+    if (restaurantArr.length!==0) { 
+      
+      restaurantArr.forEach((val)=>{
+        this.filteredRestaurantsList.push(val);
+      })
+      //this.filteredRestaurantsList=[...restaurantArr];
 
     const arrayUniqueByKey = [...new Map(this.filteredRestaurantsList.map(item =>
       [item['id'], item])).values()];
-    this.filteredRestaurantsList=[...arrayUniqueByKey];
+      console.log(arrayUniqueByKey);
+      this.filteredRestaurantsList.splice(0);
+      arrayUniqueByKey.forEach((val)=>{
+        this.filteredRestaurantsList.push(val);
+      })
+    // this.filteredRestaurantsList=[...arrayUniqueByKey];
+    console.log("filteredRestaurantList updated");
+    console.log(this.filteredRestaurantsList);
     }
     
     
@@ -55,15 +75,17 @@ export class FilterService {
 
   getRestaurants():Observable<Restaurant[]>{
     
-   return this.firestore.collection<Restaurant>('restaurant').valueChanges();;
+   return this.firestore.collection<Restaurant>('restaurant').valueChanges();
   
   }
+
   queryForCategory(categName:string):Observable<Restaurant[]>{
    return this.firestore.collection<Restaurant>('restaurant', ref => ref. where('categories.title', "==", categName)).valueChanges();
   
   }
-  queryForNeighborhoods(city:string):Observable<Restaurant[]>{
-   return this.firestore.collection<Restaurant>('restaurant', ref => ref. where('location.city', "==", city)).valueChanges();
+  queryForNeighborhoods(city:string,type:string):Observable<Restaurant[]>{
+   return this.firestore.collection<Restaurant>('restaurant', ref => ref. where("location."+type, "==", city)).valueChanges();
   
   }
+  
 }
