@@ -35,13 +35,13 @@ export class FilterService {
 
 
 //temp function for adding new restaurant ,it will be moved later to its own component
-  addItem(item: Restaurant) {
-    // let id=this.itemsCollection.doc().ref.id;
-    const id = this.firestore.createId();
-    console.log(id);
-    item.id=id;
-    this.itemsCollection.doc(id).set(item);
-  }
+  // addItem(item: Restaurant) {
+  //   // let id=this.itemsCollection.doc().ref.id;
+  //   const id = this.firestore.createId();
+  //   console.log(id);
+  //   item.id=id;
+  //   this.itemsCollection.doc(id).set(item);
+  // }
 
   updateRestaurantList(restaurantArr:Restaurant[]){
 

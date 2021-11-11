@@ -2,3 +2,21 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+}
+
+.owl-prev {
+  left: 0rem;
+  color: crimson;
+}
+
+.owl-next {
+  right: 0rem;
+}
