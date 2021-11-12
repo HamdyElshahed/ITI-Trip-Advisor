@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Restaurant } from 'src/app/models/restaurant.model';
+import { Restaurant, ALLRESTAURANTS } from 'src/app/models/restaurant.model';
 import { RestaurantsMainServiceService } from 'src/app/services/restaurant-services/restaurants-main.service';
 
 @Component({
@@ -23,6 +23,17 @@ export class RestaurantsComponent implements OnInit {
       this.restaurants=val;
       console.log(this.restaurantService);
     });
+  
+
+  }
+
+  addRestaurant(restaurant:Restaurant){
+    this.restaurantService.addItem(restaurant);
+  }
+
+  addMultipleRestaurants(){
+    this.restaurantService.addMultipleRestaurant(ALLRESTAURANTS);
   }
 
 }
+ 

@@ -9,22 +9,31 @@ import { Restaurant } from 'src/app/models/restaurant.model';
 export class RestaurantsMainServiceService {
   private itemsCollection: AngularFirestoreCollection<Restaurant>;
 
-  constructor(private firestore: AngularFirestore) { 
+  constructor(private firestore: AngularFirestore) {
     this.itemsCollection = firestore.collection<Restaurant>('restaurant');
   }
 
 
-  getRestaurants():Observable<Restaurant[]>{
-    
-    return this.firestore.collection<Restaurant>('restaurant').valueChanges();
-   
-   }
+  getRestaurants(): Observable<Restaurant[]> {
 
-   addItem(item: Restaurant) {
+    return this.firestore.collection<Restaurant>('restaurant').valueChanges();
+
+  }
+
+  addItem(item: Restaurant) {
     // let id=this.itemsCollection.doc().ref.id;
     const id = this.firestore.createId();
     console.log(id);
-    item.id=id;
+    item.id = id;
     this.itemsCollection.doc(id).set(item);
+    console.log(item);
   }
+
+  addMultipleRestaurant(restaurants:Restaurant[]){
+    restaurants.forEach((val)=>{
+      this.addItem(val);
+    })
+  }
+
+
 }

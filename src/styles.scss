@@ -20,3 +20,19 @@
 .owl-next {
   right: 0rem;
 }
+
+.owl-carousel .owl-stage {
+  display: flex;
+}
+
+.owl-carousel .owl-item img {
+  width: auto;
+  height: 200px;
+}
+
+
+.btnOrderOnline {
+  background-color: orange;
+  color: black;
+  border-radius: 15px;
+}

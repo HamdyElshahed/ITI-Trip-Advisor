@@ -43,9 +43,9 @@ export class FilterItemComponent implements OnInit {
           .subscribe((queryRes) => {
             queryRes.filter((val) => {
               //get the last part of the address wich is the street
-              console.log(val.location.address.split(" ").slice(1).join(" "));
-              restaurantSplitedAddrr.add(val.location.address.split(" ").slice(1).join(" "));
-              restaurantFulldAddrr.add(val.location.address);
+              console.log(val.location.address1.split(" ").slice(1).join(" "));
+              restaurantSplitedAddrr.add(val.location.address1.split(" ").slice(1).join(" "));
+              restaurantFulldAddrr.add(val.location.address1);
             })
             this.filterItemList = []; //this is important to not dublicate the list items
             for (let item of restaurantSplitedAddrr) {
@@ -63,8 +63,8 @@ export class FilterItemComponent implements OnInit {
         const categories = new Set<string>();
         this.filterService.allRestaurantList.subscribe((queryRes) => {
           queryRes.filter((val) => {
-            console.log(val.categories.title);
-            categories.add(val.categories.title)
+            console.log(val.categories[0].title);
+            categories.add(val.categories[0].title)
           })
           this.filterItemList = [];
           for (let item of categories) {

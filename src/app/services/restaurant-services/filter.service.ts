@@ -22,11 +22,18 @@ export class FilterService {
 
     // default location
     this.locatoion={
-              state: "CA",
-              address: "3373 Tates Creek Rd",
-              city: "Cairo",
-              country: "EG"
-            }
+      "address1": "167 W 74th St",
+      "address2": "",
+      "address3": "",
+      "city": "New York",
+      "zip_code": "10023",
+      "country": "US",
+      "state": "NY",
+      "display_address": [
+          "167 W 74th St",
+          "New York, NY 10023"
+      ]
+  }
      this.filteredRestaurantsList=[];
      this.allRestaurantList=this.getRestaurants()
 
