@@ -1,0 +1,56 @@
+<main class="py-5 backgroundimg">
+  <!-- <div class="section10cardoverlay"></div> -->
+  <section class="container pb-3">
+      <div class="row py-5">
+          <div class="col-md-8 col-12 m-auto py-4 registerbox">
+              <div class="row">
+                  <div class="col-md-6 col-12 px-3">
+                      <form method="post" class="col-8 m-auto py-4" #form="ngForm" >
+                          <h2 class="py-4">Register</h2>
+                          <div class="form-group position-relative mb-4">
+                              <label for="userName" class="registerformlabel"><i class="fas fa-user"></i></label>
+                              <input type="text" class="registerforminput" name="displayName" id="userName"
+                                  placeholder="Your Name" ngModel>
+                          </div>
+                          <div class="form-group position-relative mb-4">
+                              <label for="email" class="registerformlabel"><i class="fas fa-envelope"></i></label>
+                              <input type="email" class="registerforminput" name="email" id="email"
+                                  placeholder="Your Email"  ngModel>
+                          </div>
+                          <div class="form-group position-relative mb-4">
+                             <label for="phone" class="registerformlabel"><i class="fas fa-envelope"></i></label>
+                             <input type="phone" class="registerforminput" name="phoneNumber" id="phone"
+                              placeholder="Your Phone" ngModel >
+                           </div>
+                          <div class="form-group position-relative mb-4">
+                              <label for="password" class="registerformlabel"><i
+                                      class="fas fa-unlock-alt"></i></label>
+                              <input type="password" class="registerforminput" name="password" id="password"
+                                  placeholder="Password" ngModel>
+                          </div>
+                          <div class="form-group position-relative mb-4">
+                              <label for="reppassword" class="registerformlabel"><i
+                                      class="fas fa-lock"></i></label>
+                              <input type="password" class="registerforminput" name="reppassword" id="reppassword"
+                                  placeholder="Repeat Your Password">
+                          </div>
+                          <div class="form-group position-relative mb-4">
+                              <input type="checkbox" name="rememberme" id="rememberme">
+                              <label for="rememberme" class="px-1"> Terms of service</label>
+                          </div>
+                          <button class="btn btn-dark btn-sm px-3 py-1 w-100 rounded-pill" (click)="reg(form.value)" role="button">
+                              Submit</button>
+                      </form>
+                  </div>
+                  <div class="col-6 d-md-flex flex-wrap d-none py-5">
+                      <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/iti-trip-advisor.appspot.com/o/home%2Fregister-logo.png?alt=media&token=705c481e-a2f2-4896-9503-5a2b027afef1">
+                      <div class=" col-12 pt-5 m-0 d-flex justify-content-center" style="align-items: flex-end; ">
+                          <a class="pt-3 px-3" style="color: black" href="" [routerLink]="'/login'" >I am already member</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </section>
+</main>

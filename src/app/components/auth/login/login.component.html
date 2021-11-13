@@ -1,0 +1,43 @@
+<main class="py-5 backgroundimg">
+  <!-- <div class="section10cardoverlay"></div> -->
+  <section class="container" style="padding-bottom: 1.6rem;">
+      <div class="row pb-5" style="padding-top:3rem">
+          <div class="col-md-6 col-12 m-auto py-4 registerbox">
+              <div class="row">
+                  <div class="col-12 px-3">
+                      <form method="post" class="col-8 m-auto py-3" #form="ngForm">
+                          <h2 class="pb-4">Login</h2>
+                          <div class="row py-3 mb-4 ">
+                              <button class="btn btn-primary btn-lg px-3 py-1 mx-3 col-5 rounded" href="#"
+                                  role="button" ><i class="fab fa-facebook-square px-2"></i> Facebook</button>
+                              <button class="btn btn-danger btn-lg px-3 py-1 mx-3 col-5 rounded" href="#"
+                                  role="button" (click)="authservice.GoogleAuth()"><i class="fab fa-google px-2" ></i> Google</button>
+                          </div>
+                          <div class="form-group position-relative py-2 mb-4">
+                              <label for="email" class="registerformlabel"><i class="fas fa-envelope"></i></label>
+                              <input type="email" class="registerforminput" name="email" id="email"
+                                  placeholder="Your Email" ngModel>
+                          </div>
+                          <div class="form-group position-relative py-2 mb-4">
+                              <label for="password" class="registerformlabel"><i
+                                      class="fas fa-unlock-alt"></i></label>
+                              <input type="password" class="registerforminput" name="password" id="password"
+                                  placeholder="Password" ngModel>
+                          </div>
+                          <div class="py-3">
+                              <span>If Forgot Your Password , click  <a href="" [routerLink]="'/forgot-password'"> Here</a></span>
+                          </div>
+                          <div class="py-2">
+                              <button class="btn btn-dark btn-lg px-3 py-1 w-100 my-1 rounded-3" href="#"
+                                  role="button" (click)="authservice.Login(form.value.email , form.value.password)" > Submit</button>
+                          </div>
+                          <div class="text-md-center pt-3">
+                              <span>Not a member ? <a href="" [routerLink]="'/register'">Register now</a></span>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</main>

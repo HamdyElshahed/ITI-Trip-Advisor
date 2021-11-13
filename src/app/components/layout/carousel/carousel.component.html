@@ -1,0 +1,32 @@
+
+<owl-carousel-o *ngIf=" carousel === 'one' " [options]="customOptionscarousel1" class="carousel-one carousel-nav1s">
+  <ng-container *ngFor="let slide of arr" >
+    <ng-template carouselSlide class="mx-1 px-2">
+        <app-cardstyle1></app-cardstyle1>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+
+<owl-carousel-o *ngIf=" carousel === 'two' " [options]="customOptionscarousel2" class="carousel-one carousel-nav1s">
+  <ng-container *ngFor="let slide of arr" >
+    <ng-template carouselSlide class="mx-1 px-2">
+        <app-cardstyle2></app-cardstyle2>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+
+<owl-carousel-o *ngIf=" carousel === 'three' " [options]="customOptionscarousel2" class="carousel-one carousel-nav1s">
+  <ng-container *ngFor="let slide of arr" >
+    <ng-template carouselSlide class="mx-1 px-2">
+        <app-cardstyle3></app-cardstyle3>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+
+<owl-carousel-o *ngIf=" carousel === 'four' " [options]="customOptionscarousel1" class="carousel-one carousel-nav1s">
+  <ng-container *ngFor="let slide of arr" >
+    <ng-template carouselSlide class="mx-1 px-2">
+        <app-cardstyle4></app-cardstyle4>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>

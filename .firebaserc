@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "iti-trip-advisor": {
+      "hosting": {
+        "TripAdvisor": [
+          "iti-trip-advisor"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "iti-trip-advisor"
+  }
+}
