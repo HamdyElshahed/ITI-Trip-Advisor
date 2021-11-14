@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TripAdvisor';
+  // constructor(private store: AngularFirestore) {}
 }
+
