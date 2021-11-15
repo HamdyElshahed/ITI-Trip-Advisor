@@ -1,0 +1,20 @@
+#mainNav {
+  width: 100%;
+
+  li {
+    margin-top: -8px;
+    margin-left: 0.4%;
+    margin-bottom: -18px;
+  }
+  border-bottom: 1px solid lightgray;
+}
+#headUl {
+  margin-left: 7%;
+  width: 100%;
+  display: flex;
+  li {
+    i {
+      word-spacing: 15px;
+    }
+  }
+}

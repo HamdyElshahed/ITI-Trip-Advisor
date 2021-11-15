@@ -25,6 +25,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { Cardstyle4Component } from './components/layout/cardstyle4/cardstyle4.component';
+import { Nav2Component } from './components/layout/nav2/nav2.component';
+import { VacationComponent } from './components/vacation/vacation/vacation.component';
+import { VacationItemComponent } from './components/vacation/vacation-item/vacation-item.component';
+import { ShoppingComponent } from './components/shopping/shopping/shopping.component';
 
 
 @NgModule({
@@ -46,6 +50,10 @@ import { Cardstyle4Component } from './components/layout/cardstyle4/cardstyle4.c
     VerifyEmailComponent,
     ForgotPasswordComponent,
     Cardstyle4Component,
+    Nav2Component,
+    VacationComponent,
+    VacationItemComponent,
+    ShoppingComponent,
   ],
   imports: [
     BrowserModule,
