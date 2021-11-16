@@ -1,48 +1,10 @@
-  <h3 class="mb-0">{{filterByFeatur}}</h3>
+  <h3 class="mb-3">{{filterByFeatur}}</h3>
 
 <owl-carousel-o [options]="customOptions">
 
   <ng-container *ngFor="let restaurant of restaurantsList">
     <ng-template  carouselSlide [id]="restaurant.id">
-      <div class="card mb-3 ">
-
-
-        <div class="bg-image hover-overlay ripple position-relative" data-mdb-ripple-color="light">
-
-          <div
-            class="bg-image hover-overlay ripple position-absolute rounded-circle d-flex justify-content-center align-items-center"
-            style="left: 88%; top: 4%; z-index: 2 ; height: 25px; width: 25px; background-color: rgb(255, 255, 255);"
-            data-mdb-ripple-color="red">
-
-            <a href="#!">
-              <!-- <i class="fas fa-heart text-danger pt-2"></i> -->
-              <i class="far fa-heart text-danger pt-2"></i>
-            </a>
-          </div>
-
-          <img [src]="restaurant.image_url"  [title]="restaurant.name" class="img-fluid">
-
-          <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
-            </div>
-          </a>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title">{{restaurant.name}}</h5>
-
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-
-          <p class="card-text">
-            {{restaurant.categories[0].title}}
-          </p>
-          <button type="button" class="btn btnOrderOnline ">Order Online</button>
-        </div>
-      </div>
+     <app-card [restaurant]="restaurant"></app-card>
 
     </ng-template>
   </ng-container>
