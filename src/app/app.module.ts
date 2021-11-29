@@ -7,7 +7,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterItemComponent } from './components/restaurant/filter-item/filter-item.component';
 import { RestaurantsComponent } from './components/restaurant/restaurants/restaurants.component';
@@ -20,7 +19,6 @@ import { CardComponent } from './components/restaurant/card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FilterItemComponent,
     RestaurantsComponent,
     RestaurantOwlCarouselComponent,
@@ -34,7 +32,7 @@ import { CardComponent } from './components/restaurant/card/card.component';
     AngularFirestoreModule,
     BrowserAnimationsModule,
     CarouselModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
