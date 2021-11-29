@@ -14,6 +14,8 @@ import { RestaurantOwlCarouselComponent } from './components/restaurant/restaura
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CardComponent } from './components/restaurant/card/card.component';
+import { FooterComponent } from './components/restaurant/footer/footer.component';
+import { HeaderComponent } from './components/restaurant/header/header.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { CardComponent } from './components/restaurant/card/card.component';
     RestaurantsComponent,
     RestaurantOwlCarouselComponent,
     CardComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
