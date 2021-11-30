@@ -1,0 +1,31 @@
+h3 {
+  font-size: 25px;
+  font-family: "Festive", cursive;
+  color: #537622;
+}
+
+p {
+  font-size: medium;
+  color: black;
+}
+
+h5 {
+  font-size: 19px;
+}
+
+a {
+  text-decoration: none;
+  color: #943994;
+}
+
+img {
+  width: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+card {
+  width: 30%;
+}
+/*# sourceMappingURL=place.component.css.map */

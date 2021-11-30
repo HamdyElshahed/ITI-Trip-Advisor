@@ -1,35 +1,36 @@
-$myColor: #eeee;
-$mybackground: black;
-
 h3 {
   font-family: "Playfair Display", serif;
   color: darkblue;
 }
 
 .side {
-  background-color: $myColor;
-  border: rgb(175, 173, 173);
+  background-color: #eeee;
+  border: #afadad;
 }
 
 a {
   text-decoration: none;
-  color: $mybackground;
+  color: black;
 }
+
 .room {
   background-color: white;
 }
+
 .roomimg {
   float: left;
   padding: 7px;
   width: 300px;
 }
+
 .btn-1 {
-  //    background-color:#ccc8c8;
   color: black;
   font-size: 12px;
   width: 15%;
 }
 
 .btn-1:hover {
-  transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
 }
+/*# sourceMappingURL=hotels-card.component.css.map */

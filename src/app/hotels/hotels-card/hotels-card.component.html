@@ -1,15 +1,15 @@
 <div *ngFor="let hotel of hotels , let i =index">
   <div class="row">
       <div>
-          <img [src]="hotels[i].imgUrl" alt="">
-          <h3><a href="review.html">{{hotels[i].name}}</a></h3>
-          <p><i>{{hotels[i].reviewCount}}
+          <img Class="roomimg" [src]="hotel.image_url" alt="">
+          <h3><a href="review.html">{{hotel.name}}</a></h3>
+          <p><i>{{hotel.reviewCount}}
               </i>
           </p>
-          <h5>{{hotels[i].feature}}</h5>
-          <h5>{{hotels[i].rate}}</h5>
-          <a href="#">{{hotels[i].price}}</a> <br>
-          <a href="#">{{hotels[i].location}}</a> <br>
+          <h5>{{hotel.feature}}</h5>
+          <h5>{{hotel.rate}}</h5>
+          <a href="#">{{hotel.price |currency}}</a> <br>
+          <a href="#">{{hotel?.location?.address}}</a> <br>
           <a type="button" class="btn-1 btn-secondary btn-warning btn-lg mt-2" href="flights.html">view
               deal</a>
       </div>

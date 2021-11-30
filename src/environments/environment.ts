@@ -4,16 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase :{
-        apiKey: "AIzaSyDh_ZXzbC-zsDUQ3ty-KsYPiH0qwAfJrCQ",
-        authDomain: "iti-trip-advisor.firebaseapp.com",
-        projectId: "iti-trip-advisor",
-        storageBucket: "iti-trip-advisor.appspot.com",
-        messagingSenderId: "519761318248",
-        appId: "1:519761318248:web:4335666868b0d9b836c6dd"
-      }
+  firebaseConfig: {
+    apiKey: 'AIzaSyDh_ZXzbC-zsDUQ3ty-KsYPiH0qwAfJrCQ',
+    authDomain: 'iti-trip-advisor.firebaseapp.com',
+    projectId: 'iti-trip-advisor',
+    storageBucket: 'iti-trip-advisor.appspot.com',
+    messagingSenderId: '519761318248',
+    appId: '1:519761318248:web:4335666868b0d9b836c6dd',
+  },
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

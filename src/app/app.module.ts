@@ -5,29 +5,32 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HotelsComponent } from './hotels/hotels/hotels.component';
 import { HotelsCardComponent } from './hotels/hotels-card/hotels-card.component';
-import { FormsModule }from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-// import { AngularFireModule } from '@angular/fire';
-// import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-
-// import  { AngulaFireModule}  from '@angular/fire'
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { PlaceComponent } from './hotels/places/place.component';
+//  import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+// import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
+// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+// import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HotelsComponent,
-    HotelsCardComponent
+    HotelsCardComponent,
+    PlaceComponent,
   ],
-  imports:[
+  imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFirestoreModule
-    ],
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
