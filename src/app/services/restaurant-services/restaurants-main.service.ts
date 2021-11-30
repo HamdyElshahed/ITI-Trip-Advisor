@@ -13,13 +13,6 @@ export class RestaurantsMainServiceService {
     this.itemsCollection = firestore.collection<Restaurant>('restaurant');
   }
 
-
-  getRestaurants(): Observable<Restaurant[]> {
-
-    return this.firestore.collection<Restaurant>('restaurant').valueChanges();
-
-  }
-
   addItem(item: Restaurant) {
     // let id=this.itemsCollection.doc().ref.id;
     const id = this.firestore.createId();

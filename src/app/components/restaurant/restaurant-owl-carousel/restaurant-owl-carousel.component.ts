@@ -10,13 +10,11 @@ import { FilterService } from 'src/app/services/restaurant-services/filter.servi
 })
 export class RestaurantOwlCarouselComponent implements OnInit {
   @Input() filterByFeatur!:string;
-  restaurantsList!:Restaurant[];
+  @Input() restaurantsList!:Restaurant[];
   constructor(private filterService:FilterService) { }
 
   ngOnInit(): void {
-    this.filterService.queryForFeatures(this.filterByFeatur).subscribe((val)=>{
-      this.restaurantsList=val;
-    })
+    
   }
 
 

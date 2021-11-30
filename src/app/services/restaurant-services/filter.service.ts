@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, QueryDocumentSnapshot } from '@angular/fire/compat/firestore';
 import { getDocs, query, QuerySnapshot, where } from '@firebase/firestore';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Location, Restaurant } from 'src/app/models/restaurant.model';
 import { environment, setLocation } from 'src/environments/environment';
 
@@ -15,13 +15,14 @@ import { environment, setLocation } from 'src/environments/environment';
  */
 export class FilterService {
   locatoion: Location;
+  filterUpdated:Subject<Restaurant[]>;
   private itemsCollection: AngularFirestoreCollection<Restaurant>;
 
   filteredRestaurantsList: Restaurant[];
   allRestaurantList!: Observable<Restaurant[]>;//for filter items to set list values
 
   constructor(private firestore: AngularFirestore) {
-
+    this.filterUpdated=new Subject();
     // default location
 
     this.locatoion = {
@@ -66,6 +67,8 @@ export class FilterService {
       // this.filteredRestaurantsList=[...arrayUniqueByKey];
       console.log("filteredRestaurantList updated");
       console.log(this.filteredRestaurantsList);
+
+      this.filterUpdated.next(this.filteredRestaurantsList);
     }
 
 
@@ -81,32 +84,23 @@ export class FilterService {
 
   }
 
-  queryForFeaturesCombind(featureName: string): Observable<Restaurant[]> {
+/**
+ * used to intialize the allRestaurantList member variable
+ * @returns All the restaurants based on the current location
+ */
+ getRestaurants(): Observable<Restaurant[]> {
 
     let res: Restaurant[] = []
     return new Observable((observer) => {
       this.firestore.collection<Restaurant>('restaurant').ref.where("location.city", "==", this.locatoion.city)
-        .where('features', "array-contains", featureName)
         .get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             res.push(doc.data());
-            console.log(doc.id, " => ", doc.data());
             //this.filterService.updateRestaurantList(querySnapshot);
           });
+          observer.next(res)
         })
-      observer.next(res)
     });
-  }
-
-
-/**
- * used to intialize the allRestaurantList member variable
- * @returns All the restaurants 
- */
-  getRestaurants(): Observable<Restaurant[]> {
-
-    return this.firestore.collection<Restaurant>('restaurant').valueChanges();
-
   }
 
   /**

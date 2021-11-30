@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Restaurant, ALLRESTAURANTS } from 'src/app/models/restaurant.model';
+import { FilterService } from 'src/app/services/restaurant-services/filter.service';
 import { RestaurantsMainServiceService } from 'src/app/services/restaurant-services/restaurants-main.service';
 
 @Component({
@@ -13,17 +14,23 @@ export class RestaurantsComponent implements OnInit {
  filterByCommonFeatur:string[];
 
  restaurants!:Restaurant[];
- constructor(private restaurantService:RestaurantsMainServiceService) { 
+ constructor(private restaurantService:RestaurantsMainServiceService,private filterService:FilterService) { 
   this.filterBy= ["Features","Neighborhoods","Categories",];
   this.filterByCommonFeatur= ["Delivery","Outdoor Seating","Reservations","Dinner","Good for Groups"];
  }
 
   ngOnInit(): void {
-    this.restaurantService.getRestaurants().subscribe((val)=>{
+    this.filterService.getRestaurants().subscribe((val)=>{
       this.restaurants=val;
       
     });
+
+    this.filterService.filterUpdated.subscribe(val=>{
+      this.restaurants=val;
+    })
   }
+
+  
 
   addRestaurant(restaurant:Restaurant){
     this.restaurantService.addItem(restaurant);
