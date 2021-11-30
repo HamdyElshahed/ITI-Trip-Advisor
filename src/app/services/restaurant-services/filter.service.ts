@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, QueryDocumentSnapshot } f
 import { getDocs, query, QuerySnapshot, where } from '@firebase/firestore';
 import { Observable } from 'rxjs';
 import { Location, Restaurant } from 'src/app/models/restaurant.model';
+import { environment, setLocation } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class FilterService {
   constructor(private firestore: AngularFirestore) {
 
     // default location
+
     this.locatoion = {
       address1: "167 W 74th St",
       address2: "",
@@ -42,17 +44,11 @@ export class FilterService {
   }
 
 
-  //temp function for adding new restaurant ,it will be moved later to its own component
-  // addItem(item: Restaurant) {
-  //   // let id=this.itemsCollection.doc().ref.id;
-  //   const id = this.firestore.createId();
-  //   console.log(id);
-  //   item.id=id;
-  //   this.itemsCollection.doc(id).set(item);
-  // }
-
+  /**
+   * update the filteredRestaurantList array that will be updated each time the user selected a new check box
+   * finally it will be sent to the restaurants component to render the UI with the new Data
+   */
   updateRestaurantList(restaurantArr: Restaurant[]) {
-
     if (restaurantArr.length !== 0) {
 
       restaurantArr.forEach((val) => {
@@ -75,59 +71,96 @@ export class FilterService {
 
   }
 
+  /**
+   * gets a list of restaurants filtered by featureName
+   * @param featureName feature name 
+   * @returns a list of restaurants filtered by featureName
+   */
   queryForFeatures(featureName: string): Observable<Restaurant[]> {
     return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('features', "array-contains", featureName)).valueChanges();
 
   }
-  queryForFeaturesComb() {
 
-    this.firestore.collection('restaurant').ref.where("location.city", "==", this.locatoion.city)
-      .where('features', "array-contains", 'Reservations')
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-        });
-      })
-      .catch((error) => {
-        console.log("Error getting documents: ", error);
-      });
+  queryForFeaturesCombind(featureName: string): Observable<Restaurant[]> {
 
+    let res: Restaurant[] = []
+    return new Observable((observer) => {
+      this.firestore.collection<Restaurant>('restaurant').ref.where("location.city", "==", this.locatoion.city)
+        .where('features', "array-contains", featureName)
+        .get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            res.push(doc.data());
+            console.log(doc.id, " => ", doc.data());
+            //this.filterService.updateRestaurantList(querySnapshot);
+          });
+        })
+      observer.next(res)
+    });
   }
-  queryForFeaturesCombind(featureName: string):Observable<Restaurant[]>{
-
-    let res:Restaurant[]=[]
-     return new Observable((observer)=>{
-       this.firestore.collection<Restaurant>('restaurant').ref.where("location.city", "==", this.locatoion.city)
-     .where('features', "array-contains", featureName)
-     .get().then((querySnapshot) => {
-       querySnapshot.forEach((doc) => {
-         res.push(doc.data());
-         console.log(doc.id, " => ", doc.data());
-         //this.filterService.updateRestaurantList(querySnapshot);
-       });
-     })
-       observer.next(res)
-     });
-     
-
- }
 
 
+/**
+ * used to intialize the allRestaurantList member variable
+ * @returns All the restaurants 
+ */
   getRestaurants(): Observable<Restaurant[]> {
 
     return this.firestore.collection<Restaurant>('restaurant').valueChanges();
 
   }
 
+  /**
+   * Query for category by category name 
+   * 
+   * @param categName category name 
+   * @returns a list of restaurant that have the same categorry
+   */
   queryForCategory(categName: string): Observable<Restaurant[]> {
-    return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('categories.title', "==", categName)).valueChanges();
+    const categAlias = categName.charAt(0).toLowerCase() + categName.slice(1);
+    console.log(categAlias);
+    return this.firestore.collection<Restaurant>('restaurant', ref =>
+
+      ref.where('categories',
+        "array-contains", {
+        "alias": categAlias,
+        "title": categName
+
+
+      })).valueChanges();
 
   }
+  /**
+   * get all the restaurants in the provided city to fill the filter item of Neighborhood 
+   * 
+   * @param propValue represernt the value of City property of location obj
+   * @param prop represent City key
+   * @returns Observable Array of restaurants
+   */
   queryForNeighborhoods(propValue: string, prop: string): Observable<Restaurant[]> {
+    console.log(propValue);
     return this.firestore.collection<Restaurant>('restaurant', ref => ref.where("location." + prop, "==", propValue)).valueChanges();
 
   }
 
+  /**
+   * get all the restaurants that close to the provided address
+   * 
+   * @param propValue represernt the value of address1 property of location obj
+   * @param prop represent address1 key
+   * @returns Observable Array of restaurants
+   */
+  queryForNeighborhoodOf(propValue: string, prop: string): Observable<Restaurant[]> {
+    let res: Restaurant[] = []
+    return new Observable((observer) => {
+      this.firestore.collection<Restaurant>('restaurant').ref.where("location.city", "==", this.locatoion.city)
+      .where("location." + prop, "==", propValue)
+        .get().then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            res.push(doc.data());
+            console.log(doc.id, " => ", doc.data());
+          });
+          observer.next(res)
+        })
+    });
+  }
 }

@@ -10,8 +10,8 @@
 
 
 <div   class="collapse" id={{filterItemName}}>
-  <div *ngFor="let item of filterItemList | slice:4:filterItemListLength" class="form-check">
-    <input class="form-check-input" type="checkbox" value="{{item}}" id="flexCheckChecked{{item}}" (change)="onCheckBoxChange($event)" />
+  <div *ngFor="let item of filterItemList | slice:4:filterItemListLength ; let indx=index" class="form-check">
+    <input class="form-check-input" type="checkbox" value="{{item}}" id="flexCheckChecked{{item}}" (change)="onCheckBoxChange($event)" name="{{filterItemListFullAddress[indx+4]}}"/>
     <label class="form-check-label" for="flexCheckChecked{{item}}">
      {{item}}
     </label>

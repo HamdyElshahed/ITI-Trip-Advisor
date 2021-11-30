@@ -34,8 +34,10 @@ export class FilterItemComponent implements OnInit {
       //In case feature ? then go ahead and get the list stored locally in 'src/app/models/restaurant.model'
       case 'Features':
         this.filterItemList = FEATURES;
+        this.filterItemListLength = this.filterItemList.length;
+
         break;
-      //In case Neighborhoods ? then go ahead and get all restaurants filter them by address
+      //In case Neighborhoods ? then go ahead and get all restaurants filter them by city
       case 'Neighborhoods':
         const restaurantSplitedAddrr = new Set<string>();
         const restaurantFulldAddrr = new Set<string>();
@@ -43,7 +45,7 @@ export class FilterItemComponent implements OnInit {
           .subscribe((queryRes) => {
             queryRes.filter((val) => {
               //get the last part of the address wich is the street
-              console.log(val.location.address1.split(" ").slice(1).join(" "));
+              // console.log(val.location.address1.split(" ").slice(1).join(" "));
               restaurantSplitedAddrr.add(val.location.address1.split(" ").slice(1).join(" "));
               restaurantFulldAddrr.add(val.location.address1);
             })
@@ -54,7 +56,8 @@ export class FilterItemComponent implements OnInit {
             for (let item of restaurantFulldAddrr) {
               this.filterItemListFullAddress.push(item);//push the FULL address names into filterItemListFullAddress
             }
-            console.log(this.filterItemListFullAddress);
+            // console.log(this.filterItemListFullAddress);
+            this.filterItemListLength = this.filterItemList.length;
           })
 
         break;
@@ -63,22 +66,21 @@ export class FilterItemComponent implements OnInit {
         const categories = new Set<string>();
         this.filterService.allRestaurantList.subscribe((queryRes) => {
           queryRes.filter((val) => {
-            console.log(val.categories[0].title);
+            // console.log(val.categories[0].title);
             categories.add(val.categories[0].title)
           })
           this.filterItemList = [];
           for (let item of categories) {
             this.filterItemList.push(item);
           }
+          this.filterItemListLength = this.filterItemList.length;
         })
         break;
 
       default:
         break;
     }
-    this.filterItemListLength = this.filterItemList.length;
 
-    this.filterService.queryForFeaturesComb();
   }
 
 
@@ -100,7 +102,7 @@ export class FilterItemComponent implements OnInit {
             })
           break;
         case "Neighborhoods":
-          this.filterService.queryForNeighborhoods((e.target as HTMLInputElement).name,"address")  // . name because the full address stored there
+          this.filterService.queryForNeighborhoodOf((e.target as HTMLInputElement).name,"address1")  // . name because the full address stored there
             .subscribe((queryRes) => {
               console.log(queryRes);
               this.filterService.updateRestaurantList(queryRes);
