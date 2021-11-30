@@ -78,6 +78,7 @@ export class FilterItemComponent implements OnInit {
     }
     this.filterItemListLength = this.filterItemList.length;
 
+    this.filterService.queryForFeaturesComb();
   }
 
 

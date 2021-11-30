@@ -24,7 +24,6 @@ export class RestaurantsComponent implements OnInit {
       console.log(this.restaurantService);
     });
   
-
   }
 
   addRestaurant(restaurant:Restaurant){
