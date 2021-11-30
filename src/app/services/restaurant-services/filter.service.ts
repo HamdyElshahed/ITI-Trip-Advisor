@@ -95,6 +95,24 @@ export class FilterService {
       });
 
   }
+  queryForFeaturesCombind(featureName: string):Observable<Restaurant[]>{
+
+    let res:Restaurant[]=[]
+     return new Observable((observer)=>{
+       this.firestore.collection<Restaurant>('restaurant').ref.where("location.city", "==", this.locatoion.city)
+     .where('features', "array-contains", featureName)
+     .get().then((querySnapshot) => {
+       querySnapshot.forEach((doc) => {
+         res.push(doc.data());
+         console.log(doc.id, " => ", doc.data());
+         //this.filterService.updateRestaurantList(querySnapshot);
+       });
+     })
+       observer.next(res)
+     });
+     
+
+ }
 
 
   getRestaurants(): Observable<Restaurant[]> {
