@@ -1,6 +1,6 @@
  <div class=" shadow-2 sticky-top bg-light">
    <div class="container-fluid ">
-    <app-header></app-header>
+     <app-header></app-header>
    </div>
  </div>
 
@@ -14,13 +14,17 @@
        </div>
      </div>
      <div class="col-sm-8 col-md-8 col-lg-9">
-       <div class="row">
-         <app-restaurant-owl-carousel *ngFor="let filter of filterByCommonFeatur" [filterByFeatur]="filter" [restaurantsList]="restaurants"></app-restaurant-owl-carousel>
-       </div> 
+       <div *ngIf="showCarousel ; else appCard" class="row">
+         <app-restaurant-owl-carousel *ngFor="let filter of filterByCommonFeatur" [filterByFeatur]="filter"
+           [restaurantsList]="restaurants"></app-restaurant-owl-carousel>
+       </div>
+       <ng-template #appCard>
+         <app-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-card>
+       </ng-template>
 
      </div>
    </div>
    <div class="row">
-    <app-footer></app-footer>
+     <app-footer></app-footer>
    </div>
  </div>
