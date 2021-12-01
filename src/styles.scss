@@ -5,6 +5,9 @@
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
 .owl-prev,
 .owl-next {
   position: absolute;
@@ -29,12 +32,3 @@
   width: auto;
   height: 200px;
 }
-
-
-.btnOrderOnline {
-  background-color: orange;
-  color: black;
-  border-radius: 15px;
-}
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';

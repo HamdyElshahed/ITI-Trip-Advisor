@@ -23,17 +23,15 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title text-truncate" style="max-width: 100%">{{restaurant.name}}</h5>
-    <div class="container">
+    <h5 class="card-title text-truncate p-0 m-0" style="max-width: 100%">{{restaurant.name}}</h5>
       <ng-template #t let-fill="fill">
         <span class="star" [class.full]="fill === 100">
           <span class="half" [style.width.%]="fill">&bullet;</span>&bullet;
         </span>
       </ng-template>
 
-      <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="false" [max]="5"></ngb-rating>
-    </div>
-    <p class="card-text">
+      <ngb-rating class="ngb-rating-height" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5"></ngb-rating>
+    <p class="card-text mb-2">
       {{restaurant.categories[0].title}}
     </p>
     <button type="button" class="btn btnOrderOnline ">Order Online</button>
