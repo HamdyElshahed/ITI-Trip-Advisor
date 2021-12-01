@@ -1,0 +1,22 @@
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 4rem;
+    color: #d3d3d3;
+    line-height: 30px;
+  }
+  .full {
+    color: #00AA6C;
+  }
+  .half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 30px;
+    color: #00AA6C;
+  }
+
+
+  .card-title{
+    word-wrap: break-word;
+  }

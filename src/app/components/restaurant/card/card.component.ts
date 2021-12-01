@@ -8,6 +8,7 @@ import { Restaurant } from 'src/app/models/restaurant.model';
 })
 export class CardComponent implements OnInit {
 @Input() restaurant!:Restaurant;
+currentRate = 3.54;
   constructor() { }
 
   ngOnInit(): void {
