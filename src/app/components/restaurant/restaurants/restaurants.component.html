@@ -17,14 +17,14 @@
        <div *ngIf="showCarousel ; else appCard" class="row">
          <app-restaurant-owl-carousel *ngFor="let filter of filterByCommonFeatur" [filterByFeatur]="filter"
            [restaurantsList]="restaurants"></app-restaurant-owl-carousel>
+           <app-detailed-card-list></app-detailed-card-list>
+
        </div>
        <ng-template #appCard>
-         <app-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-card>
+         <app-detailed-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-detailed-card>
+
        </ng-template>
 
-       <div class="col-sm-8 col-md-8 col-lg-9">
-      </div>
-       <app-detailed-card-list></app-detailed-card-list>
      </div>
    </div>
    <div class="row">
