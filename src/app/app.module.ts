@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PlaceComponent } from './hotels/places/place.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HotelsDetailsComponent } from './hotels/hotels-details/hotels-details.component';
 //  import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 // import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 // import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -22,6 +24,7 @@ import { PlaceComponent } from './hotels/places/place.component';
     HotelsComponent,
     HotelsCardComponent,
     PlaceComponent,
+    HotelsDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { PlaceComponent } from './hotels/places/place.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

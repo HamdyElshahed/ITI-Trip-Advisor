@@ -20,12 +20,11 @@ a {
 
 img {
   width: 220px;
+}
+
+.one {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-card {
-  width: 30%;
 }
 /*# sourceMappingURL=place.component.css.map */

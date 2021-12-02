@@ -1,0 +1,16 @@
+h2 {
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: brown;
+}
+
+p {
+  font-size: 24px;
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: chocolate;
+}
+/*# sourceMappingURL=hotels-details.component.css.map */

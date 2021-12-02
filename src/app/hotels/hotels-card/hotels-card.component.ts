@@ -8,7 +8,7 @@ import { HotelsServiceService } from 'src/app/service/hotels-service.service';
 })
 export class HotelsCardComponent implements OnInit {
   hotels: hotels[] = [];
-
+  Id: string[] = [];
   constructor(private hs: HotelsServiceService) {}
 
   ngOnInit(): void {
@@ -17,7 +17,12 @@ export class HotelsCardComponent implements OnInit {
   getallhotels() {
     this.hs.getallhotels().subscribe((res: any) => {
       this.hotels = res;
-      // console.log(res);
+      for (let i = 0; i < res.length; i++) {
+        this.Id.push(res[i].Id);
+      }
+      console.log(res.length);
+      console.log(this.Id);
+      console.log(res[0].Id);
     });
   }
 }

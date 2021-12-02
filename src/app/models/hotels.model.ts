@@ -1,14 +1,14 @@
 export interface hotels {
-  feature: string[];
+  features: string[];
   id: number;
   price: number;
   name: string;
   location?: {
     address: string;
   };
-  paymentmethod: string[];
+  payment_method: string[];
   imgage_url: string[];
   reviewCount: number;
   rate: number;
-  phonenumber: number;
+  phone_number: number;
 }
