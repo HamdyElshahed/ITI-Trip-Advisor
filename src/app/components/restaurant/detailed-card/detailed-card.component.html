@@ -1,0 +1,49 @@
+<div class="card mb-3">
+  <div class="row g-0 ">
+    <div class="col-md-4 row-height">
+      <div
+        class="bg-image hover-overlay ripple position-absolute rounded-circle d-flex justify-content-center align-items-center"
+        style="left: 86%; top: 4%; z-index: 2 ; height: 25px; width: 25px; background-color: rgb(255, 255, 255);"
+        data-mdb-ripple-color="red">
+
+        <a href="#!">
+          <!-- <i class="fas fa-heart text-danger pt-2"></i> -->
+          <i class="far fa-heart text-danger pt-2"></i>
+        </a>
+      </div>
+      <img [src]="restaurant.image_url" [title]="restaurant.name" class="row-height img-fluid rounded-start " alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{restaurant.name}}</h5>
+
+        <div class="d-flex align-items-end">
+          <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+              <span class="half" [style.width.%]="fill">&bullet;</span>&bullet;
+            </span>
+          </ng-template>
+
+          <ngb-rating class="ngb-rating-height" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5">
+          </ngb-rating>
+          <span class="categ-title">{{restaurant.review_count}} reviews </span>
+          <span class="ps-1"
+            [ngClass]="{'text-danger':restaurant.is_closed,'text-success':!restaurant.is_closed}">{{restaurant.is_closed?"Closed Now":"Opend Now"}}
+          </span>
+
+        </div>
+          <div class="d-flex text-truncate text-wrap">
+            <h6 *ngFor="let categ of restaurant.categories">
+              <span>{{categ.title}}&ThinSpace;</span>
+            </h6>
+            <Span>{{restaurant.price}}</Span>
+          </div>
+          <div style="height: 1px; background-color: lightgray;"></div>
+
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+          This content is a little bit longer.</p>
+          <button type="button" class="btn btnOrderOnline ">Order Online</button>
+      </div>
+    </div>
+  </div>
+</div>

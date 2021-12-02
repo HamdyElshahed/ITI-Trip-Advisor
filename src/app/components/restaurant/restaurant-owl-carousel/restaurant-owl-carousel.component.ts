@@ -29,19 +29,19 @@ export class RestaurantOwlCarouselComponent implements OnInit {
   navText: ['&#8249', '&#8250;'],
    responsive: {
     0: {
-      items: 1,
-      
-  },
-  600: {
       items: 2,
       
   },
-  800: {
+  600: {
       items: 3,
       
   },
-  1000: {
+  800: {
       items: 4,
+      
+  },
+  1000: {
+      items: 5,
   }
    },
   

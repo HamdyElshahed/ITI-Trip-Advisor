@@ -16,6 +16,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CardComponent } from './components/restaurant/card/card.component';
 import { FooterComponent } from './components/restaurant/footer/footer.component';
 import { HeaderComponent } from './components/restaurant/header/header.component';
+import { DetailedCardComponent } from './components/restaurant/detailed-card/detailed-card.component';
+import { DetailedCardListComponent } from './components/restaurant/detailed-card-list/detailed-card-list.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { HeaderComponent } from './components/restaurant/header/header.component
     CardComponent,
     FooterComponent,
     HeaderComponent,
+    DetailedCardComponent,
+    DetailedCardListComponent,
   ],
   imports: [
     BrowserModule,

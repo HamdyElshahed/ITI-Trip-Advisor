@@ -1,7 +1,7 @@
 .star {
     position: relative;
     display: inline-block;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #d3d3d3;
     line-height: 30px;
   }
@@ -26,9 +26,6 @@
     white-space: nowrap;
   }
 
-
-  
-
 .btnOrderOnline {
   background-color: orange;
   color: black;
@@ -37,5 +34,10 @@
 .ngb-rating-height{
   align-items: center;
   justify-content: center;
-  max-height: 30px;
+  max-height: 20px;
+  padding-top: 1px;
+}
+
+.categ-title{
+  font-size: 14px;
 }

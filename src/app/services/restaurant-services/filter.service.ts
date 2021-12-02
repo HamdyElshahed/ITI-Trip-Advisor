@@ -118,8 +118,6 @@ export class FilterService {
         "array-contains", {
         "alias": categAlias,
         "title": categName
-
-
       })).valueChanges();
 
   }
@@ -156,5 +154,10 @@ export class FilterService {
           observer.next(res)
         })
     });
+  }
+
+  getTopRatedRestaurants(): Observable<Restaurant[]> {
+    return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('rating', ">=", 4)).valueChanges();
+
   }
 }
