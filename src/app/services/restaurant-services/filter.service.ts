@@ -76,7 +76,7 @@ export class FilterService {
 
   /**
    * gets a list of restaurants filtered by featureName
-   * @param featureName feature name 
+   * @param featureName feature name
    * @returns a list of restaurants filtered by featureName
    */
   queryForFeatures(featureName: string): Observable<Restaurant[]> {
@@ -104,9 +104,9 @@ export class FilterService {
   }
 
   /**
-   * Query for category by category name 
-   * 
-   * @param categName category name 
+   * Query for category by category name
+   *
+   * @param categName category name
    * @returns a list of restaurant that have the same categorry
    */
   queryForCategory(categName: string): Observable<Restaurant[]> {
@@ -122,8 +122,8 @@ export class FilterService {
 
   }
   /**
-   * get all the restaurants in the provided city to fill the filter item of Neighborhood 
-   * 
+   * get all the restaurants in the provided city to fill the filter item of Neighborhood
+   *
    * @param propValue represernt the value of City property of location obj
    * @param prop represent City key
    * @returns Observable Array of restaurants
@@ -136,7 +136,7 @@ export class FilterService {
 
   /**
    * get all the restaurants that close to the provided address
-   * 
+   *
    * @param propValue represernt the value of address1 property of location obj
    * @param prop represent address1 key
    * @returns Observable Array of restaurants
@@ -158,6 +158,10 @@ export class FilterService {
 
   getTopRatedRestaurants(): Observable<Restaurant[]> {
     return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('rating', ">=", 4)).valueChanges();
+
+  }
+  getRestaurantById(id:string): Observable<Restaurant[]> {
+    return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('id', "==", id)).valueChanges();
 
   }
 }

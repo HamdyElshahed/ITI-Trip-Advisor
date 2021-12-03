@@ -18,6 +18,7 @@ import { FooterComponent } from './components/restaurant/footer/footer.component
 import { HeaderComponent } from './components/restaurant/header/header.component';
 import { DetailedCardComponent } from './components/restaurant/detailed-card/detailed-card.component';
 import { DetailedCardListComponent } from './components/restaurant/detailed-card-list/detailed-card-list.component';
+import { RestaurantDetailsComponent } from './components/restaurant/restaurant-details/restaurant-details.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { DetailedCardListComponent } from './components/restaurant/detailed-card
     HeaderComponent,
     DetailedCardComponent,
     DetailedCardListComponent,
+    RestaurantDetailsComponent,
   ],
   imports: [
     BrowserModule,
