@@ -1,11 +1,64 @@
-<ngb-carousel *ngIf="restaurant">
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="restaurant.image_url" alt="Random first slide">
+<div>
+  <div class="row">
+    <ngb-carousel *ngIf="restaurant">
+      <ng-template *ngFor="let photo of restaurant.photos" ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="photo" alt="Random first slide" width="100%" height="500px" style="object-fit: cover;">
+        </div>
+        <div class="carousel-caption">
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="row">
+    <!--- Restaurant-->
+    <div class="container">
+      <div class="row" id="Restaurant">
+        <div class="col navMenu">
+          <h2 class="text-center">~ {{restaurant.name}} ~</h2>
+        </div>
+      </div>
+      <div class="row bg-light">
+        <div class="col-md-6">
+          <h3>Location</h3>
+          
+          <p>Thanks for stopping by. We are serving delicious
+            cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
+            our menu. We hope you'll soon join us for a superb culinary experience.</p>
+          <h5>A Unique Experience</h5>
+          <p>Thanks for stopping by. We are serving delicious
+            cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
+            our menu. We hope you'll soon join us for a superb culinary experience.</p>
+        </div>
+        <div class="col-md-6" data-aos="fade-up">
+          <img class="img-fluid" src="images/location.jpg">
+        </div>
+      </div>
+      <div class="row bg-light"><br></div>
+      <div class="row bg-light">
+        <div class="col-md-6 order-md-1 order-2" data-aos="fade-up">
+          <img class="img-fluid " src="images/cuisine.jpg">
+        </div>
+        <div class="col-md-6 order-md-12 order-1">
+          <h3>Cuisine</h3>
+          <p>Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian
+            cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
+            our menu. We hope you'll soon join us for a superb Italian culinary experience.</p>
+          <h5>A Unique Experience</h5>
+          <p>Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian
+            cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
+            our menu. We hope you'll soon join us for a superb Italian culinary experience.</p>
+        </div>
+      </div>
+      <!--- End of Restaurant -->
     </div>
-    <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <div class="row">
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4"></div>
     </div>
-  </ng-template>
-</ngb-carousel>
+  </div>
