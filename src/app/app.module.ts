@@ -4,6 +4,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +22,7 @@ import { HeaderComponent } from './components/restaurant/header/header.component
 import { DetailedCardComponent } from './components/restaurant/detailed-card/detailed-card.component';
 import { DetailedCardListComponent } from './components/restaurant/detailed-card-list/detailed-card-list.component';
 import { RestaurantDetailsComponent } from './components/restaurant/restaurant-details/restaurant-details.component';
+import { MapComponent } from './components/restaurant/map/map.component';
 
 
 @NgModule({
@@ -33,6 +37,7 @@ import { RestaurantDetailsComponent } from './components/restaurant/restaurant-d
     DetailedCardComponent,
     DetailedCardListComponent,
     RestaurantDetailsComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,11 @@ import { RestaurantDetailsComponent } from './components/restaurant/restaurant-d
     AngularFireModule.initializeApp(environment.firebase), //for firebase connection
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+
+    GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
 
   ],
   providers: [],

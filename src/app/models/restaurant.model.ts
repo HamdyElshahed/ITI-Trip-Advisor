@@ -26,8 +26,8 @@ export interface Category {
 }
 
 export interface Coordinates {
-  latitude?: number;
-  longitude?: number;
+  latitude: number;
+  longitude: number;
 }
 
 export interface Location {
