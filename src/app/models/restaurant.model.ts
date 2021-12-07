@@ -8,11 +8,11 @@ export interface Restaurant {
   url?: string;
   review_count?: number;
   categories: Category[];
-  features?: string[];
+  features: string[];
   rating?: number;
   coordinates: Coordinates;
   transactions?: any[];
-  photos?: string[];
+  photos: string[];
   price?: string;
   location: Location;
   phone?: string;
@@ -38,7 +38,7 @@ export interface Location {
   zip_code?: string;
   country: string;
   state?: string;
-  display_address?: string[];
+  display_address: string[];
 }
 
 

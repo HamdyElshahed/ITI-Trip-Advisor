@@ -13,17 +13,23 @@ export class RestaurantDetailsComponent implements OnInit {
   //get the restaurant id
   restaurantId!: string;
   restaurant!: Restaurant;
-  constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService ,private mainService:RestaurantsMainServiceService) { }
+  constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService) { }
 
   images: string[] = [];
+  currentRate!:number;
   ngOnInit(): void {
     this.restaurantId = this.activatedRoute.snapshot.params.id;
     this.filterService.getRestaurantById(this.restaurantId).subscribe(val => {
       this.restaurant = val[0];
       console.log(this.restaurant.name);
+      this.currentRate=this.restaurant.rating?this.restaurant.rating:0;
     })
 
 
-}
+  }
+
+   randomIntFromInterval(min:number, max:number) { // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
 
 }

@@ -1,7 +1,7 @@
-<div *ngIf="apiLoaded | async">
+<div class="map" *ngIf="apiLoaded | async">
 
   <google-map height="400px"
-            width="540px"
+
             [center]="center"
             [zoom]="zoom"
             (mapClick)="addMarker($event)">
