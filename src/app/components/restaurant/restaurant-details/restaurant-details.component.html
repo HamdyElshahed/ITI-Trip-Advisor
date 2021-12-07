@@ -33,33 +33,39 @@
   <div class="row rounded">
     <!--- Restaurant-->
     <div class="container p-0 ">
-      <div class="row" id="Restaurant">
-        <div class="col navMenu">
-          <h2 class="text-center p-4 font-italic font-weight-bold">~ {{restaurant?.name}} ~</h2>
+      <div class="row m-3">
+        <div class="col-md-3">
+          <h5 class="text-succes"><i class="fas fa-map-signs pe-3"></i>{{restaurant.location.address1}} </h5>
+          <h6><i class="fas fa-map-marked-alt pe-3"></i>{{restaurant.location.display_address[1]}} </h6>
+          <span><i class="fas fa-phone pe-3"></i> {{restaurant.display_phone}}</span>
+        </div>
+        <div class="col-md-9 navMenu">
+          <h2 class="text-left p-4 font-italic font-weight-bold">~ {{restaurant?.name}} ~</h2>
         </div>
       </div>
-      <h3 class="py-2 font-weight-bolder">Location</h3>
-      <div class="row bg-light d-flex flex-wrap">
-        <div class="col-md-6">
-          <div class="pb-3">
-            <h5 class="text-info">{{restaurant.location.address1}}</h5>
-            <h6>{{restaurant.location.display_address[1]}}</h6>
-            <span> {{restaurant.display_phone}}<i class="fas fa-phone ps-3"></i>
-            </span>
-
-
-            <p class="pt-3">Thanks for stopping by. We are serving delicious
+      <div class="row  ms-2">
+        <div class=" col-md-8 bg-light mb-3 rounded ">
+          <div>
+            <h3>Welcome</h3>
+            <p>Thanks for stopping by. We are serving delicious
               cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
               our menu. We hope you'll soon join us for a superb culinary experience.</p>
           </div>
 
-          <app-map [lat]="restaurant.coordinates.latitude" [lang]="restaurant.coordinates.longitude"></app-map>
+          <div class="row">
+            <div class="col-md-6">
+              <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
+            </div>
+            <div class="col-md-6">
+              
+            </div>
+          </div>
         </div>
-        <div class="col-md-6 p-0">
-          <div class="card ">
+        <div class="col-md-4 ">
+          <div class="card mb-3 ">
             <div class="card-body fs-4">
               <div class="d-flex justify-content-between">
-                <a href={{restaurant.url}}>
+                <a class="text-info text-decoration-none" href={{restaurant.url}}>
                   <h5>www.{{restaurant.name}}.com</h5>
                 </a>
                 <i class="fas fa-external-link-alt"></i>
@@ -86,16 +92,7 @@
               </div>
             </div>
           </div>
-          <img class="cusine-img mt-4" [src]="restaurant.photos[1]">
-        </div>
-        <div class="row bg-light"><br></div>
-        <div class="row bg-light">
-          <div class="col-md-6 order-md-1 order-2" data-aos="fade-up">
-            <img class="cusine-img" [src]="restaurant.photos[2]">
-          </div>
-          <div class="card col-md-6 order-md-12 order-1">
-           <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
-          </div>
+          <app-map [lat]="restaurant.coordinates.latitude" [lang]="restaurant.coordinates.longitude"></app-map>
         </div>
         <!--- End of Restaurant -->
       </div>
