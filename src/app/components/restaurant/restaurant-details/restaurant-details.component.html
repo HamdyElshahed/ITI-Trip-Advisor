@@ -51,14 +51,22 @@
               cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
               our menu. We hope you'll soon join us for a superb culinary experience.</p>
           </div>
+          <div class="row my-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h3>Menu</h3>
+                <p>Most Mensioned dishes</p>
+              </div>
 
+              <button mdbRipple type="button" class="btn btn-dark edit-button">
+                <i class="fas fa-plus-circle"></i>
+                <span class="ps-2">Add a dish</span>
+              </button>
+            </div>
+            <app-menu [dishesList]="dishesList"></app-menu>
+          </div>
           <div class="row">
-            <div class="col-md-6">
-              <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
-            </div>
-            <div class="col-md-6">
-              
-            </div>
+            <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
           </div>
         </div>
         <div class="col-md-4 ">
@@ -97,11 +105,6 @@
         <!--- End of Restaurant -->
       </div>
       <div class="row">
-        <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
       </div>
     </div>
   </div>

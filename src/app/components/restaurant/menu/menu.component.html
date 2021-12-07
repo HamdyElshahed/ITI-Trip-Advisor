@@ -1,0 +1,20 @@
+<owl-carousel-o [options]="customOptions">
+
+  <ng-container *ngFor="let dish of dishesList">
+    <ng-template  carouselSlide [id]="dish.id">
+      <div class="card">
+        <img
+          [src]="dish.image_url"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{dish.name}}</h5>
+          <p class="card-text">{{dish.price}}</p>
+        </div>
+      </div>
+
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>

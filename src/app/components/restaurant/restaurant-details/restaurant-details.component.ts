@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ALLRESTAURANTS, Restaurant } from 'src/app/models/restaurant.model';
+import { ALLRESTAURANTS, Dish, Restaurant } from 'src/app/models/restaurant.model';
 import { FilterService } from 'src/app/services/restaurant-services/filter.service';
 import { RestaurantsMainServiceService } from 'src/app/services/restaurant-services/restaurants-main.service';
 
@@ -13,6 +13,7 @@ export class RestaurantDetailsComponent implements OnInit {
   //get the restaurant id
   restaurantId!: string;
   restaurant!: Restaurant;
+  dishesList!:Dish[];
   constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService) { }
 
   images: string[] = [];
@@ -24,6 +25,12 @@ export class RestaurantDetailsComponent implements OnInit {
       console.log(this.restaurant.name);
       this.currentRate=this.restaurant.rating?this.restaurant.rating:0;
     })
+
+    //get menu
+    this.filterService.getMenuById(this.restaurantId).subscribe(val=>{
+      this.dishesList=val;
+      console.log(this.dishesList);
+    });
 
 
   }

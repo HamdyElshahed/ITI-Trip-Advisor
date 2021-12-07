@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, QueryDocumentSnapshot } from '@angular/fire/compat/firestore';
 import { getDocs, query, QuerySnapshot, where } from '@firebase/firestore';
 import { Observable, Subject } from 'rxjs';
-import { Location, Restaurant } from 'src/app/models/restaurant.model';
+import { Dish, Location, Restaurant } from 'src/app/models/restaurant.model';
 import { environment, setLocation } from 'src/environments/environment';
 
 @Injectable({
@@ -162,6 +162,10 @@ export class FilterService {
   }
   getRestaurantById(id:string): Observable<Restaurant[]> {
     return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('id', "==", id)).valueChanges();
+
+  }
+  getMenuById(id:string): Observable<Dish[]> {
+    return this.firestore.collection<Dish>(`restaurant/${'6Ru17rNfe0vKHRGuIwR5'}/menu`).valueChanges();
 
   }
 }

@@ -24,6 +24,7 @@ import { DetailedCardListComponent } from './components/restaurant/detailed-card
 import { RestaurantDetailsComponent } from './components/restaurant/restaurant-details/restaurant-details.component';
 import { MapComponent } from './components/restaurant/map/map.component';
 import { IconicFeaturesListComponent } from './components/restaurant/iconic-features-list/iconic-features-list.component';
+import { MenuComponent } from './components/restaurant/menu/menu.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { IconicFeaturesListComponent } from './components/restaurant/iconic-feat
     RestaurantDetailsComponent,
     MapComponent,
     IconicFeaturesListComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

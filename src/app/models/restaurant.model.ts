@@ -41,6 +41,14 @@ export interface Location {
   display_address: string[];
 }
 
+export interface Dish{
+  id:string;
+  name:string;
+  image_url:string;
+  price:number;
+  category:string;
+}
+
 
 
 
