@@ -165,7 +165,16 @@ export class FilterService {
 
   }
   getMenuById(id:string): Observable<Dish[]> {
-    return this.firestore.collection<Dish>(`restaurant/${'6Ru17rNfe0vKHRGuIwR5'}/menu`).valueChanges();
-
+    return this.firestore.collection<Dish>(`restaurant/${id}/menu`).valueChanges();
   }
+
+  addNewDish(restaurantId:string,dish: Dish) {
+    // let id=this.itemsCollection.doc().ref.id;
+    const id = this.firestore.createId();
+    console.log(id);
+    dish.id = id;
+    this.firestore.collection<Dish>(`restaurant/${restaurantId}/menu`).doc(id).set(dish);
+    console.log(dish);
+  }
+
 }

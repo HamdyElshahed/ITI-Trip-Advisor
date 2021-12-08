@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { Restaurant } from 'src/app/models/restaurant.model';
+import { Dish, Restaurant } from 'src/app/models/restaurant.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +28,8 @@ export class RestaurantsMainServiceService {
     })
   }
 
+  randomIntFromInterval(min:number, max:number) { // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
 
 }

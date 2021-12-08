@@ -3,14 +3,13 @@
   <ng-container *ngFor="let dish of dishesList">
     <ng-template  carouselSlide [id]="dish.id">
       <div class="card">
-        <img
-          [src]="dish.image_url"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{dish.name}}</h5>
-          <p class="card-text">{{dish.price}}</p>
+
+        <img class="card-img-top" [src]="dish.image_url" alt="Random first slide" width="100%" height="auto" style="object-fit: cover;">
+
+        <div class="card-body ps-3">
+          <h5 class="card-title mb-1">{{dish.name}}</h5>
+          <h6 class="card-title mb-1 text-muted">{{dish.category}}</h6>
+          <p class="card-text">{{dish.price}} &ThickSpace;$</p>
         </div>
       </div>
 

@@ -23,17 +23,17 @@
   </div>
 
   <div class="card-body">
-    <a [routerLink]="['/restaurant-detailes',restaurant.id]">
-      <h6 class="card-title text-truncate p-0 m-0" style="max-width: 100%">{{restaurant.name}}</h6>
+    <a class="text-black" [routerLink]="['/restaurant-detailes',restaurant.id]">
+      <h6 class="card-title text-truncate p-0 mb-3 m-0" style="max-width: 100%">{{restaurant.name}}</h6>
     </a>
-    <div class="d-flex align-items-end">
+    <div class="d-flex align-items-end ">
       <ng-template #t let-fill="fill">
         <span class="star" [class.full]="fill === 100">
           <span class="half" [style.width.%]="fill">&bullet;</span>&bullet;
         </span>
       </ng-template>
 
-      <ngb-rating class="ngb-rating-height" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5">
+      <ngb-rating class="ngb-rating-height mt-1" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5">
       </ngb-rating>
       <span class="categ-title">{{restaurant.review_count}}</span>
     </div>

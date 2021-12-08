@@ -30,7 +30,7 @@
       </ng-template>
     </ngb-carousel>
   </div>
-  <div class="row rounded">
+  <div class="row rounded ms-0 me-0">
     <!--- Restaurant-->
     <div class="container p-0 ">
       <div class="row m-3">
@@ -58,10 +58,8 @@
                 <p>Most Mensioned dishes</p>
               </div>
 
-              <button mdbRipple type="button" class="btn btn-dark edit-button">
-                <i class="fas fa-plus-circle"></i>
-                <span class="ps-2">Add a dish</span>
-              </button>
+              <app-add-new-dish-modal (addNewMenuDish)="addNewDish($event)"></app-add-new-dish-modal>
+
             </div>
             <app-menu [dishesList]="dishesList"></app-menu>
           </div>

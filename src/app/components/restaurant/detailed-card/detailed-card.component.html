@@ -19,8 +19,9 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{restaurant.name}}</h5>
-
+        <a class="text-black" [routerLink]="['/restaurant-detailes',restaurant.id]">
+          <h5 class="card-title">{{restaurant.name}}</h5>
+        </a>
         <div class="d-flex align-items-end">
           <ng-template #t let-fill="fill">
             <span class="star" [class.full]="fill === 100">
@@ -47,8 +48,9 @@
         <p class="card-text tex-truncate">This is a wider card with supporting text below as a natural lead-in to
           additional content.
           This content is a little bit longer.</p>
-        <button [ngStyle]="{'visibility': restaurant.transactions?.includes('delivery')?'hidden':'visible'}"
-          type="button" class="btn btnOrderOnline ">Order Online</button>
+        <button [routerLink]="['/restaurant-detailes',restaurant.id]"
+          [ngStyle]="{'visibility': restaurant.transactions?.includes('delivery')?'hidden':'visible'}" type="button"
+          class="btn btnOrderOnline ">Order Online</button>
       </div>
     </div>
   </div>

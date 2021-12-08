@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule ,BUCKET} from '@angular/fire/compat/storage';
+
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
@@ -25,6 +27,8 @@ import { RestaurantDetailsComponent } from './components/restaurant/restaurant-d
 import { MapComponent } from './components/restaurant/map/map.component';
 import { IconicFeaturesListComponent } from './components/restaurant/iconic-features-list/iconic-features-list.component';
 import { MenuComponent } from './components/restaurant/menu/menu.component';
+import { AddNewDishModalComponent } from './components/restaurant/add-new-dish-modal/add-new-dish-modal.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -42,13 +46,16 @@ import { MenuComponent } from './components/restaurant/menu/menu.component';
     MapComponent,
     IconicFeaturesListComponent,
     MenuComponent,
+    AddNewDishModalComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     AngularFireModule.initializeApp(environment.firebase), //for firebase connection
     AngularFirestoreModule,
+    AngularFireStorageModule,
     BrowserAnimationsModule,
     CarouselModule,
 
@@ -57,7 +64,7 @@ import { MenuComponent } from './components/restaurant/menu/menu.component';
     HttpClientJsonpModule,
 
   ],
-  providers: [],
+  providers: [{ provide: BUCKET, useValue: 'iti-trip-advisor.appspot.com' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ALLRESTAURANTS, Dish, Restaurant } from 'src/app/models/restaurant.model';
 import { FilterService } from 'src/app/services/restaurant-services/filter.service';
 import { RestaurantsMainServiceService } from 'src/app/services/restaurant-services/restaurants-main.service';
@@ -14,6 +16,7 @@ export class RestaurantDetailsComponent implements OnInit {
   restaurantId!: string;
   restaurant!: Restaurant;
   dishesList!:Dish[];
+
   constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService) { }
 
   images: string[] = [];
@@ -27,16 +30,21 @@ export class RestaurantDetailsComponent implements OnInit {
     })
 
     //get menu
-    this.filterService.getMenuById(this.restaurantId).subscribe(val=>{
+      this.filterService.getMenuById(this.restaurantId).subscribe(val=>{
       this.dishesList=val;
       console.log(this.dishesList);
     });
 
-
   }
 
-   randomIntFromInterval(min:number, max:number) { // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min)
+
+
+  addNewDish(dish:Dish){
+    console.log(dish);
+   this.filterService.addNewDish(this.restaurantId,dish);
   }
+
+
+
 
 }

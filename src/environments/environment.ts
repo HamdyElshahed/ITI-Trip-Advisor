@@ -17,7 +17,7 @@ export const environment = {
     appId: "1:519761318248:web:4335666868b0d9b836c6dd"
   },
   location:{
-    
+
     address1: "",
     address2: "",
     address3: "",
@@ -29,7 +29,7 @@ export const environment = {
       "",
       ""
     ]
-  
+
 }
 };
 

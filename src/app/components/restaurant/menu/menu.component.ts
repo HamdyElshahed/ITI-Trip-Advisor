@@ -26,19 +26,19 @@ export class MenuComponent implements OnInit {
   navText: ['&#8249', '&#8250;'],
    responsive: {
     0: {
-      items: 2,
+      items: 1,
 
   },
   600: {
-      items: 3,
+      items: 2,
 
   },
   800: {
-      items: 4,
+      items: 3,
 
   },
   1000: {
-      items: 5,
+      items: 4,
   }
    },
 
