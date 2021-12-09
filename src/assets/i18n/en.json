@@ -1,0 +1,85 @@
+{
+  "hotels-card":{
+    "price":"price",
+  "address":"address",
+  "rate":"rate"
+  },
+
+  "header":{
+    "hotels":"Holets",
+    "thingstodo":"Thing To do",
+    "flights":"flights",
+    "resturants":"resturants",
+    "vaccationRental":"vaccationRental",
+    "AirlinesPlanning":"AirlinePLanning",
+    "Review":"Review",
+    "Trips":"Trips",
+    "Alerts":"Alerts",
+    "Search":"Search"
+  },
+
+  "hotels":{
+    "Popular":"Popular",
+    "Propertytype":"Propertytype ",
+    "Amenities":"Amenities",
+    "free-wifi":"free-wifi",
+    "breakfastincluding":"breakfast including",
+    "pool":"pool" ,
+    "freeparking":"freeparking",
+    "lodges":"lodges",
+    "motels":"motels",
+    "4stars":"4stars",
+    "Hotels":"Hotels",
+    "GameRoom":"Game Room",
+    "MiniGolf":"Mini Golf",
+    "Kitchenette":"Kitchenette",
+    "BicycleRental":"Bicycle Rental",
+    "4 stars":" 4 stars",
+    "3 stars":"3 stars",
+    "5 stars":"5 stars",
+    "Style":"Style",
+    "Mid-Range":"Mid-Range",
+    "Family-Friendly":"Family-Friendly ",
+    "Hotel Class":"Hotel Class",
+    "Brand":"Brand",
+    "Center parcs":"Center parcs",
+    "Propertieswithspecialoffer":"Properties with special offer ",
+    "Freecancellation":"Freecancellation",
+    "Reservenow,payandstay":"Reservenow,payandstay",
+    "Deals":"Deals"
+  },
+
+
+  "details":{
+    "review":"review",
+    "live photo":"ًlive photo",
+
+    "room view":"room view",
+    "hotelclass":"Hotel Class",
+    "historyofhotel":"historyofhotel",
+    "Amenities":"Amenities",
+    "beach":"beach",
+    "feature of room":"feature of room",
+    "freeparking":"freeparking",
+    "pool":"pool",
+    "free-wifi":"free-wifi",
+    "free airport transpotation":"free airport transpotation",
+    "bar":"bar ",
+    "childerenactivity":"childerenactivity",
+    "house keeping":"house keeping",
+    "ocean view":"ocean view",
+    "poolview":"pool view",
+    "non smoking room":"Non smoking room ",
+    "popular mention":"popular mention",
+   "bay":"bay",
+   "primary":"primary",
+   "allreview":"all review",
+   "goatislancafe":"goat island cafe",
+   "carrental":"car rental",
+   "shopping":"shopping",
+   "Previous":"Previous",
+   "Next":"Next"
+
+}
+
+}

@@ -1,14 +1,14 @@
 <div class="container">
-  <h3>{{hotels[0].name}}</h3>
+  <h2 style="color: black; font-weight: 500; font-size: larger; margin-top: 15px;"> {{hotels[0].name}}</h2>
  <p><i> review count:{{hotels[0].reviewCount}}</i></p>
   <div class="row">
 
-  <h2>live photo</h2>
+  <h2>{{'details.live photo'| translate}}</h2>
   <div>
-  <a href="#"><img [src]="hotels[0].imgUrl[0]" alt="" width="17%"></a>
-   <a href="#"><img [src]="hotels[0].imgUrl[1]" alt="" width="17%"></a>
-  <a href="#"><img [src]="hotels[0].imgUrl[2]" alt="" width="17%"></a>
-  <a href="#"><img [src]="hotels[0].imgUrl[3]"  alt="" width="17%"></a>
+  <a href="#"><img  [src]="hotels[0].imgUrl[0]" alt="" width="20%"></a>
+   <a href="#"><img [src]="hotels[0].imgUrl[1]" alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels[0].imgUrl[2]" alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels[0].imgUrl[3]"  alt="" width="20%"></a>
   </div>
   </div>
   <div class="row mt-3">
@@ -17,108 +17,66 @@
   <div class="row">
       <div class="col-4 bg-light">
           <h3>
-       About
+            <h3 style="font-size:22px; color: #000;"> about:</h3>  {{hotels[0].About}}
       </h3>
    <hr>
-   <!-- <p>
-      <b>3.5</b>  <span>very Good</span>
-   </p>
-   <h3>#2 of 4 hotels in Pago Pago</h3>
-   <div class="progress fw-1">
-      <div class="progress-bar bg-success" role="progressbar" style="width:70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      <span>loaction</span>
-    </div> <br>
-    <div class="progress">
-      <div class="progress-bar bg-info" role="progressbar" style="width:25%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-      <span>lightness</span>
-  </div> <br>
-    <div class="progress">
-      <div class="progress-bar bg-seconadry" role="progressbar" style="width:50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      <span>service</span>
-  </div> <br>
-    <div class="progress">
-      <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-      <span>value</span>
-  </div> <br>
-    <div class="progress">
-      <div class="progress-bar bg-info" role="progressbar" style="width:65%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-      <span>other</span>
-  </div> <br> -->
-  <p style="font-size: 15px;">
-      Sadie's By The Sea is the only full service, beach front resort in American Samoa,
-       located in the heart of the government and business centers of the island,
-        and close to many tourist attractions. Sadie's by the Sea is a fun,
-        charming resort with first class Polynesian service. Lush forested mountains surrounding Pago Pago's deep blue harbor complete the view from every room. Our private beach and clear warm water, just a few steps from your room,
-       are perfect for swimming, snorkeling and kayaking year round.
-  </p>
+  <!-- <p style="font-size: 15px;">
+  {{'details.artical'|translate}}
+  </p> -->
   </div>
-
-
       <div class="col-8 bg-light ml-4 ">
-        <h3> feature of room</h3><ul>
-          <li *ngFor="let feature of hotels[0].feature">{{feature}}</li>
+        <ul>
+          <div *ngIf="!langflag">
+              <h3> feature of room</h3>
+             <li *ngFor="let feature of hotels[0].feature">{{feature}}</li>
+          </div>
+          <div *ngIf="langflag">
+            <li *ngFor="let feature of hotels[0].featurear">{{feature}}</li>
+         </div>
         </ul>
 
-          <h3>Property amenities</h3>
-          <i class="fas fa-parking"></i> freeparking <br>
-          <i class="fas fa-swimming-pool"></i>pool <br>
-          <i class="fas fa-umbrella-beach"></i> beach <br>
-          <i class="fas fa-wifi"></i> free internet <br>
-          <i class="fas fa-car"></i> free airport transpotation <br>
-          <i class="fas fa-glass-martini"></i> bar/lougne <br>
-          <i class="fas fa-child"></i> childeren activity
-          <!-- <i class="far fa-lightbulb-on"></i> good lightness <br>
-          <i class="fad fa-washer"></i> house keeping <br>
-          <i class="far fa-refrigerator"></i>refrigerator <br>
-          <i class="fas fa-microwave"></i>microwave <br>
-          <i class="fas fa-air-conditioner"></i>air-conditioner <br>
-          <i class="fas fa-tablet-android-alt"></i> flatscreen tv -->
+          <h3>{{'details.Amenities'|translate}}</h3>
+          <i class="fas fa-parking f-2"></i> {{'details.freeparking'|translate}} <br>
+          <i class="fas fa-swimming-pool f-2"></i>{{'details.freeparking'|translate}}  <br>
+          <i class="fas fa-umbrella-beach f-2"></i> {{'details.beach'|translate}} <br>
+          <i class="fas fa-wifi f-2"></i> {{'details.free-wifi'|translate}}  <br>
+          <i class="fas fa-car f-2"></i> {{'details.free airport transpotation'|translate}}  <br>
+          <i class="fas fa-glass-martini f-2"></i> {{'details.bar'|translate}} <br>
+          <i class="fas fa-child f-2"></i> {{'details.childerenactivity'|translate}} <br>
+          <i class="fal fa-washer f-2"></i> {{'details.house keeping'|translate}} <br>
           <hr>
-          <h3> hotel class</h3>
+          <h3>{{ 'details.hotelclass'|translate}}</h3>
           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           <hr>
-          <h3>room view</h3>
-          <i class="fas fa-mountain"></i> ocean view <br>
-          <i class="fas fa-swimming-pool"></i>pool view <br>
-          <i class="fas fa-smoking-ban"></i> non smoking room
+          <h3>{{'details.room view'|translate}}</h3>
+          <i class="fas fa-mountain"></i> {{'details.ocean view'|translate}} <br>
+          <!-- <i class="fas fa-swimming-pool"></i>{{'details.poolview'|translate}} <br> -->
+          <i class="fas fa-smoking-ban"></i> {{'details.non smoking room'|translate}}
       </div>
     </div>
   </div>
   <hr>
 <div class="container">
   <div class="row bg-light mt-3">
-      <h2> review:{{hotels[0].review}}</h2>
-      <!-- <hr>
-      <div class="row bg-light fs-2">
-          <h3>Ahmed asad</h3>
-          <p>place ic very clean and have good position</p>
-      </div>
-      <div class="row mt-3 bg-light fs-2">
-          <h3>Amera mohamed</h3>
-          <p>i spent very good time in this place</p>
-      </div>
-      <div class="row mt-3 bg-light fs-2">
-          <h3>john adams</h3>
-          <p> i guess place have good value and loaction with
-              good services
-          </p>
-      </div> -->
+      <h2> <h3 style="font-size:22px; color: #000;">review:</h3>
+        {{hotels[0].review}}</h2>
   </div>
 
-  <h3>popular mention</h3>
-  <button type="button" class="btn btn-outline-primary">Primary</button>
-<button type="button" class="btn btn-outline-dark">all review</button>
-<button type="button" class="btn btn-outline-success">goat islan cafe</button>
+  <h3>
+    {{'details.popular mention'|translate}}
+  </h3>
+  <button type="button" class="btn btn-outline-primary">{{'details.primary'|translate}}</button>
+<button type="button" class="btn btn-outline-dark">{{'details.allreview'|translate}}</button>
+<button type="button" class="btn btn-outline-success">{{'details.goatislancafe'|translate}}</button>
 <button type="button" class="btn btn-outline-danger">american somoa</button>
-<button type="button" class="btn btn-outline-warning">car rental</button>
+<button type="button" class="btn btn-outline-warning">{{'details.carrental'|translate}}</button>
 <button type="button" class="btn btn-outline-info">bay</button>
-<button type="button" class="btn btn-outline-warning">ship</button>
-<button type="button" class="btn btn-outline-dark">docks</button>
+<button type="button" class="btn btn-outline-warning">{{'details.shopping'|translate}}</button>
 
 <nav aria-label="...">
   <ul class="pagination p-2 mt-3">
     <li class="page-item  ">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{'details.Previous'|translate}}</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item active" aria-current="page">
@@ -126,7 +84,7 @@
     </li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#">{{'details.Next'|translate}}</a>
     </li>
   </ul>
 </nav>

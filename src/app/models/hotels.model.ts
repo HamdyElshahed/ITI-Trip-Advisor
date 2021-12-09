@@ -6,7 +6,7 @@ export interface hotels {
   location?: {
     address: string;
   };
-  payment_method: string[];
+  payment_method?: string[];
   imgage_url: string[];
   reviewCount: number;
   rate: number;

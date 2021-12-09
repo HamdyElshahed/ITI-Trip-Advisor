@@ -1,0 +1,84 @@
+{
+  "price":"السعر",
+  "address":"العنوان",
+  "rate":"التقييم",
+
+  "header":{
+    "hotels":"فنادق",
+    "thingstodo":"اشيياء يمكن فعلها",
+    "flights":"الرحلات",
+    "resturants":"المطاعم",
+    "vaccationRental":"اماكن للايجار",
+    "AirlinesPlanning":"الخطوط الجويه",
+    "Review":"الاراء",
+    "Trips":"الرحلات",
+    "Alerts":"الاشعارات",
+    "Search":"البحث"
+  },
+
+  "hotels":{
+    "Popular":"الشائع",
+    "Propertytype":" الانواع المتاحه",
+    "Amenities":"المميزات",
+    "free-wifi":"نت مجاني",
+    "breakfastincluding":"شامله وجبه الافطار",
+    "Kitchenette":"مطبخ صغير",
+    "pool":"حمام سباحه",
+    "freeparking":"موقف سيارات مجاني",
+    "lodges":"بيوت ريفيه",
+    "motels":"فنادق رخيصه",
+    "4stars":"4 نجوم",
+    "Hotels":"فنادق",
+    "GameRoom":"غرفه رياضه",
+    "MiniGolf":"ملعب جولف صغير",
+    "BicycleRental":"دراجات للايجار",
+    "4 stars":"4 نجوم",
+    "3 stars":"3 نجوم",
+    "5 stars":"5 نجوم",
+    "Style":"التصميم",
+    "Mid-Range":"مساحه متوسط",
+    "Family-Friendly":"مساحات عائليه ",
+    "Hotel Class":"مستوي الفندق",
+    "Brands":"ماركات",
+    "Center parcs":"الحديقه المركزيه",
+    "Propertieswithspecialoffer":" مميزات بعروض خاصه ",
+    "Freecancellation":"الغاء الحجز مجانا",
+    "Reservenow,payandstay":"احجز الان واستلم فرغتك",
+    "Deals":"العروض"
+  },
+
+"details":{
+  "feature of room":"المميزات",
+  "review":"عدد اراء العملا",
+  "live photo":"صور للمكان ",
+  "about":"معلومات عن الفندق",
+  "room view":"اطلاله الغرفه",
+  "hotelclass":"مستوي الفندق",
+  "historyofhotel":"تاريخ الفندق",
+  "Amenities":"المميزات",
+  "beach":"شواطئ",
+  "freeparking":"موقف سيارات مجاني",
+  "pool":"حمام سباحه",
+  "free-wifi":"نت مجاني",
+  "free airport transpotation":"انتقالات مجانيه للمطار",
+  "bar":"بارات ",
+  "childerenactivity":"انشطه للاطفال",
+  "house keeping":"عاملات للنظافه",
+  "ocean view":"عرض المحيط",
+  "poolview ":"أطلالة على بركة السباحة",
+  "non smoking room":"ممنوع تدخين داخل الغرفه ",
+  "bay":"شراء",
+  "primary":"الاوليه",
+  "allreview":"جميع الاراء",
+  "goatislancafe":"مقهي جزيره",
+  "carrental":"سيارات للاجره",
+  "shopping":"التسوق",
+  "popular mention":"الاكثر مميزا",
+  "Previous":"السابق",
+  "Next":"التالي"
+
+
+}
+
+
+}

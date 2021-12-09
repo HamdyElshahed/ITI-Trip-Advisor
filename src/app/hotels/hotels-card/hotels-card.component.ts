@@ -1,6 +1,7 @@
 import { hotels } from './../../models/hotels.model';
 import { Component, OnInit } from '@angular/core';
 import { HotelsServiceService } from 'src/app/service/hotels-service.service';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-hotels-card',
   templateUrl: './hotels-card.component.html',
@@ -9,7 +10,10 @@ import { HotelsServiceService } from 'src/app/service/hotels-service.service';
 export class HotelsCardComponent implements OnInit {
   hotels: hotels[] = [];
   Id: string[] = [];
-  constructor(private hs: HotelsServiceService) {}
+  constructor(
+    private hs: HotelsServiceService,
+    public Translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this.getallhotels();

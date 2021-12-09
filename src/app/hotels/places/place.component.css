@@ -19,12 +19,6 @@ a {
 }
 
 img {
-  width: 220px;
-}
-
-.one {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  width: 260px;
 }
 /*# sourceMappingURL=place.component.css.map */

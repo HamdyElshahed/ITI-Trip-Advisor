@@ -2,56 +2,99 @@
  <div class="container">
   <div class="row  mt-3 p-2">
       <div class="side col-4">
-          <h4>popular</h4> <br>
+      <h4>{{'hotels.Deals'|translate}}</h4>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            {{'hotels.Freecancellation'|translate}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+          <label class="form-check-label" for="flexCheckChecked">
+            {{'hotels.Reservenow,payandstay'|translate}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+          <label class="form-check-label" for="flexCheckChecked">
+            {{'hotels.Propertieswithspecialoffer'|translate}}
+          </label>
+        </div>
+        <hr>
+          <h4>{{'hotels.Popular'|translate}}</h4> <br>
           <input type="checkbox" id="3star" name="3star" value="3star">
-          <label for="3star"> 3 star</label><br>
+          <label for="3star"> {{'hotels.3 stars'|translate}}</label><br>
           <input type="checkbox" id="up" name="up" value="up">
-          <label for="up"> up</label><br>
+          <label for="up"> {{'hotels.Kitchenette'|translate}}</label><br>
           <input type="checkbox" id="includebreakfast" name="includebreakfast" value="includebreakfast">
-          <label for="include breakfast"> include breakfast</label> <br>
+          <label for="include breakfast"> {{'hotels.breakfastincluding'|translate}}</label> <br>
           <input type="checkbox" id="hotel" name="hotel" value="hotel">
-          <label for="hotel"> hotel</label><br><br>
+          <label for="hotel">{{'hotels.Hotels'|translate}}</label><br><br>
           <hr>
-          <h4>Property types</h4>
-          <input type="checkbox" id="b&bs &inns" name="b&bs &inns" value="b&bs &inns">
-          <label for="b&bs &inns">b&bs &inns</label><br>
+          <h4>{{'hotels.Propertytype'|translate}}</h4>
           <input type="checkbox" id="Hotel" name="Hotel" value="Hotel">
-          <label for="Hotel"> Hotel</label><br>
+          <label for="Hotel"> {{'hotels.Hotels'|translate}}</label><br>
           <input type="checkbox" id="Lodges" name="Lodges" value="Lodges">
-          <label for="Lodges"> Lodges</label> <br>
+          <label for="Lodges"> {{'hotels.lodges'|translate}}</label> <br>
           <input type="checkbox" id="motel" name="motel" value="motel">
-          <label for="motel"> motel</label><br>
+          <label for="motel"> {{'hotels.motels'|translate}}</label><br>
           <hr>
-          <h4>Amenities</h4>
+          <h4>{{'hotels.Amenities'|translate}}</h4>
           <input type="checkbox" id="freewifi" name="freewifi" value="freewifi">
-          <label for="freewifi">free wifi</label><br>
+          <label for="freewifi">{{'hotels.free-wifi'|translate}}</label><br>
           <input type="checkbox" id="breakfastinclude" name="breakfastinclude" value="breakfastinclude">
-          <label for="breakfast include">breakfast include </label><br>
+          <label for="breakfast include"> {{'hotels.GameRoom'|translate}}</label><br>
+          <input type="checkbox" id="MiniGolf" name="MiniGolf" value="MiniGolf">
+          <label for="breakfast include">{{'hotels.MiniGolf'|translate}}</label><br>
           <input type="checkbox" id="pool" name="pool" value="pool">
-          <label for="pool">pool</label> <br>
+          <label for="breakfast include">{{'hotels.breakfastincluding'|translate}} </label><br>
+          <input type="checkbox" id="pool" name="pool" value="pool">
+          <label for="pool">{{'hotels.pool'|translate}}</label>
+          <br>
           <input type="checkbox" id="freeparking" name="freeparking" value="freeparking">
-          <label for="freeparking"> freeparking</label><br>
+          <label for="freeparking">{{'hotels.freeparking'|translate}}</label>
           <hr>
-          <h4> traveler rating </h4>
-          <div class="progress fw-5">
-              <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="25"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              <span style="color: brown;">fair</span>
-          </div> <br>
-          <div class="progress">
-              <div class="progress-bar bg-secondary" role="progressbar" style="width:50%" aria-valuenow="50"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              <span style="color: brown;">good</span>
-          </div> <br>
-          <div class="progress">
-              <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              <span style="color: brown;">very good</span>
-          </div> <br>
-          <div class="progress">
-              <div class="progress-bar bg-danger" role="progressbar" style="width:85%" aria-valuenow="100"
-                  aria-valuemin="0" aria-valuemax="100"></div>
-              <span style="color: brown;">confortable</span>
+          <h4>{{'hotels.Brands'|translate}}</h4>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+             {{'hotels.Center parcs'|translate}}
+            </label>
+          </div>
+          <hr>
+          <h4>{{'hotels.Style'|translate}}</h4>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckChecked">
+              {{'hotels.Mid-Range'|translate}}
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+            <label class="form-check-label" for="flexCheckChecked">
+            {{ 'hotels.Family-Friendly'|translate}}
+            </label>
+          </div>
+          <hr>
+          <h3>{{'hotels.Hotel Class'|translate}}</h3>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+             {{'hotels.3 stars'|translate}}
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+             {{'hotels.4 stars'|translate}}
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+            <label class="form-check-label" for="flexCheckChecked">
+          {{ 'hotels.5 stars'|translate}}
+            </label>
           </div>
       </div>
 

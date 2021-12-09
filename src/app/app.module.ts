@@ -11,11 +11,17 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PlaceComponent } from './hotels/places/place.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HotelsDetailsComponent } from './hotels/hotels-details/hotels-details.component';
-//  import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-// import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
-// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-// import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
+import { HttpInterceptor } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './interceptors';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -28,13 +34,23 @@ import { HotelsDetailsComponent } from './hotels/hotels-details/hotels-details.c
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FontAwesomeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+    NgbModule,
   ],
-  providers: [],
+  exports: [TranslateModule],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

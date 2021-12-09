@@ -3,15 +3,13 @@
       <div>
           <img Class="roomimg" [src]="hotel.image_url" alt="">
           <h3><a [routerLink]="['/hotels-details',Id[i]]">{{hotel.name}}</a></h3>
-          <p><i>{{hotel.reviewCount}}
-              </i>
-          </p>
+          <!-- <p style="color: blue;">{{hotel.reviewCount}}</p> -->
           <!-- <h5>{{hotel.feature}}</h5> -->
           <h5> rate:{{hotel.rate}}</h5>
-          <h5>{{hotel.payment_method}}</h5>
-          <p>phonenumber:{{hotel.phone_number}}<p>
-          <a href="#"> price:{{hotel.price |currency}}</a> <br>
-          <a href="#"> address:{{hotel?.location?.address}}</a> <br>
+          <p> payment method :{{hotel.payment_method}}</p>
+          <!-- <p>phonenumber:{{hotel.phone_number}}<p> -->
+          <a href="#"> price: {{hotel.price |currency}}</a> <br>
+          <a href="#"> address: {{hotel?.location?.address}}</a> <br>
           <a type="button" class="btn-1 btn-secondary btn-warning btn-lg mt-2" href="flights.html">view
               deal</a>
       </div>
