@@ -64,7 +64,14 @@
             <app-menu [dishesList]="dishesList"></app-menu>
           </div>
           <div class="row">
-            <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
+            <div class="col-md-6">
+              <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
+
+            </div>
+            <div class="col-md-6">
+              <app-available-tables *ngIf="availableTables|async" [tables]="availableTables "></app-available-tables>
+              <!-- <ng-template #NoTables><h4>There is no tables available at this time</h4></ng-template> -->
+            </div>
           </div>
         </div>
         <div class="col-md-4 ">
@@ -99,6 +106,10 @@
             </div>
           </div>
           <app-map [lat]="restaurant.coordinates.latitude" [lang]="restaurant.coordinates.longitude"></app-map>
+          <div class="mt-3">
+            <app-reservation-card (findAvailableTablesList)="findAvailableTables($event)"></app-reservation-card>
+          </div>
+
         </div>
         <!--- End of Restaurant -->
       </div>
