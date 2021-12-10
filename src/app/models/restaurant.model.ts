@@ -59,7 +59,8 @@ export interface OpenTime {
 export interface Table {
   id: string;
   available: boolean;
-  maxPersonsNo: number
+  maxPersonsNo: number;
+  reservationPrice:number
 }
 
 

@@ -9,6 +9,8 @@ import { Table } from 'src/app/models/restaurant.model';
 })
 export class AvailableTablesComponent implements OnInit {
 @Input() tables:Promise<Table[]> | undefined;
+showConfirmation:boolean=false;
+selectedTablePrice=new Subject<number>();
   constructor() {
    }
 
@@ -17,6 +19,11 @@ export class AvailableTablesComponent implements OnInit {
         this.tables?.then(val=>{
           console.log(val);
         })
+
+  }
+  confirmReservation(table:Table){
+    this.showConfirmation=true;
+    this.selectedTablePrice.next(table.reservationPrice)
 
   }
 

@@ -31,6 +31,7 @@ import { AddNewDishModalComponent } from './components/restaurant/add-new-dish-m
 import { FormsModule } from '@angular/forms';
 import { ReservationCardComponent } from './components/restaurant/reservation-card/reservation-card.component';
 import { AvailableTablesComponent } from './components/restaurant/available-tables/available-tables.component';
+import { PaymentComponent } from './components/restaurant/payment/payment.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { AvailableTablesComponent } from './components/restaurant/available-tabl
     AddNewDishModalComponent,
     ReservationCardComponent,
     AvailableTablesComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
