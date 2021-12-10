@@ -1,3 +1,8 @@
+<div class="row justify-content-center">
+  <ngb-toast class="position-absolute m-auto" header="I can be closed!" *ngIf="err" [autohide]="false" (hide)="err = false" >
+  {{msg}}
+  </ngb-toast>
+</div>
 <main class="py-5 backgroundimg">
   <!-- <div class="section10cardoverlay"></div> -->
   <section class="container pb-3">
@@ -7,38 +12,53 @@
                   <div class="col-md-6 col-12 px-3">
                       <form method="post" class="col-8 m-auto py-4" #form="ngForm" >
                           <h2 class="py-4">Register</h2>
-                          <div class="form-group position-relative mb-4">
+                         <div class=" mb-4">
+                          <div class="form-group position-relative">
                               <label for="userName" class="registerformlabel"><i class="fas fa-user"></i></label>
                               <input type="text" class="registerforminput" name="displayName" id="userName"
-                                  placeholder="Your Name" ngModel>
-                          </div>
-                          <div class="form-group position-relative mb-4">
+                                  placeholder="Your Name" #username="ngModel" (input)="checkval(username)" [(ngModel)]="displayName">
+                           </div>
+                            <span *ngIf="!check.checkname && username.touched" style="color:red ; font-size: small;" >username is require and nospaces</span>
+                         </div>
+                         <div class=" mb-4">
+                           <div class="form-group position-relative">
                               <label for="email" class="registerformlabel"><i class="fas fa-envelope"></i></label>
                               <input type="email" class="registerforminput" name="email" id="email"
-                                  placeholder="Your Email"  ngModel>
-                          </div>
-                          <div class="form-group position-relative mb-4">
-                             <label for="phone" class="registerformlabel"><i class="fas fa-envelope"></i></label>
-                             <input type="phone" class="registerforminput" name="phoneNumber" id="phone"
-                              placeholder="Your Phone" ngModel >
+                                  placeholder="Your Email"  #useremail="ngModel" (input)="checkval(useremail)" [(ngModel)]="email">
                            </div>
-                          <div class="form-group position-relative mb-4">
-                              <label for="password" class="registerformlabel"><i
-                                      class="fas fa-unlock-alt"></i></label>
-                              <input type="password" class="registerforminput" name="password" id="password"
-                                  placeholder="Password" ngModel>
+                              <span *ngIf="!check.checkemail && useremail.touched" style="color:red ; font-size: small;" >email is require and enter your valid email </span>
+                         </div>
+                         <div class=" mb-4">
+                           <div class="form-group position-relative">
+                             <label for="phone" class="registerformlabel"><i class="fas fa-phone-square-alt"></i></label>
+                             <input type="phone" class="registerforminput" name="phoneNumber" id="phone"
+                              placeholder="Your Phone" #userphone="ngModel" (input)="checkval(userphone)" [(ngModel)]="phoneNumber" >
+                            </div>
+                            <span *ngIf="!check.checkphone && userphone.touched" style="color:red ; font-size: small;" >enter numeric value contain 11 number  </span>
                           </div>
-                          <div class="form-group position-relative mb-4">
+                          <div class=" mb-4">
+                            <div class="form-group position-relative">
+                                <label for="password" class="registerformlabel"><i
+                                        class="fas fa-unlock-alt"></i></label>
+                                <input type="password" class="registerforminput" name="password" id="password"
+                                    placeholder="Password" #userpass="ngModel" (input)="checkval(userpass)" [(ngModel)]="password">
+                            </div>
+                            <span *ngIf="!check.checkpass && userpass.touched" style="color:red ; font-size: small;">password must contain at least one lowercase character , uppercase characte , numeric value ,(?=.*[-+_!@#$%^&*., ?]) represents at least one special character. </span>
+                          </div>
+                          <div class=" mb-4">
+                            <div class="form-group  position-relative">
                               <label for="reppassword" class="registerformlabel"><i
                                       class="fas fa-lock"></i></label>
                               <input type="password" class="registerforminput" name="reppassword" id="reppassword"
-                                  placeholder="Repeat Your Password">
+                                  placeholder="Repeat Your Password" #userreppass="ngModel" (input)="checkval(userreppass)" [(ngModel)]="reppassword">
+                            </div>
+                            <span *ngIf="!check.checkreppass && userreppass.touched" style="color:red ; font-size: small;" >confirm password must be a same password</span>
                           </div>
                           <div class="form-group position-relative mb-4">
-                              <input type="checkbox" name="rememberme" id="rememberme">
+                              <input type="checkbox" name="terms" id="terms" #userterms="ngModel" (input)="checkval(userterms)" [(ngModel)]="terms" >
                               <label for="rememberme" class="px-1"> Terms of service</label>
                           </div>
-                          <button class="btn btn-dark btn-sm px-3 py-1 w-100 rounded-pill" (click)="reg(form.value)" role="button">
+                          <button [disabled]="disabledbtn" (click)="register()" class="btn btn-dark btn-sm px-3 py-1 w-100 rounded-pill" role="button">
                               Submit</button>
                       </form>
                   </div>

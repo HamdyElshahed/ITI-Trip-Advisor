@@ -1,19 +1,51 @@
+
+<!------section 2------->
+<section class="container px-4 py-4">
+  <div class="my-sm-2">
+    <app-carousel [carousel]="'nav'" ></app-carousel>
+  </div>
+</section>
+<!------section 3------->
+<section class="container ">
+  <div class="section3">
+    <div class="row justify-content-center">
+      <form class="d-flex bg-light w-75 justify-content-center rounded-pill" #form="ngForm">
+        <button class="btn btn-light rounded-pill px-1 navbut" (click)="setsearch(form)" style="width:2.5rem" href="#" role="button">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22 20.514l-5.517-5.519a8.023 8.023 0 001.674-4.904c0-4.455-3.624-8.079-8.079-8.079C5.624 2.012 2 5.636 2 10.091s3.624 8.079 8.079 8.079a8.03 8.03 0 004.933-1.695l5.512 5.514L22 20.514zm-11.921-4.431c-3.305 0-5.993-2.688-5.993-5.992s2.688-5.992 5.993-5.992a6 6 0 015.992 5.992 6 6 0 01-5.992 5.992z">
+            </path>
+          </svg>
+        </button>
+        <input class="form-control me-2 inputsearch" ngModel name="searchval" style="width:94%" type="search" id="serch"
+          placeholder="Where to ?" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="container px-4 py-4" *ngIf="authservice.IsLoggedIn">
+  <div class="my-sm-2">
+    <h2 class="py-3">Your recent searches</h2>
+    <app-carousel [carousel]="'search'" [arr]="userData" ></app-carousel>
+  </div>
+</section>
 <!------section 5------->
-<section class="container px-4 pt-2 pb-5">
+<section class="container px-4 pt-2 pb-5" *ngIf="authservice.IsLoggedIn">
   <h2 class="py-3">Recently viewed</h2>
-  <!-- <app-carousel></app-carousel> -->
+  <app-carousel [carousel]="'one'" ></app-carousel>
 </section>
 <!------section 6------->
-<section class="container px-4 pt-2 pb-5">
+<section class="container pt-2 pb-5">
   <h2 class="pt-3 pb-1 m-0">You might like these</h2>
   <p class="pt-1 pb-3 m-0">More places to stay in Miami Beach</p>
-  <app-carousel [carousel]="'one'" ></app-carousel>
+  <app-carousel [carousel]="'one'" [arr]="hotelsData" ></app-carousel>
 </section>
 <!------section 7------->
 <section class="container  pt-2 pb-5">
   <h2 class="pt-3 pb-1 m-0">Cool Plus stays</h2>
   <p class="pt-1 pb-3 m-0">Where Tripadvisor Plus members are staying and saving</p>
-  <app-carousel [carousel]="'one'" ></app-carousel>
+  <app-carousel [carousel]="'one'" [arr]="restaurantData" ></app-carousel>
 </section>
 <!------section 8------->
 <section class="container px-4 pt-2 pb-5">
@@ -31,21 +63,21 @@
 <section class="px-4 pt-2" style="background-color: #FAF1ED;">
   <div class="container pb-3">
     <h2 class="pt-3 pb-3 m-0">More to explore </h2>
-    <app-carousel [carousel]="'three'"></app-carousel>
+    <app-carousel [carousel]="'three'" [arr]="topExplorer"></app-carousel>
   </div>
 </section>
 <!------section 10------->
-<section class="container px-4  pb-4" style="padding-top:12rem">
+<!-- <section class="container px-4  pb-4" style="padding-top:12rem">
   <h2 class="pt-3 pb-3 m-0">Dream Your Next Trip </h2>
   <p class="pt-1 pb-1 m-0 fs-5">Weekend getaways from Cairo</p>
   <p class="p-0 mb-2">Explore what’s nearby</p>
   <app-carousel [carousel]="'four'"></app-carousel>
-</section>
+</section> -->
 <!------section 11------->
 <section class="container px-4 pb-4">
   <h2 class="pt-3 pb-3 m-0">Top destinations for beach lovers</h2>
   <p class="pt-1 pb-1 m-0 fs-5">Recommended based on your activity</p>
-  <app-carousel [carousel]="'four'"></app-carousel>
+  <app-carousel [carousel]="'four'" [arr]="placesData" ></app-carousel>
 </section>
 <!------section 12------->
 <section class="container px-4 pb-4 section12">

@@ -64,8 +64,8 @@
         </button>
       </div>
       <div class="container-fluid" id="ser">
-        <form class="d-md-flex d-none border border-2 rounded-pill w-100" style="background-color: #ffffff;">
-          <button class="btn btn-light rounded-pill px-1 navbut" style="width:2.5rem ; background-color: #ffffff;" href="#"
+        <form class="d-md-flex d-none border border-2 rounded-pill w-100" #form="ngForm" style="background-color: #ffffff;">
+          <button class="btn btn-light rounded-pill px-1 navbut" (click)="setsearch(form)" style="width:2.5rem ; background-color: #ffffff;" href="#"
             role="button" >
             <svg viewBox=" 0 0 24 24">
             <path
@@ -73,7 +73,7 @@
             </path>
             </svg>
           </button>
-          <input class="form-control rounded-pill me-2 inputnav" style="width:94%" type="search" placeholder=""
+          <input ngModel name="searchval" class="form-control rounded-pill me-2 inputnav" style="width:94%" type="search" placeholder=""
             aria-label="Search">
         </form>
       </div>
@@ -81,18 +81,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item d-md-none d-flex ">
-              <form class="d-flex bg-light w-100 justify-content-center rounded-pill mt-2">
-                <button class="btn btn-light rounded-pill px-1 navbut" style="width:2.5rem" href="#" role="button">
+              <form class="d-flex bg-light w-100 justify-content-center rounded-pill mt-2" #form="ngForm" >
+                <button class="btn btn-light rounded-pill px-1 navbut" (click)="setsearch(form)" style="width:2.5rem" href="#" role="button">
                   <svg viewBox="0 0 24 24">
                     <path
                       d="M22 20.514l-5.517-5.519a8.023 8.023 0 001.674-4.904c0-4.455-3.624-8.079-8.079-8.079C5.624 2.012 2 5.636 2 10.091s3.624 8.079 8.079 8.079a8.03 8.03 0 004.933-1.695l5.512 5.514L22 20.514zm-11.921-4.431c-3.305 0-5.993-2.688-5.993-5.992s2.688-5.992 5.993-5.992a6 6 0 015.992 5.992 6 6 0 01-5.992 5.992z">
                     </path>
                   </svg>
                 </button>
-                <input class="form-control me-2 inputsearch" style="width:94%" type="search" placeholder="Where to ?"
+                <input ngModel name="searchval" class="form-control me-2 inputsearch" style="width:94%" type="search" placeholder="Where to ?"
                   aria-label="Search">
-              </form>
-            </li>
+                </form>
+              </li>
             <li class="nav-item align-middle">
               <a class="nav-link d-flex " aria-current="page" href="#">
                 <svg viewBox="0 0 24 24" width="24px"
@@ -119,10 +119,14 @@
                 </svg><span>Alerts</span></a>
             </li>
             <li class="nav-item py-2">
-              <!-- <span>{{}}</span> -->
-              <a *ngIf="authservice.IsLoggedIn() == false"class="btn btn-dark btn-sm px-4 py-1 rounded-pill" href="" [routerLink]="'/login'" > Login</a>
-              <a *ngIf="authservice.IsLoggedIn() == true" (click)="authservice.SignOut()" class="btn btn-dark btn-sm px-4 py-1 rounded-pill" > sign out</a>
-
+              <a *ngIf="!authservice.IsLoggedIn"class="btn btn-dark btn-sm px-4 py-1 rounded-pill" href="" [routerLink]="'/login'" > Login</a>
+              <div  *ngIf="authservice.IsLoggedIn" ngbDropdown class="d-inline-block" style="height: 40px ; width: 40px ; ">
+                <button class=" rounded-circle py-1 overflow-hidden"   style="height: 40px ; width: 40px"  id="dropdownBasic1" ngbDropdownToggle><img class="img-fluid overflow :hidden"  [src]="userData.photoURL" alt=""></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem [routerLink]="'profile'" >Profile</button>
+                  <button ngbDropdownItem (click)="authservice.SignOut()" >sign out</button>
+                </div>
+              </div>
             </li>
           </ul>
         </div>

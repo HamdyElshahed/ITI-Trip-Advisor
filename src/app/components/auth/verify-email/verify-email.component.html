@@ -1,26 +1,26 @@
-<div class="displayTable">
-  <div class="displayTableCell">
+<div class="container py-5 m-auto" style="height:70vh">
+  <div class="row justify-content-center align-middle">
+    <div class="col-6  text-center">
+      <div class=" py-4">
+        <h2>Thank You for Registering</h2>
 
-    <div class="authBlock">
-      <h3>Thank You for Registering</h3>
+        <div class="form-group py-2" *ngIf="authservice.userData as user">
+          <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+          <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+        </div>
 
-      <div class="formGroup" *ngIf="authservice.userData as user">
-        <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
-        <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+        <div class="form-group">
+          <button type="button" class="btn " (click)="authservice.SendVerifcationEmail()">
+            <i class="fas fa-redo-alt"></i>
+            Resend Verification Email
+          </button>
+        </div>
+
       </div>
 
-      <!-- Calling SendVerificationMail() method using authService Api -->
-      <div class="formGroup">
-        <button type="button" class="btn btnPrimary" (click)="authservice.SendVerifcationEmail()">
-          <i class="fas fa-redo-alt"></i>
-          Resend Verification Email
-        </button>
+      <div>
+        <span>Go back to?<a class="redirect" routerLink="/register"> Register</a></span>
       </div>
-
-    </div>
-
-    <div class="redirectToLogin">
-      <span>Go back to?<span class="redirect" routerLink="/sign-in"> Sign in</span></span>
     </div>
 
   </div>

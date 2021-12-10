@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-cardbtn',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cardbtn.component.scss']
 })
 export class CardbtnComponent implements OnInit {
-
-  constructor() { }
+  @Input() card! : any;
+  constructor( public authservice: AuthService , private profileservice: ProfileService) { }
 
   ngOnInit(): void {
   }
-
+  addFavorite(){
+    this.profileservice.updateFavorites(this.card.id)
+  }
 }

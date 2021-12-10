@@ -107,7 +107,7 @@ nav {
 }
 
 .section3 {
-  background-image: url("../img/banner.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/iti-trip-advisor.appspot.com/o/home%2Fbanner.jpg?alt=media&token=8ed0e542-36e6-4615-859d-7b95660690bf");
   padding: 10rem 3rem;
   text-align: center;
 }
@@ -188,11 +188,11 @@ nav {
 }
 
 .owl-prev {
-  left: -30px;
+  left: -33px;
 }
 
 .owl-next {
-  right: -4px;
+  right: -33px;
 }
 
 .owl-prev, .owl-next {
@@ -385,8 +385,7 @@ footer ul a {
 }
 
 .backgroundimg {
-  background-image: url("../img/registerback01.jpg");
-  background-size: cover;
+  background-size: cover; */
   height: 100%;
 }
 

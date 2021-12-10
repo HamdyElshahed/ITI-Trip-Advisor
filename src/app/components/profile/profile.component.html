@@ -1,0 +1,197 @@
+<div class="container-fluid "  style="background-color: #F2F2F2;">
+ <!---------------section 1------------------>
+
+ <div class="row justify-content-center align-items-center" [ngStyle]="{'background': userData.coverPhotoURL != '' ? 'url('+userData.coverPhotoURL+')' :'#E0E0E0'}" style="height: 250px ; background-size: cover; background-repeat: no-repeat;">
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Select Cover Photo</h4>
+        <button type="button" class="btn  close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form ngForm>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="file" id="dateOfBirth" class="form-control" accept="image/*" #image  placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="uploadcoverphoto(image , 'coverPhotoURL')"  (click)="modal.close('Save click')">Save</button>
+      </div>
+    </ng-template>
+    <button *ngIf="userData.coverPhotoURL == '' " class="btn col-2 h-25" (click)="open(content)"> Add cover photo </button>
+  </div>
+ <!---------------section 2------------------>
+
+  <div class="container px-sm-5" >
+    <div class="row py-3" style="background-color: #ffffff;">
+      <div class="col-10">
+        <div class="row">
+          <div class="col-md-2 col-4">
+            <div class="  " style="overflow: hidden; text-align: center">
+              <img class="w-75 h-75 rounded-circle" [src]="this.userData.photoURL" alt="">
+            </div>
+          </div>
+          <div class="col-9">
+            <h2> {{this.userData.displayName}}</h2>
+            <p>{{this.userData.email}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <ng-template #editcontent let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Select Cover Photo</h4>
+            <button type="button" class="btn  close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="file" id="dateOfBirth" #profilephoto class="form-control" accept="image/*" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="uploadcoverphoto(profilephoto , 'photoURL')" (click)="modal.close('Save click')">Save</button>
+          </div>
+        </ng-template>
+        <ng-template #editusername let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Select Cover Photo</h4>
+            <button type="button" class="btn  close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text"  #username #profilephoto class="form-control"  placeholder="Your Name" name="username" >
+
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="updateusername(username)" (click)="modal.close('Save click')">Save</button>
+          </div>
+        </ng-template>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn " id="dropdownBasic1" ngbDropdownToggle > Edit profile </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem (click)="open(editcontent)">Change profile photo</button>
+            <button ngbDropdownItem  (click)="open(content)">Change Cover photo</button>
+            <button ngbDropdownItem (click)="open(editusername )">Change Username</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="background-color: #ffffff;">
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem>
+          <a ngbNavLink>Booking</a>
+          <ng-template ngbNavContent><table class="table">
+            <thead>
+              <tr>
+                <!-- <th scope="col">#</th> -->
+                <th scope="col">city</th>
+                <th scope="col">Category</th>
+                <th scope="col">place name</th>
+                <th scope="col">Date</th>
+                <th scope="col">status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- <th scope="row">1</th> -->
+                <td>Cairo</td>
+                <td>Hotels</td>
+                <td>Hotel 1</td>
+                <td>1/12/2021</td>
+                <td>Finished</td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template>
+        </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Favorites</a>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-3" *ngFor="let favorite of userFavorites">
+                <app-cardstyle2 [card]="favorite"></app-cardstyle2>
+              </div>
+            </div>
+            <!-- <app-carousel [carousel]="'one'" [arr]="arr"></app-carousel> -->
+          </ng-template>
+        </li>
+      </ul>
+
+
+    </div>
+
+  </div>
+ <!---------------section 3------------------>
+
+  <div class="container py-4 px-sm-5">
+    <div class="row">
+      <div class="col-3">
+        <div class="row " style="flex-direction: column;">
+          <div class="my-2" style="background-color: #ffffff;">
+            <h3>Intro</h3>
+            <ul style="list-style : none;">
+              <li class="py-2 fs-6">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
+                  <path d="M13.111 22h-2.222v-8.889H2v-2.222h8.889V2h2.222v8.889H22v2.222h-8.889z"></path>
+                </svg>
+                 Add you current city
+              </li>
+              <li class="py-2 fs-6">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
+                  <path d="M13.111 22h-2.222v-8.889H2v-2.222h8.889V2h2.222v8.889H22v2.222h-8.889z"></path>
+                </svg>
+                 Add a website
+              </li>
+              <li class="py-2 fs-6">
+                <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
+                  <path d="M13.111 22h-2.222v-8.889H2v-2.222h8.889V2h2.222v8.889H22v2.222h-8.889z"></path>
+                </svg>
+                Write some details about yourself
+              </li>
+            </ul>
+          </div>
+          <div class="my-2" style="background-color: #ffffff;">
+            <h3>Share your travel advice</h3>
+            <ul style="list-style: none;">
+              <li class="py-2 fs-6">
+                <i class="fas fa-camera"></i> <span class="px-2">Post photos</span>
+              </li>
+              <li class="py-2 fs-6">
+                <i class="far fa-edit"></i><span class="px-2">Write Review</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="col-8 py-2" [ngbNavOutlet]="nav"></div>
+    </div>
+  </div>
+
+</div>
+
+
+

@@ -1,9 +1,12 @@
 export interface User{
-  uid : string;
+  uid? : string;
   email : string;
-  password? : string;
-  displayName : string;
+  password : string;
+  displayName? : string;
   photoURL? : string;
-  phoneNumber : number;
+  phoneNumber? : number;
   emailVerified? : boolean;
+  coverPhotoURL? : string;
+  recentlysearch? : []
+  favorites? : []
 }

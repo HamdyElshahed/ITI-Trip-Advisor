@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,10 +21,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule  } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { Cardstyle4Component } from './components/layout/cardstyle4/cardstyle4.component';
+import { NavitemComponent } from './components/layout/navitem/navitem.component';
+import { SearchrecentitemComponent } from './components/layout/searchrecentitem/searchrecentitem.component';
+import { SearchComponent } from './components/search/search.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -42,10 +47,13 @@ import { Cardstyle4Component } from './components/layout/cardstyle4/cardstyle4.c
     Cardstyle1Component,
     Cardstyle2Component,
     Cardstyle3Component,
-    DashboardComponent,
     VerifyEmailComponent,
     ForgotPasswordComponent,
     Cardstyle4Component,
+    NavitemComponent,
+    SearchrecentitemComponent,
+    SearchComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +63,11 @@ import { Cardstyle4Component } from './components/layout/cardstyle4/cardstyle4.c
     AngularFirestoreModule,
     CarouselModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    NgxSpinnerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
