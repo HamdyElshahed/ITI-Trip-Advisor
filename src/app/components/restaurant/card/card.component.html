@@ -8,13 +8,13 @@
       style="left: 86%; top: 4%; z-index: 2 ; height: 25px; width: 25px; background-color: rgb(255, 255, 255);"
       data-mdb-ripple-color="red">
 
-      <a href="#!">
+      <a>
         <!-- <i class="fas fa-heart text-danger pt-2"></i> -->
         <i class="far fa-heart text-danger pt-2"></i>
       </a>
     </div>
 
-    <img [src]="restaurant.image_url" [title]="restaurant.name" class="img-fluid rounded">
+    <img [src]="restaurant.image_url" [title]="restaurant.name" class="img-fluid rounded" width="100%"  style="object-fit: cover">
 
     <a href="#!">
       <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
