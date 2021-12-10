@@ -1,7 +1,7 @@
 import { Time } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, QueryDocumentSnapshot } from '@angular/fire/compat/firestore';
-import { getDocs, query, QuerySnapshot, where } from '@firebase/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { collection, getDocs, query, QueryDocumentSnapshot, QuerySnapshot, where } from '@firebase/firestore';
 import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 import { Observable, Subject } from 'rxjs';
 import { Dish, Location, OpenTime, Restaurant, Table } from 'src/app/models/restaurant.model';
@@ -17,14 +17,14 @@ import { environment, setLocation } from 'src/environments/environment';
  */
 export class FilterService {
   locatoion: Location;
-  filterUpdated:Subject<Restaurant[]>;
+  filterUpdated: Subject<Restaurant[]>;
   private itemsCollection: AngularFirestoreCollection<Restaurant>;
 
   filteredRestaurantsList: Restaurant[];
   allRestaurantList!: Observable<Restaurant[]>;//for filter items to set list values
 
   constructor(private firestore: AngularFirestore) {
-    this.filterUpdated=new Subject();
+    this.filterUpdated = new Subject();
     // default location
 
     this.locatoion = {
@@ -86,11 +86,11 @@ export class FilterService {
 
   }
 
-/**
- * used to intialize the allRestaurantList member variable
- * @returns All the restaurants based on the current location
- */
- getRestaurants(): Observable<Restaurant[]> {
+  /**
+   * used to intialize the allRestaurantList member variable
+   * @returns All the restaurants based on the current location
+   */
+  getRestaurants(): Observable<Restaurant[]> {
 
     let res: Restaurant[] = []
     return new Observable((observer) => {
@@ -147,7 +147,7 @@ export class FilterService {
     let res: Restaurant[] = []
     return new Observable((observer) => {
       this.firestore.collection<Restaurant>('restaurant').ref.where("location.city", "==", this.locatoion.city)
-      .where("location." + prop, "==", propValue)
+        .where("location." + prop, "==", propValue)
         .get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             res.push(doc.data());
@@ -159,18 +159,61 @@ export class FilterService {
   }
 
   getTopRatedRestaurants(): Observable<Restaurant[]> {
-    return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('rating', ">=", 4)).valueChanges();
+    return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('rating', ">=", 4).limit(10)).valueChanges();
 
   }
-  getRestaurantById(id:string): Observable<Restaurant[]> {
+
+  async getFirstPage():Promise<QuerySnapshot<Restaurant>>{
+    const first = query(this.firestore.collection<Restaurant>('restaurant').ref.orderBy("rating").limit(7));
+    return await getDocs(first);
+  }
+
+  async getNextPage(current:QueryDocumentSnapshot<Restaurant>):Promise<QuerySnapshot<Restaurant>>{
+    const next = query(this.firestore.collection<Restaurant>('restaurant').ref
+    .orderBy("rating").
+      startAfter(current).
+      limit(7));
+      return await getDocs(next)
+  }
+  async getPrevPage(current:QueryDocumentSnapshot<Restaurant>):Promise<QuerySnapshot<Restaurant>>{
+    const next = query(this.firestore.collection<Restaurant>('restaurant').ref
+    .orderBy("rating",'desc').
+      startAfter(current).
+      limit(7));
+      return await getDocs(next)
+  }
+
+  // async getTopRatedRestaurants2(): Observable<Restaurant[]> {
+
+  //   // Query the first page of docs
+  //   const first = query(this.firestore.collection<Restaurant>('restaurant').ref.orderBy("rating").limit(7));
+  //   const documentSnapshots = await getDocs(first);
+  //   documentSnapshots.docs.forEach(val=>{
+  //     val.data();
+  //   })
+  //   // Get the last visible document
+  //   const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+  //   console.log("last", lastVisible);
+
+  //   // Construct a new query starting at this document,
+  //   // get the next 25 cities.
+  //   const next = query(this.firestore.collection<Restaurant>('restaurant').ref
+  //   .orderBy("rating").
+  //     startAfter(lastVisible).
+  //     limit(7));
+
+  //   // return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('rating', ">=", 4).limit(10)).valueChanges();
+
+  // }
+  getRestaurantById(id: string): Observable<Restaurant[]> {
     return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('id', "==", id)).valueChanges();
 
   }
-  getMenuList(restaurantId:string): Observable<Dish[]> {
+  getMenuList(restaurantId: string): Observable<Dish[]> {
     return this.firestore.collection<Dish>(`restaurant/${restaurantId}/menu`).valueChanges();
   }
 
-  addNewDish(restaurantId:string,dish: Dish) {
+  addNewDish(restaurantId: string, dish: Dish) {
     // let id=this.itemsCollection.doc().ref.id;
     const id = this.firestore.createId();
     console.log(id);
@@ -184,22 +227,22 @@ export class FilterService {
    * @param day represent the day of the week number for example sunday =0 monday=1 ...etc
    * @param time time object from ... to in 24 hours format
    */
-  addOpenTime(restaurantId:string,day: string,time:OpenTime) {
+  addOpenTime(restaurantId: string, day: string, time: OpenTime) {
 
     this.firestore.collection<OpenTime>(`restaurant/${restaurantId}/hours`).doc(day).set(time);
     console.log(time);
   }
 
-  getTablesList(restaurantId:string): Observable<Table[]> {
+  getTablesList(restaurantId: string): Observable<Table[]> {
     return this.firestore.collection<Table>(`restaurant/${restaurantId}/Available_Tables`).valueChanges();
   }
 
-  getAvailableTables(restaurantId:string): Observable<Table[]> {
+  getAvailableTables(restaurantId: string): Observable<Table[]> {
     return this.firestore.collection<Table>(`restaurant/${restaurantId}/Available_Tables`, ref => ref.where('available', "==", true)).valueChanges();
   }
 
 
-  getRestaurantOpenTimeAt(restaurantId:string,day:string): Observable<any> {
+  getRestaurantOpenTimeAt(restaurantId: string, day: string): Observable<any> {
 
     return this.firestore.collection<OpenTime>(`restaurant`).doc(restaurantId).collection<OpenTime>('hours').doc(day).get();
   }
