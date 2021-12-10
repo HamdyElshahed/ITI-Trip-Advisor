@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { Table } from 'src/app/models/restaurant.model';
 
@@ -9,8 +10,7 @@ import { Table } from 'src/app/models/restaurant.model';
 })
 export class AvailableTablesComponent implements OnInit {
 @Input() tables:Promise<Table[]> | undefined;
-showConfirmation:boolean=false;
-selectedTablePrice=new Subject<number>();
+@Output()selectedTablePrice=new EventEmitter();
   constructor() {
    }
 
@@ -22,9 +22,11 @@ selectedTablePrice=new Subject<number>();
 
   }
   confirmReservation(table:Table){
-    this.showConfirmation=true;
-    this.selectedTablePrice.next(table.reservationPrice)
+    this.selectedTablePrice.emit(table.reservationPrice);
 
+  }
+  sendBookingInfo(form:NgForm){
+    console.log(form.value);
   }
 
 }

@@ -21,6 +21,7 @@ export class RestaurantDetailsComponent implements OnInit {
   restaurant!: Restaurant;
   dishesList!: Dish[];
   availableTables: Promise<Table[]> | undefined;
+  reservatioinPrice!:number;
 
 
   constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService) { }
@@ -88,6 +89,10 @@ export class RestaurantDetailsComponent implements OnInit {
       });
   }
 
+  confirmReservation(price:number){
+    this.reservatioinPrice=price;
+
+  }
 
 
 

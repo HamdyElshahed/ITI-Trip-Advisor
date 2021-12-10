@@ -69,7 +69,8 @@
 
             </div>
             <div class="col-md-6">
-              <app-available-tables *ngIf="availableTables|async" [tables]="availableTables "></app-available-tables>
+              <app-available-tables (selectedTablePrice)="confirmReservation($event)" *ngIf="availableTables|async" [tables]="availableTables "></app-available-tables>
+              <app-payment [price]="reservatioinPrice" [restaurantID]="restaurantId"></app-payment>
               <!-- <ng-template #NoTables><h4>There is no tables available at this time</h4></ng-template> -->
             </div>
           </div>
