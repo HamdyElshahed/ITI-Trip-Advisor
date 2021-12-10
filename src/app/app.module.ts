@@ -29,6 +29,8 @@ import { IconicFeaturesListComponent } from './components/restaurant/iconic-feat
 import { MenuComponent } from './components/restaurant/menu/menu.component';
 import { AddNewDishModalComponent } from './components/restaurant/add-new-dish-modal/add-new-dish-modal.component';
 import { FormsModule } from '@angular/forms';
+import { ReservationCardComponent } from './components/restaurant/reservation-card/reservation-card.component';
+import { AvailableTablesComponent } from './components/restaurant/available-tables/available-tables.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { FormsModule } from '@angular/forms';
     IconicFeaturesListComponent,
     MenuComponent,
     AddNewDishModalComponent,
+    ReservationCardComponent,
+    AvailableTablesComponent,
   ],
   imports: [
     BrowserModule,

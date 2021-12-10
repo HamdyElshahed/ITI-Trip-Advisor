@@ -1,0 +1,32 @@
+<div class="card">
+  <h5 class="card-header text-center">Reservation</h5>
+  <div class="card-body">
+    <form class="form">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd"
+                 name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-black" (click)="d.toggle()" type="button">
+              <i class="fas fa-calendar-day"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row my-3 align-items-center justify-content-center">
+      <div class="col-sm-6">
+        <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+
+      </div>
+      <div class="col-sm-6 ">
+        <select type="number" [(ngModel)]="personsNo">
+          <option *ngFor="let person of persons" [ngValue]="person.num">{{person.num}}&ThickSpace;{{person.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100" (click)="findAvailableTables()">Find a Table</button>
+  </div>
+</div>

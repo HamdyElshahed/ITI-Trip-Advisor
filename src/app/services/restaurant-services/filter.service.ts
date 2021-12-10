@@ -1,8 +1,10 @@
+import { Time } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, QueryDocumentSnapshot } from '@angular/fire/compat/firestore';
 import { getDocs, query, QuerySnapshot, where } from '@firebase/firestore';
+import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 import { Observable, Subject } from 'rxjs';
-import { Dish, Location, Restaurant } from 'src/app/models/restaurant.model';
+import { Dish, Location, OpenTime, Restaurant, Table } from 'src/app/models/restaurant.model';
 import { environment, setLocation } from 'src/environments/environment';
 
 @Injectable({
@@ -164,8 +166,8 @@ export class FilterService {
     return this.firestore.collection<Restaurant>('restaurant', ref => ref.where('id', "==", id)).valueChanges();
 
   }
-  getMenuById(id:string): Observable<Dish[]> {
-    return this.firestore.collection<Dish>(`restaurant/${id}/menu`).valueChanges();
+  getMenuList(restaurantId:string): Observable<Dish[]> {
+    return this.firestore.collection<Dish>(`restaurant/${restaurantId}/menu`).valueChanges();
   }
 
   addNewDish(restaurantId:string,dish: Dish) {
@@ -176,5 +178,29 @@ export class FilterService {
     this.firestore.collection<Dish>(`restaurant/${restaurantId}/menu`).doc(id).set(dish);
     console.log(dish);
   }
+  /**
+   *
+   * @param restaurantId represent the current restaurant id
+   * @param day represent the day of the week number for example sunday =0 monday=1 ...etc
+   * @param time time object from ... to in 24 hours format
+   */
+  addOpenTime(restaurantId:string,day: string,time:OpenTime) {
 
+    this.firestore.collection<OpenTime>(`restaurant/${restaurantId}/hours`).doc(day).set(time);
+    console.log(time);
+  }
+
+  getTablesList(restaurantId:string): Observable<Table[]> {
+    return this.firestore.collection<Table>(`restaurant/${restaurantId}/Available_Tables`).valueChanges();
+  }
+
+  getAvailableTables(restaurantId:string): Observable<Table[]> {
+    return this.firestore.collection<Table>(`restaurant/${restaurantId}/Available_Tables`, ref => ref.where('available', "==", true)).valueChanges();
+  }
+
+
+  getRestaurantOpenTimeAt(restaurantId:string,day:string): Observable<any> {
+
+    return this.firestore.collection<OpenTime>(`restaurant`).doc(restaurantId).collection<OpenTime>('hours').doc(day).get();
+  }
 }

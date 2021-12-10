@@ -41,12 +41,25 @@ export interface Location {
   display_address: string[];
 }
 
-export interface Dish{
-  id:string;
-  name:string;
-  image_url:string;
-  price:number;
-  category:string;
+export interface Dish {
+  id: string;
+  name: string;
+  image_url: string;
+  price: number;
+  category: string;
+}
+export interface Time {
+  start:number,
+  end: number,
+}
+export interface OpenTime {
+  start:number,
+  end: number,
+}
+export interface Table {
+  id: string;
+  available: boolean;
+  maxPersonsNo: number
 }
 
 
@@ -195,7 +208,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://s3-media1.fl.yelpcdn.com/bphoto/7f_WdNLCGZmjUQEw6h6xoQ/o.jpg",
       "https://s3-media2.fl.yelpcdn.com/bphoto/eqMn--a_zt-qU-62tWuYUw/o.jpg"
     ],
-   "price": "$$",
+    "price": "$$",
     "location": {
       "address1": "205 E Houston St",
       "address2": "",
@@ -266,8 +279,8 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],
-  "price": "$$",
+    ],
+    "price": "$$",
     "location": {
       "address1": "65 4th Ave",
       "address2": "",
@@ -335,7 +348,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -346,7 +359,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$",
+    ], "price": "$",
     "location": {
       "address1": "W 53rd St",
       "address2": null,
@@ -378,7 +391,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
         "title": "Parks"
       }
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -389,7 +402,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],
+    ],
     "features": [
       "Reservations",
       "Has TV",
@@ -446,7 +459,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
         "title": "Art Museums"
       }
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -457,7 +470,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],
+    ],
     "features": [
       "Reservations",
       "Has TV",
@@ -541,7 +554,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
     "transactions": [
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -552,7 +565,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$",
+    ], "price": "$",
     "location": {
       "address1": "75 9th Ave",
       "address2": "",
@@ -620,7 +633,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -631,7 +644,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$",
+    ], "price": "$$",
     "location": {
       "address1": "253 W 51st St",
       "address2": "",
@@ -699,7 +712,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -710,7 +723,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$",
+    ], "price": "$$",
     "location": {
       "address1": "174 2nd Ave",
       "address2": "",
@@ -778,7 +791,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -789,7 +802,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$",
+    ], "price": "$",
     "location": {
       "address1": "225 W 35th St",
       "address2": "",
@@ -849,7 +862,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -860,7 +873,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$",
+    ], "price": "$$",
     "location": {
       "address1": "5 E 19th St",
       "address2": "G Floor",
@@ -925,7 +938,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -936,7 +949,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$",
+    ], "price": "$",
     "location": {
       "address1": "27 Prince St",
       "address2": "",
@@ -999,7 +1012,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1010,7 +1023,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$",
+    ], "price": "$$",
     "location": {
       "address1": "39 W 19th St",
       "address2": "",
@@ -1064,7 +1077,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
     "transactions": [
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1075,7 +1088,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$$$",
+    ], "price": "$$$$",
     "location": {
       "address1": "42 E 20th St",
       "address2": "",
@@ -1121,7 +1134,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "Waiter Service",
       "Wheelchair Accessible"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1132,7 +1145,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],
+    ],
     "rating": 4.5,
     "coordinates": {
       "latitude": 40.739662,
@@ -1190,7 +1203,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "longitude": -73.962478
     },
     "transactions": [],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1201,7 +1214,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$$$",
+    ], "price": "$$$$",
     "location": {
       "address1": "178 Broadway",
       "address2": "",
@@ -1262,7 +1275,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "pickup",
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1273,7 +1286,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$",
+    ], "price": "$$",
     "location": {
       "address1": "379 Grand St",
       "address2": "",
@@ -1326,7 +1339,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "latitude": 40.71144,
       "longitude": -74.01301
     },
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1337,7 +1350,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],
+    ],
     "transactions": [],
     "location": {
       "address1": "180 Greenwich St",
@@ -1402,7 +1415,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
     "transactions": [
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1413,7 +1426,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$$",
+    ], "price": "$$",
     "location": {
       "address1": "4 Clinton St",
       "address2": "",
@@ -1469,7 +1482,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
     "transactions": [
       "delivery"
     ],
-    "photos":[
+    "photos": [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwzfHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
@@ -1480,7 +1493,7 @@ export const ALLRESTAURANTS: Restaurant[] = [
       "https://images.unsplash.com/photo-1467003909585-2f8a72700288?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw4fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1484723091739-30a097e8f929?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHw5fHxmb29kfGVufDB8fHx8MTYzODU2MjQ1Nw&ixlib=rb-1.2.1&q=80&w=1080",
       "https://images.unsplash.com/photo-1498837167922-ddd27525d352?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjgxMTV8MHwxfHNlYXJjaHwxMHx8Zm9vZHxlbnwwfHx8fDE2Mzg1NjI0NTc&ixlib=rb-1.2.1&q=80&w=1080"
-  ],"price": "$",
+    ], "price": "$",
     "location": {
       "address1": "229 W 43rd St",
       "address2": "",
