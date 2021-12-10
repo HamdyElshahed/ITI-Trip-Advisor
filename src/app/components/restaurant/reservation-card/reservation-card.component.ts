@@ -40,6 +40,7 @@ export class ReservationCardComponent implements OnInit {
     findAvailableTables(){
       console.log(this.time);
       this.findAvailableTablesList.emit([this.model,this.time,this.personsNo]);
+
     }
 
 }

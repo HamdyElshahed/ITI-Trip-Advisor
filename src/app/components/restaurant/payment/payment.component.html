@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="col-md-5">
-      <button type="submit" class="btn btn-success btn-block">Pay ${{price}}</button>
+      <button type="submit" [disabled]="!myForm.valid" class="btn btn-success btn-block">Pay ${{price}}</button>
     </div>
   </form>
 </div>
