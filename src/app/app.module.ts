@@ -32,6 +32,7 @@ import { FormsModule } from '@angular/forms';
 import { ReservationCardComponent } from './components/restaurant/reservation-card/reservation-card.component';
 import { AvailableTablesComponent } from './components/restaurant/available-tables/available-tables.component';
 import { PaymentComponent } from './components/restaurant/payment/payment.component';
+import { AddNewRestaurantComponent } from './components/restaurant/add-new-restaurant/add-new-restaurant.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { PaymentComponent } from './components/restaurant/payment/payment.compon
     ReservationCardComponent,
     AvailableTablesComponent,
     PaymentComponent,
+    AddNewRestaurantComponent,
   ],
   imports: [
     BrowserModule,
