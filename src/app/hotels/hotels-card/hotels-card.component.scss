@@ -1,0 +1,35 @@
+$myColor: #eeee;
+$mybackground: black;
+
+h3 {
+  font-family: "Playfair Display", serif;
+  color: darkblue;
+}
+
+.side {
+  background-color: $myColor;
+  border: rgb(175, 173, 173);
+}
+
+a {
+  text-decoration: none;
+  color: $mybackground;
+}
+.room {
+  background-color: white;
+}
+.roomimg {
+  float: left;
+  padding: 7px;
+  width: 300px;
+}
+.btn-1 {
+  //    background-color:#ccc8c8;
+  color: black;
+  font-size: 12px;
+  width: 15%;
+}
+
+.btn-1:hover {
+  transform: rotate(40deg);
+}

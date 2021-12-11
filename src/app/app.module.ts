@@ -16,11 +16,6 @@ import { CardbadgComponent } from './components/layout/cardbadg/cardbadg.compone
 import { Cardstyle1Component } from './components/layout/cardstyle1/cardstyle1.component';
 import { Cardstyle2Component } from './components/layout/cardstyle2/cardstyle2.component';
 import { Cardstyle3Component } from './components/layout/cardstyle3/cardstyle3.component';
-import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule  } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { FormsModule } from '@angular/forms';
 import { VerifyEmailComponent } from './components/auth/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { Cardstyle4Component } from './components/layout/cardstyle4/cardstyle4.component';
@@ -28,9 +23,26 @@ import { NavitemComponent } from './components/layout/navitem/navitem.component'
 import { SearchrecentitemComponent } from './components/layout/searchrecentitem/searchrecentitem.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import { HotelsComponent } from './hotels/hotels/hotels.component';
+import { HotelsCardComponent } from './hotels/hotels-card/hotels-card.component';
+import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { PlaceComponent } from './hotels/places/place.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HotelsDetailsComponent } from './hotels/hotels-details/hotels-details.component';
+import { HttpInterceptor } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './interceptors';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -53,22 +65,36 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NavitemComponent,
     SearchrecentitemComponent,
     SearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    HotelsComponent,
+    HotelsCardComponent,
+    PlaceComponent,
+    HotelsDetailsComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
     AngularFirestoreModule,
     CarouselModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule,
     NgxSpinnerModule,
+    FontAwesomeModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+    NgbModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ],
+  exports: [TranslateModule],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
+
 })
-export class AppModule { }
+export class AppModule {}

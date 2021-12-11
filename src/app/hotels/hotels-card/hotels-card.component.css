@@ -1,0 +1,36 @@
+h3 {
+  font-family: "Playfair Display", serif;
+  color: darkblue;
+}
+
+.side {
+  background-color: #eeee;
+  border: #afadad;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.room {
+  background-color: white;
+}
+
+.roomimg {
+  float: left;
+  padding: 7px;
+  width: 300px;
+}
+
+.btn-1 {
+  color: black;
+  font-size: 12px;
+  width: 15%;
+}
+
+.btn-1:hover {
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+/*# sourceMappingURL=hotels-card.component.css.map */

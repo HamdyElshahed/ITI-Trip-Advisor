@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,EAAE,CAAC;EACD,SAAS,EAAE,GAAG;EACd,WAAW,EAAE,4BAA4B;EACzC,KAAK,EAAE,KAAK;CACb;;AAED,AAAA,CAAC,CAAC;EACA,SAAS,EAAE,IAAI;CAChB;;AAED,AAAA,EAAE,CAAC;EACD,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,KAAK;EAChB,KAAK,EAAE,SAAS;CACjB;;AACD,AAAA,CAAC,CAAC;EACA,KAAK,EAAE,SAAS;CACjB",
+    "sources": [
+        "hotels-details.component.scss"
+    ],
+    "names": [],
+    "file": "hotels-details.component.css"
+}

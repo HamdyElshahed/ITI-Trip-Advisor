@@ -1,0 +1,91 @@
+<div class="container">
+  <h2 style="color: black; font-weight: 500; font-size: larger; margin-top: 15px;"> {{hotels[0].name}}</h2>
+ <p><i> review count:{{hotels[0].reviewCount}}</i></p>
+  <div class="row">
+
+  <h2>{{'details.live photo'| translate}}</h2>
+  <div>
+  <a href="#"><img  [src]="hotels[0].imgUrl[0]" alt="" width="20%"></a>
+   <a href="#"><img [src]="hotels[0].imgUrl[1]" alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels[0].imgUrl[2]" alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels[0].imgUrl[3]"  alt="" width="20%"></a>
+  </div>
+  </div>
+  <div class="row mt-3">
+
+  </div>
+  <div class="row">
+      <div class="col-4 bg-light">
+          <h3>
+            <h3 style="font-size:22px; color: #000;"> about:</h3>  {{hotels[0].About}}
+      </h3>
+   <hr>
+  <!-- <p style="font-size: 15px;">
+  {{'details.artical'|translate}}
+  </p> -->
+  </div>
+      <div class="col-8 bg-light ml-4 ">
+        <ul>
+          <div *ngIf="!langflag">
+              <h3> feature of room</h3>
+             <li *ngFor="let feature of hotels[0].feature">{{feature}}</li>
+          </div>
+          <div *ngIf="langflag">
+            <li *ngFor="let feature of hotels[0].featurear">{{feature}}</li>
+         </div>
+        </ul>
+
+          <h3>{{'details.Amenities'|translate}}</h3>
+          <i class="fas fa-parking f-2"></i> {{'details.freeparking'|translate}} <br>
+          <i class="fas fa-swimming-pool f-2"></i>{{'details.freeparking'|translate}}  <br>
+          <i class="fas fa-umbrella-beach f-2"></i> {{'details.beach'|translate}} <br>
+          <i class="fas fa-wifi f-2"></i> {{'details.free-wifi'|translate}}  <br>
+          <i class="fas fa-car f-2"></i> {{'details.free airport transpotation'|translate}}  <br>
+          <i class="fas fa-glass-martini f-2"></i> {{'details.bar'|translate}} <br>
+          <i class="fas fa-child f-2"></i> {{'details.childerenactivity'|translate}} <br>
+          <i class="fal fa-washer f-2"></i> {{'details.house keeping'|translate}} <br>
+          <hr>
+          <h3>{{ 'details.hotelclass'|translate}}</h3>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <hr>
+          <h3>{{'details.room view'|translate}}</h3>
+          <i class="fas fa-mountain"></i> {{'details.ocean view'|translate}} <br>
+          <!-- <i class="fas fa-swimming-pool"></i>{{'details.poolview'|translate}} <br> -->
+          <i class="fas fa-smoking-ban"></i> {{'details.non smoking room'|translate}}
+      </div>
+    </div>
+  </div>
+  <hr>
+<div class="container">
+  <div class="row bg-light mt-3">
+      <h2> <h3 style="font-size:22px; color: #000;">review:</h3>
+        {{hotels[0].review}}</h2>
+  </div>
+
+  <h3>
+    {{'details.popular mention'|translate}}
+  </h3>
+  <button type="button" class="btn btn-outline-primary">{{'details.primary'|translate}}</button>
+<button type="button" class="btn btn-outline-dark">{{'details.allreview'|translate}}</button>
+<button type="button" class="btn btn-outline-success">{{'details.goatislancafe'|translate}}</button>
+<button type="button" class="btn btn-outline-danger">american somoa</button>
+<button type="button" class="btn btn-outline-warning">{{'details.carrental'|translate}}</button>
+<button type="button" class="btn btn-outline-info">bay</button>
+<button type="button" class="btn btn-outline-warning">{{'details.shopping'|translate}}</button>
+
+<nav aria-label="...">
+  <ul class="pagination p-2 mt-3">
+    <li class="page-item  ">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">{{'details.Previous'|translate}}</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">{{'details.Next'|translate}}</a>
+    </li>
+  </ul>
+</nav>
+</div>

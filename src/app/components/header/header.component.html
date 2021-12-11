@@ -1,0 +1,92 @@
+<div class="container">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light" id="mainHeader">
+    <a class="navbar-brand d-flex" href="../index.html">
+        <img src="assets/logo.png" width="60" height="60">
+        <h1>Trip Advisor</h1>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" id="headUl">
+            <li class="nav-item">
+                <form class="form-inline my-2 d-flex ">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">{{'header.Search'|translate}}</button>
+                </form>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link " href="#">
+                    <i class="fas fa-pen d-flex">
+                        <p>{{'header.Review'|translate}}</p>
+                    </i>
+
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">
+                    <i class="far fa-heart d-flex ">
+                        <h5>{{'header.Trips'|translate}}</h5>
+                    </i>
+
+
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">
+                    <i class="fas fa-bell d-flex">
+                        <p>{{'header.Alerts'|translate}}</p>
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../login.html"> <img
+                        src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/e4/a9/default-avatar-2020-50.jpg"
+                        width="50" height="50" style="border-radius: 50%;"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+  <nav class="navbar  navbar-expand-lg navbar-light  bg-light p-2 mt-3s">
+      <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" routerLink="/hotels">{{'header.hotels' | translate }}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" routerLink="/visitsplaces">{{'header.thingstodo'|translate}}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="flights.html">{{'header.flights'|translate}}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="../restaurants/restaurants.html">{{'header.resturants'|translate}}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link " href="../vacation/vacation.html">  {{'header.vaccationRental'|translate}}</a>
+
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link " href="airplan.html" tabindex="-1" aria-disabled="true">{{'header.AirlinesPlanning'|translate}}</a>
+
+                  </li>
+              </ul>
+          </div>
+         <!-- <button *ngIf="currentLang=='en'" (click)="changeCurrentLang('ar')" type="button" class="btn btn-accent"> Arabic</button>
+          <button *ngIf="currentLang=='ar'"  (click)="changeCurrentLang('en')"  type="button" class="btn btn-accent">English</button> -->
+          <button (click)="change(btn)"  type="button" class="btn btn-accent" #btn>English</button>
+      </div>
+
+  </nav>
+
+
+</div>

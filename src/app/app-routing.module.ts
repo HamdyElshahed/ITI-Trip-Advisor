@@ -1,3 +1,6 @@
+import { HotelsDetailsComponent } from './hotels/hotels-details/hotels-details.component';
+import { PlaceComponent } from './hotels/places/place.component';
+import { HotelsComponent } from './hotels/hotels/hotels.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -18,11 +21,15 @@ const routes: Routes = [
   {path: 'verify-email' , component: VerifyEmailComponent},
   {path: 'forgot-password' , component: ForgotPasswordComponent},
   {path: 'search' , component: SearchComponent},
-
+  // { path: '', redirectTo: '/hotels', pathMatch: 'full' },
+  { path: 'hotels', component: HotelsComponent },
+  { path: 'visitsplaces', component: PlaceComponent },
+  { path: 'hotels-details/:id', component: HotelsDetailsComponent },
+  { path: '**', redirectTo: '/visitsplaces', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
