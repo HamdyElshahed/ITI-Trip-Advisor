@@ -1,4 +1,4 @@
-<a href="hotels/america.html" class="section2anchor py-3 px-3 align-middle d-flex justify-content-between">
+<a [routerLink]="item.route" class="section2anchor py-3 px-3 align-middle d-flex justify-content-between">
   <span>{{item.name}}</span>
   <span>
     <svg *ngIf="item.name === 'Hotels'" viewBox="0 0 24 24" width="24px" height="24px" class="fecdL d Vb wQMPa">

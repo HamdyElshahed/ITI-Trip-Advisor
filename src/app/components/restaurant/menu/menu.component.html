@@ -1,0 +1,19 @@
+<owl-carousel-o [options]="customOptions">
+
+  <ng-container *ngFor="let dish of dishesList">
+    <ng-template  carouselSlide [id]="dish.id">
+      <div class="card">
+
+        <img class="card-img-top" [src]="dish.image_url" alt="Random first slide" width="100%" height="auto" style="object-fit: cover;">
+
+        <div class="card-body ps-3">
+          <h5 class="card-title mb-1">{{dish.name}}</h5>
+          <h6 class="card-title mb-1 text-muted">{{dish.category}}</h6>
+          <p class="card-text">{{dish.price}} &ThickSpace;$</p>
+        </div>
+      </div>
+
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>

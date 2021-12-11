@@ -1,0 +1,13 @@
+  <h3 class="mb-3">{{filterByFeatur}}</h3>
+
+<owl-carousel-o [options]="customOptions" class="carousel-res" >
+
+  <ng-container *ngFor="let restaurant of restaurantsList">
+    <ng-template  carouselSlide [id]="restaurant.id">
+     <app-card [restaurant]="restaurant"></app-card>
+
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>
+

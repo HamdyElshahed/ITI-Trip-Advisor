@@ -40,10 +40,28 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './interceptors';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireStorageModule ,BUCKET} from '@angular/fire/compat/storage';
+import { GoogleMapsModule } from '@angular/google-maps';
+import {  HttpClientJsonpModule } from '@angular/common/http';
+import { FilterItemComponent } from './components/restaurant/filter-item/filter-item.component';
+import { RestaurantsComponent } from './components/restaurant/restaurants/restaurants.component';
+import { RestaurantOwlCarouselComponent } from './components/restaurant/restaurant-owl-carousel/restaurant-owl-carousel.component';
+import { CardComponent } from './components/restaurant/card/card.component';
+import { DetailedCardComponent } from './components/restaurant/detailed-card/detailed-card.component';
+import { DetailedCardListComponent } from './components/restaurant/detailed-card-list/detailed-card-list.component';
+import { RestaurantDetailsComponent } from './components/restaurant/restaurant-details/restaurant-details.component';
+import { MapComponent } from './components/restaurant/map/map.component';
+import { IconicFeaturesListComponent } from './components/restaurant/iconic-features-list/iconic-features-list.component';
+import { MenuComponent } from './components/restaurant/menu/menu.component';
+import { AddNewDishModalComponent } from './components/restaurant/add-new-dish-modal/add-new-dish-modal.component';
+import { ReservationCardComponent } from './components/restaurant/reservation-card/reservation-card.component';
+import { AvailableTablesComponent } from './components/restaurant/available-tables/available-tables.component';
+import { PaymentComponent } from './components/restaurant/payment/payment.component';
+import { AddNewRestaurantComponent } from './components/restaurant/add-new-restaurant/add-new-restaurant.component';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +88,23 @@ export function createTranslateLoader(http: HttpClient) {
     HotelsCardComponent,
     PlaceComponent,
     HotelsDetailsComponent,
+    FilterItemComponent,
+    RestaurantsComponent,
+    RestaurantOwlCarouselComponent,
+    CardComponent,
+    FooterComponent,
+    HeaderComponent,
+    DetailedCardComponent,
+    DetailedCardListComponent,
+    RestaurantDetailsComponent,
+    MapComponent,
+    IconicFeaturesListComponent,
+    MenuComponent,
+    AddNewDishModalComponent,
+    ReservationCardComponent,
+    AvailableTablesComponent,
+    PaymentComponent,
+    AddNewRestaurantComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,11 +112,17 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     CarouselModule,
     FormsModule,
     AppRoutingModule,
     NgxSpinnerModule,
     FontAwesomeModule,
+    CarouselModule,
+    NgbModule,
+    // GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -93,7 +134,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ],
   exports: [TranslateModule],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders ,{ provide: BUCKET, useValue: 'iti-trip-advisor.appspot.com' }],
   bootstrap: [AppComponent]
 
 })

@@ -1,0 +1,16 @@
+.features div{
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  align-items: center;
+
+}
+
+.features div i{
+  width: 30px;
+  padding-inline-end:  8px;
+}
+// .features div span{
+//   width: 95%;
+// }
+

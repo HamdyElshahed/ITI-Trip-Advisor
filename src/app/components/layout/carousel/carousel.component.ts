@@ -10,11 +10,11 @@ export class CarouselComponent implements OnInit {
   @Input() carousel!: string;
   @Input() arr!: any[];
   @Input() arrnav: any[] = [
-    {name: 'Hotels',},
-    {name: 'Vacation Rentals'},
-    {name: 'Restaurants'},
-    {name: 'About Us'},
-    {name: 'Contact Us'},
+    {name: 'Hotels', route : 'ht'},
+    {name: 'Vacation Rentals' , route : 'vac'},
+    {name: 'Restaurants' , route : 'res'},
+    {name: 'About Us' , route : 'about-us'},
+    {name: 'Contact Us' , route : 'contact-us'},
     {name: 'More',},
   ];
   constructor() {}

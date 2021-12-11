@@ -1,0 +1,44 @@
+<h3>Amenities and More</h3>
+<div *ngFor="let feature of restaurant.features">
+<div class="row">
+  <div class="ps-3 features" [ngSwitch]="feature">
+    <div *ngSwitchCase="'Reservations'">
+      <i class="fas fa-utensils pe-3"></i>
+      <span>{{feature}}</span>
+    </div>
+    <div *ngSwitchCase="'Has TV'">
+      <i class="fas fa-tv  pe-3"></i>
+      <span>{{feature}}</span>
+    </div>
+    <div *ngSwitchCase="'Staff wears masks'">
+      <i class="fas fa-head-side-mask  pe-3"></i>
+      <span>{{feature}}</span></div>
+    <div *ngSwitchCase="'Good For Kids'">
+      <i class="fas fa-child  pe-3"></i>
+      <span>{{feature}}</span>
+    </div>
+    <div *ngSwitchCase="'Delivery'">
+      <i class="fas fa-truck  pe-3"></i>
+      <span>{{feature}}</span>
+    </div>
+    <div *ngSwitchCase="'Good for Groups'">
+      <i class="fas fa-users  pe-3"></i> <span>{{feature}}</span>
+    </div>
+    <div *ngSwitchCase="'Accepts Credit Cards'">
+      <i class="fab fa-cc-visa  pe-3"></i>
+      <span>{{feature}}</span> </div>
+    <div *ngSwitchCase="'Outdoor Seating'">
+      <i class="fas fa-chair  pe-3"></i>
+      <span>{{feature}}</span>
+    </div>
+    <div *ngSwitchCase="'Dinner'">
+      <i class="fas fa-utensils  pe-3"></i>
+      <span>{{feature}}</span> </div>
+    <div *ngSwitchCase="'Waiter Service'">
+      <i class="fas fa-concierge-bell  pe-3"></i>
+      <span>{{feature}}</span>
+    </div>
+  </div>
+    <!-- <div *ngSwitchDefault><span>{{feature}}</span></div> -->
+  </div>
+</div>

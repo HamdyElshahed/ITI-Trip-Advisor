@@ -1,0 +1,48 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add New Dish</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #myForm="ngForm" (submit)="addNewDish(modal,myForm)">
+      <div class="form-group">
+        <div class="mb-3">
+          <label class="form-label">Dish Name</label>
+          <input ngModel type="text" class="form-control" name="name" placeholder="name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Dish Category</label>
+          <input ngModel type="text" class="form-control" name="category" placeholder="category"required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Dish Price</label>
+          <input ngModel type="number" class="form-control" name="price" placeholder="price" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Choose a Picture</label>
+          <input ngModel name="image_url" class="form-control" type="file" id="formFile" (change)="uploadFile($event)"  required>
+
+        </div>
+        <span class="mb-3" *ngIf="uploadPercent">
+          <ngb-progressbar class="progress" type="dark" textType="white" [value]="uploadPercent" [showValue]="true"></ngb-progressbar>
+        </span>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-dark" [disabled]="!myForm.valid">Save</button>
+
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</ng-template>
+
+<button mdbRipple type="button" class="btn btn-dark edit-button" (click)="open(content)">
+  <i class="fas fa-plus-circle"></i>
+  <span class="ps-2">Add a dish</span>
+</button>

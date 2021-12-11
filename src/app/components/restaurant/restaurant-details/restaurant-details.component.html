@@ -1,0 +1,122 @@
+<app-header></app-header>
+<div>
+  <div class="row">
+    <ngb-carousel *ngIf="restaurant">
+      <ng-template *ngFor="let photo of restaurant.photos; let indx=index" ngbSlide>
+        <div class="picsum-img-wrapper bg-image">
+          <img [src]="photo" alt="Random first slide" width="100%" height="500px" style="object-fit: cover;">
+          <div class="mask" style="background-color: rgba(31, 30, 30, 0.404);height: -50%;"></div>
+        </div>
+        <div class="carousel-caption">
+          <h1 class="font-weight-bolder restaurant-name">{{restaurant.name}}</h1>
+          <div class="d-flex align-items-end">
+            <ng-template #t let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                <span class="half" [style.width.%]="fill">&bullet;</span>&bullet;
+              </span>
+            </ng-template>
+
+            <ngb-rating class="ngb-rating-height" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5">
+            </ngb-rating>
+            <span class="categ-title">{{restaurant.review_count}} <span>Reviews</span></span>
+          </div>
+          <div class="d-flex text-truncate fs-3">
+            <span *ngFor="let categ of restaurant.categories">
+              <span>{{categ.title}}&ThinSpace;</span>
+            </span>
+            <Span>{{restaurant.price}}</Span>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="row rounded ms-0 me-0">
+    <!--- Restaurant-->
+    <div class="container p-0 ">
+      <div class="row m-3">
+        <div class="col-md-3">
+          <h5 class="text-succes"><i class="fas fa-map-signs pe-3"></i>{{restaurant.location.address1}} </h5>
+          <h6><i class="fas fa-map-marked-alt pe-3"></i>{{restaurant.location.display_address[1]}} </h6>
+          <span><i class="fas fa-phone pe-3"></i> {{restaurant.display_phone}}</span>
+        </div>
+        <div class="col-md-9 navMenu">
+          <h2 class="text-left p-4 font-italic font-weight-bold">~ {{restaurant?.name}} ~</h2>
+        </div>
+      </div>
+      <div class="row  ms-2">
+        <div class=" col-md-8 bg-light mb-3 rounded ">
+          <div>
+            <h3>Welcome</h3>
+            <p>Thanks for stopping by. We are serving delicious
+              cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out
+              our menu. We hope you'll soon join us for a superb culinary experience.</p>
+          </div>
+          <div class="row my-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h3>Menu</h3>
+                <p>Most Mensioned dishes</p>
+              </div>
+
+              <app-add-new-dish-modal (addNewMenuDish)="addNewDish($event)"></app-add-new-dish-modal>
+
+            </div>
+            <app-menu [dishesList]="dishesList"></app-menu>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-iconic-features-list [restaurant]="restaurant"></app-iconic-features-list>
+
+            </div>
+            <div class="col-md-6">
+              <app-available-tables (selectedTablePrice)="confirmReservation($event)" *ngIf="availableTables|async" [tables]="availableTables "></app-available-tables>
+              <app-payment [price]="reservatioinPrice" [restaurantID]="restaurantId"></app-payment>
+              <!-- <ng-template #NoTables><h4>There is no tables available at this time</h4></ng-template> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="card mb-3 ">
+            <div class="card-body fs-4">
+              <div class="d-flex justify-content-between">
+                <a class="text-info text-decoration-none" href={{restaurant.url}}>
+                  <h5>www.{{restaurant.name}}.com</h5>
+                </a>
+                <i class="fas fa-external-link-alt"></i>
+              </div>
+              <div style="height: 1px; background-color: rgb(243, 227, 227); margin-block: 3%;"></div>
+              <div class="d-flex justify-content-between">
+                <h5>{{restaurant.display_phone}}</h5>
+                <i class="fas fa-phone"></i>
+              </div>
+              <div style="height: 1px; background-color: rgb(243, 227, 227); margin-block: 3%;"></div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="text-info">Get direction</h5>
+                  <h6 class="text-muted">{{restaurant.location.display_address[0]}}</h6>
+                  <h6 class="text-muted">{{restaurant.location.display_address[1]}}</h6>
+                </div>
+                <i class="far fa-map "></i>
+              </div>
+              <div style="height: 1px; background-color: rgb(243, 227, 227); margin-block: 3%;"></div>
+              <div class="d-flex justify-content-between">
+                <h5 class="text-info">{{restaurant.is_closed?"Closed":"Opend"}}</h5>
+                <i *ngIf="restaurant.is_closed" class="fas fa-door-closed"></i>
+                <i *ngIf="!restaurant.is_closed" class="fas fa-door-open"></i>
+              </div>
+            </div>
+          </div>
+          <app-map [lat]="restaurant.coordinates.latitude" [lang]="restaurant.coordinates.longitude"></app-map>
+          <div class="mt-3">
+            <app-reservation-card (findAvailableTablesList)="findAvailableTables($event)"></app-reservation-card>
+          </div>
+
+        </div>
+        <!--- End of Restaurant -->
+      </div>
+      <div class="row">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

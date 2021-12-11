@@ -1,0 +1,46 @@
+ <!-- <div class=" shadow-2 sticky-top bg-light">
+   <div class="container-fluid ">
+     <app-header></app-header>
+   </div>
+ </div> -->
+
+ <div class="container-fluid light-gray py-3">
+   <div class="row">
+     <div class="col-sm-4 col-md-4 col-lg-3 pe-lg-3">
+       <div class="card">
+         <div class="card-body pt-1">
+           <app-filter-item *ngFor="let filterItem of filterBy" [filterItemName]="filterItem"></app-filter-item>
+         </div>
+       </div>
+     </div>
+     <div class="col-sm-8 col-md-8 col-lg-9">
+       <div *ngIf="showCarousel ; else appCard" class="row">
+         <app-restaurant-owl-carousel *ngFor="let filter of filterByCommonFeatur" [filterByFeatur]="filter"
+           [restaurantsList]="restaurants"></app-restaurant-owl-carousel>
+         <app-detailed-card-list></app-detailed-card-list>
+
+         <div class="container py-4 " style="max-width: 70%;">
+           <div class="d-flex align-items-center justify-content-between">
+             <div class="d-flex justify-content-between  align-items-center">
+               <i class="fas fa-store fs-2 text-success pb-2 pe-3 "></i>
+               <div class="col">
+                 <h3>Can't find the restaurant?</h3>
+                 <p>Adding a restaurant to tripAdvisor is always free</p>
+               </div>
+             </div>
+             <a routerLink="/add-new-restaurant" class="btn btn-success">Add Restaurant</a>
+           </div>
+         </div>
+
+       </div>
+       <ng-template #appCard>
+         <app-detailed-card *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-detailed-card>
+
+       </ng-template>
+
+     </div>
+   </div>
+   <!-- <div class="row">
+     <app-footer></app-footer>
+   </div> -->
+ </div>

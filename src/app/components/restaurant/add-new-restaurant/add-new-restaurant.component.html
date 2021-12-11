@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container pe-1 pt-3">
+  <div class="row align-items-center justify-content-between">
+
+    <div class="col-md-6">
+      <p><strong>Please note:</strong> This restaurant page will not appear in search results until it has been approved
+        by our moderators.
+      </p>
+      <form #myForm="ngForm" (submit)="addNewRestaurant(myForm)">
+        <div class="form-group">
+          <div class="mb-3">
+            <label class="form-label">Country</label>
+            <input ngModel type="text" class="form-control" name="country" placeholder="Country" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Restaurant Name</label>
+            <input ngModel type="text" class="form-control" name="name" placeholder="category" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input ngModel type="text" class="form-control" name="address" placeholder="Address" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">city</label>
+            <input ngModel type="text" class="form-control" name="city" placeholder="City" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+            <input ngModel type="text" class="form-control" name="state" placeholder="State" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input ngModel type="number" class="form-control" name="phone" placeholder="Phone" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Website Address</label>
+            <input ngModel type="text" class="form-control" name="url" placeholder="Website" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <input ngModel type="text" class="form-control" name="category" placeholder="Category" required>
+          </div>
+
+          <div class="form-check">
+            <input ngModel class="form-check-input" name="is_claimed" type="checkbox" value="">
+            <label class="form-check-label">
+              I own this restaurant?
+            </label>
+          </div>
+          <button type="submit" class="btn btn-success my-3" [disabled]="!myForm.valid">Add Restaurant</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <img class="card-img-top"
+        src="https://cdn.dribbble.com/users/2417352/screenshots/14226632/media/4d425953a76c0218b669d391f3142195.png?compress=1&resize=1200x900"
+        width="100%" height="auto" style="object-fit: cover;">
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

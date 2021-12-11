@@ -1,0 +1,41 @@
+
+footer {
+    background-color: #FAF1ED;
+  }
+  
+  footer p {
+    color: #5a5151;
+  }
+  
+  footer a {
+    color: black;
+    font-weight: 520;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+    color: #56645f;
+  }
+  
+  footer span {
+    color: #5a5151;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  footer ul a {
+    text-decoration: none;
+  }
+  
+  .card-text,.card-title
+    { 
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      width: 160px; 
+      height: 1.2em; 
+      white-space: nowrap;
+    }
+  

@@ -1,0 +1,29 @@
+<div *ngIf="price" class="container">
+  <h4 class="mt-5 mb-4">Confirm Reservation</h4>
+
+
+  <form  #myForm="ngForm" (submit)="pay(myForm)">
+
+    <div class="form-group">
+      <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input ngModel type="text" class="form-control" name="fname" placeholder="first name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input ngModel type="text" class="form-control" name="lname" placeholder="last name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input ngModel type="email" class="form-control" name="email" placeholder="email" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Phone</label>
+        <input ngModel type="number" class="form-control" name="phone" placeholder="phone" required>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <button type="submit" [disabled]="!myForm.valid" class="btn btn-success btn-block">Pay ${{price}}</button>
+    </div>
+  </form>
+</div>

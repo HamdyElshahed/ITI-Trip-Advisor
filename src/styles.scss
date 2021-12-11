@@ -18,3 +18,33 @@
 // }
 
 /* Importing Bootstrap SCSS file. */
+
+// @import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+
+// MDB SCSS
+
+.carousel-res .owl-prev,
+.owl-next {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+}
+
+.carousel-res .owl-prev {
+  left: 0rem;
+  color: crimson;
+}
+
+.carousel-res .owl-next {
+  right: 0rem;
+}
+
+.carousel-res .owl-carousel .owl-stage {
+  display: flex;
+}
+
+.carousel-res .owl-carousel .owl-item img {
+  width: 220px;
+  height: 130px;
+}

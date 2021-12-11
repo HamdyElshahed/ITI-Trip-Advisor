@@ -1,0 +1,11 @@
+
+<h4>Top restaurants in New York</h4>
+
+<app-detailed-card *ngFor="let restaurant of topRestaurants | async" [restaurant]="restaurant"></app-detailed-card>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item me-3 " style="cursor: pointer;"><a class="page-link" (click)="prev()">Previous</a></li>
+
+    <li class="page-item" style="cursor: pointer;"><a class="page-link" (click)="next()" >Next</a></li>
+  </ul>
+</nav>
