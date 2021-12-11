@@ -51,4 +51,11 @@ export class ProfileService {
       reservations: arrayUnion({ category : category ,  reserv: reservData})
    });
   }
+  async updateResentlyView(reservData : any , category : any){
+    this.userId= JSON.parse(`${localStorage.getItem('user')}`);
+    let data = this.angularfirestore.firestore.doc(`Users/${this.userId.uid}`);
+    await updateDoc(data, {
+      resentlyview: arrayUnion({ category : category ,  reserv: reservData})
+   });
+  }
 }
