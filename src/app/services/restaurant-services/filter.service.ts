@@ -246,4 +246,6 @@ export class FilterService {
 
     return this.firestore.collection<OpenTime>(`restaurant`).doc(restaurantId).collection<OpenTime>('hours').doc(day).get();
   }
+
+
 }

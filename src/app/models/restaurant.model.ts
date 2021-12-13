@@ -3,21 +3,22 @@ export interface Restaurant {
   id: string;
   alias?: string;
   name: string;
-  image_url: string;
+  image_url?: string;
   is_closed?: boolean;
   url?: string;
   review_count?: number;
   categories: Category[];
-  features: string[];
+  features?: string[];
   rating?: number;
-  coordinates: Coordinates;
+  coordinates?: Coordinates;
   transactions?: any[];
-  photos: string[];
+  photos?: string[];
   price?: string;
   location: Location;
   phone?: string;
   display_phone?: string;
   distance?: number;
+  is_claimed?:boolean
 }
 
 export interface Category {
@@ -38,7 +39,7 @@ export interface Location {
   zip_code?: string;
   country: string;
   state?: string;
-  display_address: string[];
+  display_address?: string[];
 }
 
 export interface Dish {
