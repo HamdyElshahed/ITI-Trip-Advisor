@@ -1,19 +1,20 @@
-<div *ngFor="let hotel of hotels , let i =index">
-  <div class="row">
-      <div>
-          <img Class="roomimg" [src]="hotel.image_url" alt="">
-          <h3><a [routerLink]="['/hotels-details',Id[i]]">{{hotel.name}}</a></h3>
+<!-- <div *ngFor="let hotel of hotels , let i =index"> -->
+<div>
+      <div class="">
+          <img Class="rooming" [src]="hotels.image_url" alt="">
+          <h4><a [routerLink]="['/hotels-details/',hotels.Id]">{{hotels.name}}</a></h4>
           <!-- <p style="color: blue;">{{hotel.reviewCount}}</p> -->
           <!-- <h5>{{hotel.feature}}</h5> -->
-          <h5> rate:{{hotel.rate}}</h5>
-          <p> payment method :{{hotel.payment_method}}</p>
+          <button type="button" class="btn btn-outline-success">rate {{hotels.rate}}</button> <span style="font-size: 16px; font-weight: 600;">{{hotels.eval}}</span>
+          <!-- <h5 class="rate"> rate:{{hotels.rate}}</h5> -->
+          <p> payment method :{{hotels.payment_method}}</p>
           <!-- <p>phonenumber:{{hotel.phone_number}}<p> -->
-          <a href="#"> price: {{hotel.price |currency}}</a> <br>
-          <a href="#"> address: {{hotel?.location?.address}}</a> <br>
+        <span style="font-size: 10px;">price from</span>  <a href="#"> price: {{hotels.price |currency}}</a> <span style="font-size: 10px;">per night</span><br>
+          <a href="#"> <i class="fas fa-map-marker-edit"></i>Address: {{hotels?.location?.address?hotels?.location?.address:hotels?.location}}</a> <br>
           <a type="button" class="btn-1 btn-secondary btn-warning btn-lg mt-2" href="flights.html">view
               deal</a>
       </div>
-  </div>
+    </div>
   <hr>
   <!-- <div class="row">
       <div>
@@ -72,4 +73,4 @@
           <a type="button" class="btn-1 btn-secondary btn-warning btn-lg mt-2" href="flights.html">view
               deal</a>
       </div> -->
-  </div>
+  <!-- </div> -->
