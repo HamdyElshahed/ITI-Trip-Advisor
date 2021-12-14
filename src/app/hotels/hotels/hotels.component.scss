@@ -1,0 +1,30 @@
+.paging {
+  display: flex;
+  margin: 1.2rem;
+  font-size: 1.2rem;
+  color: #3e7a42;
+  font-weight: 400;
+}
+
+.paging__arrow {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0.5rem 1rem;
+}
+
+.paging__arrow:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+
+.paging__arrow:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+
+.paging__number {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0.5rem 1rem;
+}
+
+.paging__number.active {
+  background-color: #3e7a42;
+  color: white;
+}
