@@ -1,0 +1,55 @@
+<div class="container mx-5">
+  <div class="col-5 m-2">
+<form #form="ngForm" (submit)="book(form)">
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-10">
+    <input type="text" ngModel #email="ngModel" type="email"
+    placeholder="example@domain.com" ngModel
+    [ngClass]='{"invalid":email.invalid && email.touched ,"input":email.invalid && email.touched}'
+    ngModel required onfocus="" name="email" id="email" class="form-control" id="staticEmail" value="email">
+  </div>
+</div>
+
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">firstName</label>
+  <div class="col-sm-10">
+    <input type="text" name="firstName" ngModel  class="form-control" id="inputtext">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">lastName</label>
+  <div class="col-sm-10">
+    <input type="text" name="lastName" ngModel class="form-control" id="inputtext">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">numberofguest:</label>
+  <div class="col-sm-10">
+    <input type="number"  ngModel name="numberofguest" class="form-control" id="inputtext">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Category</label>
+  <div class="col-sm-10">
+    <input type="text" name="category" ngModel  class="form-control" id="inputtext">
+  </div>
+</div>
+<label  for="startdate">from:</label>
+  <input  style="width: 80%; margin-left: 20%; padding: 10px ; border-radius: 10px;" type="date" ngModel id="startdate" name="startdate"> <br>
+  <label for="to">to:</label>
+  <input style="width: 80%;margin-left: 20%; padding: 10px; border-radius: 10px; margin-bottom:10px;" type="date" id="to" ngModel name="enddate"> <br>
+
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">phone number</label>
+  <div class="col-sm-10">
+    <input type="number" name="phonenumber" ngModel #phone="ngModel" ngModel
+    [ngClass]='{"invalid":phone.invalid && phone.touched,"input":phone.invalid && phone.touched}'
+    required pattern="01(0|1|2|5)[0-9]{8}"  class="form-control" id="inputtext">
+  </div>
+</div>
+<button class="book" type="submit" > booking </button>
+</form>
+</div>
+</div>
+

@@ -58,6 +58,7 @@ import { ReservationCardComponent } from './components/restaurant/reservation-ca
 import { AvailableTablesComponent } from './components/restaurant/available-tables/available-tables.component';
 import { PaymentComponent } from './components/restaurant/payment/payment.component';
 import { AddNewRestaurantComponent } from './components/restaurant/add-new-restaurant/add-new-restaurant.component';
+import { BookingComponent } from './hotels/booking/booking.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -105,6 +106,7 @@ export function createTranslateLoader(http: HttpClient) {
     AvailableTablesComponent,
     PaymentComponent,
     AddNewRestaurantComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,
