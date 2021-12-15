@@ -1,7 +1,9 @@
 import { formatDate } from '@angular/common';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
+import { ProfileService } from 'src/app/services/profile.service';
 import { STRIP_KEY } from '../../../../strip'
 @Component({
   selector: 'app-payment',
@@ -11,26 +13,28 @@ import { STRIP_KEY } from '../../../../strip'
 export class PaymentComponent implements OnInit {
   paymentHandler: any = null;
   @Input() price!: number;
-  @Input() restaurantID!:string;
+  restaurantID!:string;
   formValue!: any;
-  constructor() { }
+  constructor(private profileServece:ProfileService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.restaurantID = this.activatedRoute.snapshot.params.id;
+    console.log(this.restaurantID);
     this.invokeStripe();
   }
-
-
 
   makePayment(amount: number | null) {
     let sendBookingInfo=this.sendBookingInfo;
     let formValues=this.formValue;
+    let restID=this.restaurantID;
+    let profileServ=this.profileServece;
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: STRIP_KEY,
       locale: 'auto',
       token: function (stripeToken: any) {
         console.log(stripeToken)
         alert('Stripe token generated!');
-        sendBookingInfo(formValues);
+        sendBookingInfo(formValues,restID,profileServ);
       }
     });
 
@@ -62,11 +66,12 @@ export class PaymentComponent implements OnInit {
     }
   }
 
-  sendBookingInfo(formValu:any) {
+  sendBookingInfo(formValu:any,restID,profileServece) {
     console.log(formValu);
-    let bookingData={...formValu,restaurantID:this.restaurantID};
+    let bookingData={...formValu,"restaurantID":restID};
     console.log(bookingData);
     //now booking info is ready to be sent to users booking collection
+    profileServece.updateReservations(bookingData,"restaurant");
   }
 
   pay(form: NgForm) {
