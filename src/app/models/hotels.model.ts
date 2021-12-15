@@ -1,3 +1,4 @@
+import { Location } from './restaurant.model';
 export interface hotels {
   features: string[];
   id: number;
