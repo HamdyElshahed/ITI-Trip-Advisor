@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./assets/css/style.scss";
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
@@ -8,6 +7,7 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+@import "./assets/css/style.scss";
 
 
 
@@ -23,28 +23,57 @@
 
 
 // MDB SCSS
-
 .carousel-res .owl-prev,
 .owl-next {
-  position: absolute;
-  top: 35%;
-  transform: translateY(-50%);
+  position: absolute !important;
+  top: 35% !important;
+  transform: translateY(-50%) !important;
 }
 
 .carousel-res .owl-prev {
-  left: 0rem;
-  color: crimson;
+  left: 0rem !important;
+  color: lightgray !important;
 }
 
 .carousel-res .owl-next {
-  right: 0rem;
+  right: 0rem !important;
+  color: lightgray !important;
+
 }
 
 .carousel-res .owl-carousel .owl-stage {
-  display: flex;
+  display: flex !important;
 }
 
 .carousel-res .owl-carousel .owl-item img {
-  width: 220px;
-  height: 130px;
+  height: 130px !important;
+}
+
+
+//horizontal animation
+
+* { box-sizing: border-box; }
+
+body,
+html { overflow-x: hidden; }
+
+.animated-text-container {
+
+  width: 100%;
+  font-size: 18px;
+}
+
+.animated-text-content {
+  display: block; /* Important to give the content a width */
+
+  width: 100%;
+  transform: translateX(90%); /* Animation start out of the screen */
+
+  /* Add the animation */
+  animation: move 30s linear infinite /* infinite make reapeat the animation indefinitely */;
+}
+
+/* Create the animation */
+@keyframes move {
+  to { transform: translateX(-100%); }
 }

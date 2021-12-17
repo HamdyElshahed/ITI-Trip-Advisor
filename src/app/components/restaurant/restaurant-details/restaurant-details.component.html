@@ -1,4 +1,5 @@
-<app-header></app-header>
+<div class="container-fluid">
+  <!-- <app-header></app-header> -->
 <div>
   <div class="row">
     <ngb-carousel *ngIf="restaurant">
@@ -18,13 +19,11 @@
 
             <ngb-rating class="ngb-rating-height" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5">
             </ngb-rating>
-            <span class="categ-title">{{restaurant.review_count}} <span>Reviews</span></span>
+            <span class="categ-title ps-3">{{restaurant.review_count}} <span>Reviews</span></span>
           </div>
-          <div class="d-flex text-truncate fs-3">
-            <span *ngFor="let categ of restaurant.categories">
-              <span>{{categ.title}}&ThinSpace;</span>
-            </span>
-            <Span>{{restaurant.price}}</Span>
+          <div >
+              <span class="d-inline-flex fs-3 ps-2" *ngFor="let categ of restaurant.categories" >{{categ.title}}&ThinSpace;</span>
+            <!-- <Span>{{restaurant.price}}</Span> -->
           </div>
         </div>
       </ng-template>
@@ -119,4 +118,5 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
+</div>

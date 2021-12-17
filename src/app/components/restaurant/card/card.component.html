@@ -9,23 +9,18 @@
       data-mdb-ripple-color="red">
 
       <a>
-        <!-- <i class="fas fa-heart text-danger pt-2"></i> -->
         <i class="far fa-heart text-danger pt-2"></i>
       </a>
     </div>
+    <div [routerLink]="['/restaurant-detailes',restaurant.id]">
+      <img [src]="restaurant.image_url" [title]="restaurant.name" class="img-fluid rounded" width="100%"  style="object-fit: cover">
+      <h6 class="restaurant-name text-truncate ">{{restaurant.name}}</h6>
+    </div>
 
-    <img [src]="restaurant.image_url" [title]="restaurant.name" class="img-fluid rounded" width="100%"  style="object-fit: cover">
-
-    <a href="#!">
-      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)">
-      </div>
-    </a>
   </div>
 
-  <div class="card-body">
-    <a class="text-black" [routerLink]="['/restaurant-detailes',restaurant.id]">
-      <h6 class="card-title text-truncate p-0 mb-3 m-0" style="max-width: 100%">{{restaurant.name}}</h6>
-    </a>
+  <div class="card-body p-1 mb-1">
+
     <div class="d-flex align-items-end ">
       <ng-template #t let-fill="fill">
         <span class="star" [class.full]="fill === 100">
@@ -38,7 +33,7 @@
       <span class="categ-title">{{restaurant.review_count}}</span>
     </div>
 
-    <div class="d-flex text-truncate ">
+    <div class="d-flex text-truncate">
       <h6 *ngFor="let categ of restaurant.categories">
         <span>{{categ.title}}&ThinSpace;</span>
       </h6>
