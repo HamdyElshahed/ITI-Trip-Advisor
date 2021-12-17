@@ -13,6 +13,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class HeaderComponent implements OnInit {
 
+  favNo:number=0;
   constructor( public authservice: AuthService ,
     public searchservice: SearchService ,
     private profileservice : ProfileService ,
@@ -27,6 +28,9 @@ export class HeaderComponent implements OnInit {
         this.userData = user;
       }))
     }
+    this.profileservice.userDataObs.subscribe(val => {
+      this.favNo=val.favorites.length
+    })
   }
 
   setsearch(form : NgForm){

@@ -15,7 +15,7 @@ export class RestaurantsComponent implements OnInit {
  showCarousel:boolean;
 
  restaurants!:Restaurant[];
- constructor(private restaurantService:RestaurantsMainServiceService,private filterService:FilterService) { 
+ constructor(private restaurantService:RestaurantsMainServiceService,private filterService:FilterService) {
   this.filterBy= ["Features","Neighborhoods","Categories",];
   this.filterByCommonFeatur= ["Delivery","Outdoor Seating","Reservations","Dinner","Good for Groups"];
   this.showCarousel=true;
@@ -24,7 +24,7 @@ export class RestaurantsComponent implements OnInit {
   ngOnInit(): void {
     this.filterService.getRestaurants().subscribe((val)=>{
       this.restaurants=val;
-      
+
     });
 
     this.filterService.filterUpdated.subscribe(val=>{
@@ -33,7 +33,7 @@ export class RestaurantsComponent implements OnInit {
     })
   }
 
-  
+
 
   addRestaurant(restaurant:Restaurant){
     this.restaurantService.addItem(restaurant);
@@ -44,4 +44,3 @@ export class RestaurantsComponent implements OnInit {
   }
 
 }
- 
