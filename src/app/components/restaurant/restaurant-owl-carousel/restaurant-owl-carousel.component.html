@@ -1,13 +1,22 @@
   <h3 class="mb-3">{{filterByFeatur}}</h3>
 
-<owl-carousel-o [options]="customOptions" class="carousel-res" >
+  <owl-carousel-o *ngIf="restaurantsList ; else skeleton" [options]="customOptions" class="carousel-res">
 
-  <ng-container *ngFor="let restaurant of restaurantsList">
-    <ng-template  carouselSlide [id]="restaurant.id">
-     <app-card [restaurant]="restaurant"></app-card>
+    <ng-container *ngFor="let restaurant of restaurantsList">
+      <ng-template carouselSlide [id]="restaurant.id">
+        <app-card [restaurant]="restaurant"></app-card>
 
-    </ng-template>
-  </ng-container>
+      </ng-template>
+    </ng-container>
 
-</owl-carousel-o>
+  </owl-carousel-o>
 
+  <ng-template #skeleton>
+    <ngx-skeleton-loader count="5" appearance="circle" [theme]="{
+    width: '170px',
+    height: '170px',
+    'border-radius': '10px',
+    'background-color': 'lightgray'
+    }">
+    </ngx-skeleton-loader>
+  </ng-template>
