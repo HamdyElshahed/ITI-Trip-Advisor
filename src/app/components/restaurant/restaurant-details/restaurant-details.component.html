@@ -57,7 +57,7 @@
                 <p>Most Mensioned dishes</p>
               </div>
 
-              <app-add-new-dish-modal (addNewMenuDish)="addNewDish($event)"></app-add-new-dish-modal>
+              <app-add-new-dish-modal [isClaimed]="isClaimed" (addNewMenuDish)="addNewDish($event)"></app-add-new-dish-modal>
 
             </div>
             <app-menu [dishesList]="dishesList"></app-menu>

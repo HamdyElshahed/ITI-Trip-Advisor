@@ -13,24 +13,31 @@ export class DetailedCardComponent implements OnInit {
   currentRate!: number;
   isFav: boolean = false;
   favorites: any[] = [];
+  isLogedIn:boolean=false;
   constructor(private profileService: ProfileService, private filterService: FilterService) { }
 
   ngOnInit(): void {
     this.currentRate = this.restaurant.rating ? this.restaurant.rating : 0;
+
     this.profileService.userDataObs.subscribe(val => {
-      val.favorites.forEach(val => {
+      if (val) {
+        this.isLogedIn=true;
+        val.favorites.forEach(val => {
         if (val['uid'] == this.restaurant.id) {
           this.isFav = true;
         }
         // console.log(val['uid']);
       })
       this.favorites = val.favorites;
+      }
+
     })
 
   }
 
   addToFavorites() {
-    let favListItemes: any[] = [];
+    if (this.isLogedIn) {
+      let favListItemes: any[] = [];
     if (this.isFav) {
       this.isFav = false;
 
@@ -46,6 +53,8 @@ export class DetailedCardComponent implements OnInit {
     } else {
       this.profileService.updateFavorites(this.restaurant.id);
     }
+    }
+
   }
 }
 

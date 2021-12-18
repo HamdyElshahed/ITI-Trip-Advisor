@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add New Dish</h4>
+    <h4 class="modal-title" id="modal-basic-title">{{'restaurants.Add New Dish'|translate}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -42,7 +42,7 @@
 
 </ng-template>
 
-<button mdbRipple type="button" class="btn btn-dark edit-button" (click)="open(content)">
+<button *ngIf="isClaimed" mdbRipple type="button" class="btn btn-dark edit-button" (click)="open(content)">
   <i class="fas fa-plus-circle"></i>
   <span class="ps-2">Add a dish</span>
 </button>

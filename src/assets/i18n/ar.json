@@ -78,7 +78,17 @@
   "Next":"التالي"
 
 
-}
+},
+"restaurants":{
+  "Add New Dish":"اضافه طبق جديد",
+  "Dish Name":"اسم طبق",
+  "Dish Category":"نوع طبق",
+  "Dish Price":"السعر",
+  "Choose a Picture":"اختر صوره",
+  "Save":"حفظ",
+  "Close":"اغلاق"
+
+  }
 
 
 }

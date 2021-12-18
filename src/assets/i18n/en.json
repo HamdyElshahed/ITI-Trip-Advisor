@@ -80,6 +80,16 @@
    "Previous":"Previous",
    "Next":"Next"
 
+},
+"restaurants":{
+"Add New Dish":"Add New Dish",
+"Dish Name":"Dish Name",
+"Dish Category":"Dish Category",
+"Dish Price":"Dish Price",
+"Choose a Picture":"Choose a Picture",
+"Save":"Save",
+"Close":"Close"
+
 }
 
 }

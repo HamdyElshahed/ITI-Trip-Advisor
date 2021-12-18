@@ -3,7 +3,7 @@
 
   <div class="bg-image hover-overlay ripple position-relative" data-mdb-ripple-color="light">
 
-    <div
+    <div *ngIf="isLogedIn"
       class="bg-image hover-overlay ripple position-absolute rounded-circle d-flex justify-content-center align-items-center"
       style="left: 86%; top: 4%; z-index: 2 ; height: 25px; width: 25px; background-color: rgb(255, 255, 255);"
       data-mdb-ripple-color="red">

@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
   @Input() restaurant!: Restaurant;
   currentRate!: number;
   isFav: boolean = false;
+  isLogedIn: boolean = false;
   favorites: any[] = [];
 
   constructor(private profileService: ProfileService, private filterService: FilterService) { }
@@ -22,34 +23,41 @@ export class CardComponent implements OnInit {
     this.filterService
 
     this.profileService.userDataObs.subscribe(val => {
-      val.favorites.forEach(val => {
-        if (val['uid'] == this.restaurant.id) {
-          this.isFav = true;
-        }
-        // console.log(val['uid']);
-      })
-      this.favorites = val.favorites;
+      if (val) {
+        this.isLogedIn = true;
+        val.favorites.forEach(val => {
+          if (val['uid'] == this.restaurant.id) {
+            this.isFav = true;
+          }
+          // console.log(val['uid']);
+        })
+        this.favorites = val.favorites;
+      }
+
     })
 
   }
 
   addToFavorites() {
-    let favListItemes: any[]=[];
-    if (this.isFav) {
-      this.isFav=false;
+    if (this.isLogedIn) {
+      let favListItemes: any[] = [];
+      if (this.isFav) {
+        this.isFav = false;
 
-      this.favorites.forEach(val => {
-        if (val['uid'] != this.restaurant.id) {
-          favListItemes.push({"uid":val['uid']})
+        this.favorites.forEach(val => {
+          if (val['uid'] != this.restaurant.id) {
+            favListItemes.push({ "uid": val['uid'] })
+          }
         }
-      }
-      )
+        )
 
-      console.log(favListItemes);
-      this.profileService.deleteFavorites(favListItemes);
-    } else {
-      this.profileService.updateFavorites(this.restaurant.id);
+        console.log(favListItemes);
+        this.profileService.deleteFavorites(favListItemes);
+      } else {
+        this.profileService.updateFavorites(this.restaurant.id);
+      }
     }
+
   }
 }
 

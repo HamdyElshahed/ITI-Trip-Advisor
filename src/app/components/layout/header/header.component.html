@@ -77,7 +77,7 @@
             aria-label="Search">
         </form>
       </div>
-      <div class="container-fluid">
+      <div class="container-fluid justify-content-center align-items-center">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item d-md-none d-flex ">
@@ -94,7 +94,7 @@
                 </form>
               </li>
             <li class="nav-item align-middle">
-              <a class="nav-link d-flex " aria-current="page" href="#">
+              <a class="nav-link align-items-center justify-content-center " aria-current="page" href="#">
                 <svg viewBox="0 0 24 24" width="24px"
                   height="24px">
                   <path
@@ -118,6 +118,12 @@
                   </path>
                 </svg><span>Alerts</span></a>
             </li>
+
+            <li class="nav-item justify-content-center">
+              <a class="nav-link d-flex" (click)="changeLang()">
+                <i class="fas fa-language me-2"></i><span>{{lang}}</span></a>
+            </li>
+
             <li class="nav-item py-2">
               <a *ngIf="!authservice.IsLoggedIn"class="btn btn-dark btn-sm px-4 py-1 rounded-pill" href="" [routerLink]="'/login'" > Login</a>
               <div  *ngIf="authservice.IsLoggedIn" ngbDropdown class="d-inline-block" style="height: 40px ; width: 40px ; ">
