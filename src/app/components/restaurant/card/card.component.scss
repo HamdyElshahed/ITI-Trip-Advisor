@@ -15,7 +15,12 @@
     line-height: 30px;
     color: #00AA6C;
   }
-
+  .ngb-rating-height{
+    align-items: center;
+    justify-content: center;
+    max-height: 20px;
+    margin-top: 3px;
+  }
 
   .card-text,.card-title
   {
@@ -34,14 +39,17 @@
   font-size: 13px;
   font-weight: 600;
 }
-.ngb-rating-height{
-  align-items: center;
-  justify-content: center;
-  max-height: 20px;
-  margin-top: 3px;
-}
+
 
 .categ-title{
   font-size: 14px;
+}
+
+.restaurant-name{
+padding-inline-start: 15px;
+color: black;
+font-size: 24px;
+margin-bottom: 0px;
+
 }
 

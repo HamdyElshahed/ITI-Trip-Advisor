@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NgForm } from '@angular/forms';
 
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Dish } from 'src/app/models/restaurant.model';
@@ -17,9 +18,10 @@ export class AddNewDishModalComponent implements OnInit {
   closeResult = '';
   uploadPercent!:number
   downloadURL!: Observable<string>;
+  @Input() isClaimed:boolean;
 
   @Output() addNewMenuDish = new EventEmitter<Dish>();
-  constructor(private modalService: NgbModal, private storage: AngularFireStorage,private mainService:RestaurantsMainServiceService) { }
+  constructor(private modalService: NgbModal, private storage: AngularFireStorage,private mainService:RestaurantsMainServiceService,translate:TranslateService) { }
   ngOnInit(): void {
 
   }

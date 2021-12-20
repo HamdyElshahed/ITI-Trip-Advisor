@@ -79,6 +79,7 @@
 
 
 },
+<<<<<<< HEAD
 "home":{
   "Your recent searches" : "عمليات البحث السابقة",
   "Recently viewed" : "شوهدت مؤخرا",
@@ -114,6 +115,18 @@
   "Post photos" : "نشر صورك",
   "Write Review" : "اكتب مراجعه"
 },
+=======
+"restaurants":{
+  "Add New Dish":"اضافه طبق جديد",
+  "Dish Name":"اسم طبق",
+  "Dish Category":"نوع طبق",
+  "Dish Price":"السعر",
+  "Choose a Picture":"اختر صوره",
+  "Save":"حفظ",
+  "Close":"اغلاق"
+
+  }
+>>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
 
 "footer" : {
   "About Tripadvisor" : "عن تريب ادفيزور",

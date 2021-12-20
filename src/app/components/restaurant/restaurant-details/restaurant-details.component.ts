@@ -23,7 +23,7 @@ export class RestaurantDetailsComponent implements OnInit {
   dishesList!: Dish[];
   availableTables: Promise<Table[]> | undefined;
   reservatioinPrice!:number;
-
+  isClaimed:boolean=false;
 
   constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService , private profileservice : ProfileService) { }
 
@@ -34,6 +34,8 @@ export class RestaurantDetailsComponent implements OnInit {
     this.filterService.getRestaurantById(this.restaurantId).subscribe(val => {
       this.restaurant = val[0];
       console.log(this.restaurant.name);
+      this.isClaimed=this.restaurant.is_claimed?this.restaurant.is_claimed:false;
+      console.log('is claimed ',this.isClaimed);
       this.currentRate = this.restaurant.rating ? this.restaurant.rating : 0;
     })
 

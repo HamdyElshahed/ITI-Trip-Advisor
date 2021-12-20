@@ -58,7 +58,11 @@ import { ReservationCardComponent } from './components/restaurant/reservation-ca
 import { AvailableTablesComponent } from './components/restaurant/available-tables/available-tables.component';
 import { PaymentComponent } from './components/restaurant/payment/payment.component';
 import { AddNewRestaurantComponent } from './components/restaurant/add-new-restaurant/add-new-restaurant.component';
+<<<<<<< HEAD
 import { BookingComponent } from './hotels/booking/booking.component';
+=======
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+>>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -133,6 +137,7 @@ export function createTranslateLoader(http: HttpClient) {
       },
     }),
     NgbModule,
+    NgxSkeletonLoaderModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ],
   exports: [TranslateModule],

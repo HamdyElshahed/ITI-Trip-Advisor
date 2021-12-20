@@ -80,6 +80,7 @@
    "Previous":"Previous",
    "Next":"Next"
 
+<<<<<<< HEAD
   },
 
   "home":{
@@ -174,5 +175,18 @@
     "TripAdvisor LLC is not a booking agent or tour operator. When you book with one of our partners, please be sure to check their site for a full disclosure of all applicable fees" : "TripAdvisor LLC is not a booking agent or tour operator. When you book with one of our partners, please be sure to check their site for a full disclosure of all applicable fees"
   }
 
+=======
+},
+"restaurants":{
+"Add New Dish":"Add New Dish",
+"Dish Name":"Dish Name",
+"Dish Category":"Dish Category",
+"Dish Price":"Dish Price",
+"Choose a Picture":"Choose a Picture",
+"Save":"Save",
+"Close":"Close"
+
+}
+>>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
 
 }

@@ -4,6 +4,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { doc, updateDoc, arrayUnion, arrayRemove } from "@angular/fire/firestore";
+import { getDoc } from 'firebase/firestore';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ import { doc, updateDoc, arrayUnion, arrayRemove } from "@angular/fire/firestore
 export class ProfileService {
   userId! : User
   userData! : User
+  userDataObs=new Observable<User>();
   constructor(
     private angularfirestore : AngularFirestore ,
     private angularfireauth : AngularFireAuth ,
@@ -20,8 +23,9 @@ export class ProfileService {
 
   async getUserData(){
    this.userId= JSON.parse(`${localStorage.getItem('user')}`);
-    console.log(this.userId);
-    return await this.angularfirestore.doc(`Users/${this.userId.uid}`).valueChanges()
+    // console.log(this.userId);
+    this.userDataObs=await this.angularfirestore.doc<User>(`Users/${this.userId.uid}`).valueChanges()
+    return this.userDataObs;
   }
   UpdateUserData(data:any){
    this.userId= JSON.parse(`${localStorage.getItem('user')}`);
@@ -43,6 +47,7 @@ export class ProfileService {
      favorites: arrayUnion({uid: `${favoriteId}`})
    });
   }
+<<<<<<< HEAD
   async deleteFavorites(favoriteId : any ,){
   //   this.userId= JSON.parse(`${localStorage.getItem('user')}`);
     let userdata = this.angularfirestore.firestore.doc(`Users/${this.userId.uid}`);
@@ -65,6 +70,14 @@ export class ProfileService {
     });
   // })
    console.log('remove')
+=======
+  async deleteFavorites(favorites : any ,){
+    this.userId= JSON.parse(`${localStorage.getItem('user')}`);
+    let data = this.angularfirestore.firestore.doc(`Users/${this.userId.uid}`);
+    await updateDoc(data, {
+     favorites: favorites
+   });
+>>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
   }
 
   async updateReservations(reservData : any , category : any){
@@ -81,4 +94,6 @@ export class ProfileService {
       resentlyview: arrayUnion({ category : category ,  views: viewId})
    });
   }
+
+
 }

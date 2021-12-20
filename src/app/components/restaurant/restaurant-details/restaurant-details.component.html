@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <!-- <app-header></app-header> -->
+=======
+<div class="container-fluid">
+  <!-- <app-header></app-header> -->
+>>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
 <div>
   <div class="row">
     <ngb-carousel *ngIf="restaurant">
@@ -18,13 +23,11 @@
 
             <ngb-rating class="ngb-rating-height" [(rate)]="currentRate" [starTemplate]="t" [readonly]="true" [max]="5">
             </ngb-rating>
-            <span class="categ-title">{{restaurant.review_count}} <span>Reviews</span></span>
+            <span class="categ-title ps-3">{{restaurant.review_count}} <span>Reviews</span></span>
           </div>
-          <div class="d-flex text-truncate fs-3">
-            <span *ngFor="let categ of restaurant.categories">
-              <span>{{categ.title}}&ThinSpace;</span>
-            </span>
-            <Span>{{restaurant.price}}</Span>
+          <div >
+              <span class="d-inline-flex fs-3 ps-2" *ngFor="let categ of restaurant.categories" >{{categ.title}}&ThinSpace;</span>
+            <!-- <Span>{{restaurant.price}}</Span> -->
           </div>
         </div>
       </ng-template>
@@ -58,7 +61,7 @@
                 <p>Most Mensioned dishes</p>
               </div>
 
-              <app-add-new-dish-modal (addNewMenuDish)="addNewDish($event)"></app-add-new-dish-modal>
+              <app-add-new-dish-modal [isClaimed]="isClaimed" (addNewMenuDish)="addNewDish($event)"></app-add-new-dish-modal>
 
             </div>
             <app-menu [dishesList]="dishesList"></app-menu>
@@ -120,3 +123,7 @@
   </div>
 </div>
 <!-- <app-footer></app-footer> -->
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
