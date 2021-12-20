@@ -1,5 +1,8 @@
-<div class="px-1">
-  <img class="img-fluid" [src]="card.image_url">
+
+<div class="px-1 position-relative" style="height: 120px; width: 100%">
+  <img class="img-fluid" style="height:100% ; width: 100%" [src]="card.image_url">
   <p class="py-0 m-0">{{card.name}}</p>
-  <h5>38 Rentals</h5>
+  <!-- <h5>38 Rentals</h5> -->
+  <app-cardbtn [card]="card" [check]="true"></app-cardbtn>
 </div>
+

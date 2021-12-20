@@ -16,6 +16,7 @@
               d="M22 20.514l-5.517-5.519a8.023 8.023 0 001.674-4.904c0-4.455-3.624-8.079-8.079-8.079C5.624 2.012 2 5.636 2 10.091s3.624 8.079 8.079 8.079a8.03 8.03 0 004.933-1.695l5.512 5.514L22 20.514zm-11.921-4.431c-3.305 0-5.993-2.688-5.993-5.992s2.688-5.992 5.993-5.992a6 6 0 015.992 5.992 6 6 0 01-5.992 5.992z">
             </path>
           </svg>
+
         </button>
         <input class="form-control me-2 inputsearch" ngModel name="searchval" style="width:94%" type="search" id="serch"
           placeholder="Where to ?" aria-label="Search">
@@ -26,33 +27,36 @@
 
 <section class="container px-4 py-4" *ngIf="authservice.IsLoggedIn">
   <div class="my-sm-2">
-    <h2 class="py-3">Your recent searches</h2>
+    <h2 class="py-3">{{'home.Your recent searches' | translate}}</h2>
     <app-carousel [carousel]="'search'" [arr]="userData" ></app-carousel>
   </div>
 </section>
 <!------section 5------->
 <section class="container px-4 pt-2 pb-5" *ngIf="authservice.IsLoggedIn">
-  <h2 class="py-3">Recently viewed</h2>
-  <app-carousel [carousel]="'one'" ></app-carousel>
+  <h2 class="py-3">{{'home.Recently viewed'|translate}}</h2>
+  <div [ngStyle]="{'width': userRecentlyView.length <= 1 ? '310px' :''}">
+
+    <app-carousel [carousel]="'one'" [arr]="userRecentlyView"  ></app-carousel>
+  </div>
 </section>
 <!------section 6------->
 <section class="container pt-2 pb-5">
-  <h2 class="pt-3 pb-1 m-0">You might like these</h2>
-  <p class="pt-1 pb-3 m-0">More places to stay in Miami Beach</p>
-  <app-carousel [carousel]="'one'" [arr]="hotelsData" ></app-carousel>
+  <h2 class="pt-3 pb-1 m-0">{{'home.Top Rated Hotels'| translate}}</h2>
+  <p class="pt-1 pb-3 m-0">{{'home.More places to stay in cairo' | translate}}</p>
+  <app-carousel [carousel]="'one'" [type]="'hotels-details'" [arr]="hotelsData" ></app-carousel>
 </section>
 <!------section 7------->
 <section class="container  pt-2 pb-5">
-  <h2 class="pt-3 pb-1 m-0">Cool Plus stays</h2>
-  <p class="pt-1 pb-3 m-0">Where Tripadvisor Plus members are staying and saving</p>
-  <app-carousel [carousel]="'one'" [arr]="restaurantData" ></app-carousel>
+  <h2 class="pt-3 pb-1 m-0">{{'home.Top Rated Restaurants' | translate}}</h2>
+  <p class="pt-1 pb-3 m-0">{{'home.Where Tripadvisor Plus members are staying and saving' | translate}}</p>
+  <app-carousel [carousel]="'one'" [type]="'restaurant-detailes'" [arr]="restaurantData" ></app-carousel>
 </section>
 <!------section 8------->
 <section class="container px-4 pt-2 pb-5">
   <div class="row">
-    <h2 class="col-12 pt-3 pb-1 m-0">Home Rentals Near You</h2>
+    <h2 class="col-12 pt-3 pb-1 m-0">{{'home.Top Rated Home Rentals' | translate}}</h2>
     <div class="col-lg-3 col-12">
-      <p class="pt-1 pb-3 m-0">We think you'd enjoy these homes for a quick trip out of town.</p>
+      <p class="pt-1 pb-3 m-0">{{"home.We think you'd enjoy these homes for a quick trip out of town." | translate}}</p>
     </div>
     <div class="col-lg-9 col-12">
      <app-carousel [carousel]="'two'" ></app-carousel>
@@ -62,21 +66,21 @@
 <!------section 9------->
 <section class="px-4 pt-2" style="background-color: #FAF1ED;">
   <div class="container pb-3">
-    <h2 class="pt-3 pb-3 m-0">More to explore </h2>
+    <h2 class="pt-3 pb-3 m-0">{{'home.More to explore' | translate}}</h2>
     <app-carousel [carousel]="'three'" [arr]="topExplorer"></app-carousel>
   </div>
 </section>
 <!------section 10------->
 <!-- <section class="container px-4  pb-4" style="padding-top:12rem">
-  <h2 class="pt-3 pb-3 m-0">Dream Your Next Trip </h2>
-  <p class="pt-1 pb-1 m-0 fs-5">Weekend getaways from Cairo</p>
-  <p class="p-0 mb-2">Explore what’s nearby</p>
+  <h2 class="pt-3 pb-3 m-0">{{'home.Dream Your Next Trip ' | translate}}</h2>
+  <p class="pt-1 pb-1 m-0 fs-5">{{'home.Weekend getaways from Cairo' | translate}}</p>
+  <p class="p-0 mb-2">{{home'Explore what’s nearby' | translate}}</p>
   <app-carousel [carousel]="'four'"></app-carousel>
 </section> -->
 <!------section 11------->
 <section class="container px-4 pb-4">
-  <h2 class="pt-3 pb-3 m-0">Top destinations for beach lovers</h2>
-  <p class="pt-1 pb-1 m-0 fs-5">Recommended based on your activity</p>
+  <h2 class="pt-3 pb-3 m-0">{{'home.Top destinations' | translate}}</h2>
+  <p class="pt-1 pb-1 m-0 fs-5">{{'home.Recommended based on your activity' | translate}}</p>
   <app-carousel [carousel]="'four'" [arr]="placesData" ></app-carousel>
 </section>
 <!------section 12------->
@@ -85,9 +89,9 @@
     <div class="col-10 m-auto py-3  position-relative ">
       <div class="section12cardoverlay"></div>
       <div class="section12cardposition col-10">
-        <h2>Get more of what you've been missing.</h2>
-        <p>Introducing Tripadvisor Plus. Endless travel savings, one simple membership.</p>
-        <a style="width: 15%; font-size:2.5vw ; cursor:pointer">Learn More </a>
+        <h2>{{"home.Get more of what you've been missing." | translate}}</h2>
+        <p>{{'home.Introducing Tripadvisor Plus. Endless travel savings, one simple membership.' | translate}}</p>
+        <a style="width: 15%; font-size:2.5vw ; cursor:pointer">{{'home.Learn More' | translate}} </a>
       </div>
       <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/iti-trip-advisor.appspot.com/o/home%2Fsection12.jpg?alt=media&token=912e327c-eff5-44b6-b6cc-d8ba4c85bc08">
     </div>

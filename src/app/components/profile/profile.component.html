@@ -4,7 +4,7 @@
  <div class="row justify-content-center align-items-center" [ngStyle]="{'background': userData.coverPhotoURL != '' ? 'url('+userData.coverPhotoURL+')' :'#E0E0E0'}" style="height: 250px ; background-size: cover; background-repeat: no-repeat;">
     <ng-template #content let-modal>
       <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Select Cover Photo</h4>
+        <h4 class="modal-title" id="modal-basic-title">{{'profile.Select Cover Photo'|translate}}</h4>
         <button type="button" class="btn  close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -20,10 +20,10 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="uploadcoverphoto(image , 'coverPhotoURL')"  (click)="modal.close('Save click')">Save</button>
+        <button type="button" class="btn btn-outline-dark" (click)="uploadcoverphoto(image , 'coverPhotoURL')"  (click)="modal.close('Save click')">{{'profile.Save'|translate}}</button>
       </div>
     </ng-template>
-    <button *ngIf="userData.coverPhotoURL == '' " class="btn col-2 h-25" (click)="open(content)"> Add cover photo </button>
+    <button *ngIf="userData.coverPhotoURL == '' " class="btn col-2 h-25" (click)="open(content)"> {{'profile.Add cover photo'|translate}} </button>
   </div>
  <!---------------section 2------------------>
 
@@ -46,7 +46,7 @@
       <div class="col-md-2">
         <ng-template #editcontent let-modal>
           <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Select Cover Photo</h4>
+            <h4 class="modal-title" id="modal-basic-title">{{'profile.Select Cover Photo'|translate}}</h4>
             <button type="button" class="btn  close" aria-label="Close" (click)="modal.dismiss('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -67,7 +67,7 @@
         </ng-template>
         <ng-template #editusername let-modal>
           <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Select Cover Photo</h4>
+            <h4 class="modal-title" id="modal-basic-title">{{'profile.Select Cover Photo'|translate}}</h4>
             <button type="button" class="btn  close" aria-label="Close" (click)="modal.dismiss('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -83,15 +83,15 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="updateusername(username)" (click)="modal.close('Save click')">Save</button>
+            <button type="button" class="btn btn-outline-dark" (click)="updateusername(username)" (click)="modal.close('Save click')">{{'profile.Save'|translate}}</button>
           </div>
         </ng-template>
         <div ngbDropdown class="d-inline-block">
-          <button class="btn " id="dropdownBasic1" ngbDropdownToggle > Edit profile </button>
+          <button class="btn " id="dropdownBasic1" ngbDropdownToggle > {{'profile.Edit profile'|translate}} </button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem (click)="open(editcontent)">Change profile photo</button>
-            <button ngbDropdownItem  (click)="open(content)">Change Cover photo</button>
-            <button ngbDropdownItem (click)="open(editusername )">Change Username</button>
+            <button ngbDropdownItem (click)="open(editcontent)">{{'profile.Change profile photo'| translate}}</button>
+            <button ngbDropdownItem  (click)="open(content)">{{'profile.Change Cover photo'| translate}}</button>
+            <button ngbDropdownItem (click)="open(editusername )">{{'profile.Change Username'| translate}}</button>
           </div>
         </div>
       </div>
@@ -99,40 +99,40 @@
     <div class="row" style="background-color: #ffffff;">
       <ul ngbNav #nav="ngbNav" class="nav-tabs">
         <li ngbNavItem>
-          <a ngbNavLink>Booking</a>
+          <a ngbNavLink>{{'profile.Booking'|translate}}</a>
           <ng-template ngbNavContent><table class="table">
             <thead>
               <tr>
                 <!-- <th scope="col">#</th> -->
-                <th scope="col">city</th>
-                <th scope="col">Category</th>
-                <th scope="col">place name</th>
-                <th scope="col">Date</th>
-                <th scope="col">status</th>
+                <!-- <th scope="col">{{'profile.city'|translate}}</th>
+                <th scope="col">{{'profile.Category'|translate}}</th>
+                <th scope="col">{{'prpfile.place name'|translate}}</th>
+                <th scope="col">{{'profile.Date'|translate}}</th>
+                <th scope="col">status</th> -->
               </tr>
             </thead>
             <tbody>
+              <tr *ngFor="let reserv of userReservations ">
+              <td>{{reserv.email}}</td>
+              <td>{{reserv.firstName}}</td>
+              <td>{{reserv.lastName}}</td>
+              <td>{{reserv.startdate}}</td>
+              <td>Finished</td>
               <tr>
                 <!-- <th scope="row">1</th> -->
-                <td>Cairo</td>
-                <td>Hotels</td>
-                <td>Hotel 1</td>
-                <td>1/12/2021</td>
-                <td>Finished</td>
               </tr>
             </tbody>
           </table>
         </ng-template>
         </li>
         <li ngbNavItem>
-          <a ngbNavLink>Favorites</a>
+          <a ngbNavLink>{{'profile.Favorites'|translate}}</a>
           <ng-template ngbNavContent>
             <div class="row">
               <div class="col-3" *ngFor="let favorite of userFavorites">
                 <app-cardstyle2 [card]="favorite"></app-cardstyle2>
               </div>
             </div>
-            <!-- <app-carousel [carousel]="'one'" [arr]="arr"></app-carousel> -->
           </ng-template>
         </li>
       </ul>
@@ -148,36 +148,36 @@
       <div class="col-3">
         <div class="row " style="flex-direction: column;">
           <div class="my-2" style="background-color: #ffffff;">
-            <h3>Intro</h3>
+            <h3>{{'profile.Intro'|translate}}</h3>
             <ul style="list-style : none;">
               <li class="py-2 fs-6">
                 <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
                   <path d="M13.111 22h-2.222v-8.889H2v-2.222h8.889V2h2.222v8.889H22v2.222h-8.889z"></path>
                 </svg>
-                 Add you current city
+                {{ 'profile.Add you current city'|translate}}
               </li>
               <li class="py-2 fs-6">
                 <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
                   <path d="M13.111 22h-2.222v-8.889H2v-2.222h8.889V2h2.222v8.889H22v2.222h-8.889z"></path>
                 </svg>
-                 Add a website
+                 {{'profile.Add a website'|translate}}
               </li>
               <li class="py-2 fs-6">
                 <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
                   <path d="M13.111 22h-2.222v-8.889H2v-2.222h8.889V2h2.222v8.889H22v2.222h-8.889z"></path>
                 </svg>
-                Write some details about yourself
+               {{'profile.Write some details about yourself'|translate}}
               </li>
             </ul>
           </div>
           <div class="my-2" style="background-color: #ffffff;">
-            <h3>Share your travel advice</h3>
+            <h3>{{'profile.Share your travel advice'|translate}}</h3>
             <ul style="list-style: none;">
               <li class="py-2 fs-6">
-                <i class="fas fa-camera"></i> <span class="px-2">Post photos</span>
+                <i class="fas fa-camera"></i> <span class="px-2">{{'profile.Post photos'|translate}}</span>
               </li>
               <li class="py-2 fs-6">
-                <i class="far fa-edit"></i><span class="px-2">Write Review</span>
+                <i class="far fa-edit"></i><span class="px-2">{{'profile.Write Review'|translate}}</span>
               </li>
             </ul>
           </div>

@@ -10,15 +10,25 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class AppComponent implements OnInit{
   title = 'TripAdvisor';
+  dir = 'ltr';
   constructor(private spinner: NgxSpinnerService , private translate: TranslateService) {}
   ngOnInit() {
     this.spinner.show();
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 5000);
+    }, 3500);
 
     this.setTranslate();
+    localStorage.setItem('lang' , 'en');
+
+    this.translate.onLangChange.subscribe((lg)=>{
+      if (lg.lang === 'ar') {
+        this.dir = 'rtl'
+      }else {this.dir = 'ltr'}
+
+    })
+
   }
   setTranslate() {
     let lang = localStorage.getItem('currentlang');

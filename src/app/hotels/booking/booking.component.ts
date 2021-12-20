@@ -28,6 +28,6 @@ export class BookingComponent implements OnInit {
     this.submitdata();
   }
   submitdata() {
-    this.service.updateReservations(this.bookingdata, 'category');
+    this.service.updateReservations(this.bookingdata, 'hotels');
   }
 }

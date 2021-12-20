@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class Cardstyle1Component implements OnInit {
  @Input() card! : any;
+ @Input() type! : any;
   constructor() { }
 
   ngOnInit(): void {

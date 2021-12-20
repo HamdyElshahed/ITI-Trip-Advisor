@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   arr : any = []= [1,2,3,4,5];
   userData! : User;
   userFavorites : [{}]=[{}];
+  userReservations : [{}]=[{}];
   closeResult = '';
   constructor(public  authservice: AuthService ,
     private profileservice : ProfileService ,
@@ -42,17 +43,29 @@ export class ProfileComponent implements OnInit {
           console.log(data);
           if (data !== undefined) {
             this.userFavorites.push( await data);
-            this.userFavorites.shift();
+            // this.userFavorites.shift();
             console.log(this.userFavorites);
           }
         })
 
       }
-      // this.userFavorites = user.favorites
+      this.userFavorites.shift();
+      for (let i = 0; i < user.reservations.length; i++) {
+        const element = await user.reservations[i];
+        const collection = element.category;
+        const reserv = element.reserv;
+        (await this.searchservice.querySearchByDocId(collection ,  reserv)).subscribe(async(data:any)=>{
+          console.log(data);
+          if (reserv !== undefined) {
+            this.userReservations.push({reserv :reserv , data : data});
+            console.log(this.userReservations);
+          }
+        });
+      }
+      this.userReservations.shift();
     })
-    // this.profileservice.UpdateUserData(this.)
-  }
-
+  // }
+}
   open(content : any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

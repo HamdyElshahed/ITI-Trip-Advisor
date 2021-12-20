@@ -19,6 +19,9 @@ export class HotelsCardComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getallhotels();
+    // this.Translate.onLangChange.subscribe(() => {
+    //   this.hotels.name =
+    // })
   }
   // getallhotels() {
   //   this.hs.getallhotels().subscribe((res: any) => {
@@ -31,4 +34,5 @@ export class HotelsCardComponent implements OnInit {
   //     console.log(res[0].Id);
   //   });
   // }
+
 }

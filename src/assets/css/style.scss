@@ -155,12 +155,32 @@ svg{
   top: 12px;
   right: 22px;
 }
+.div-btn01{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 .btn-like{
   min-width: 40px;
   height: 40px;
   border-radius: 20px;
   padding: 6px;
   background-color: #fff;
+  color: #000;
+  border: 2px solid rgba(0,0,0,0);
+  transition: background-color .1s linear,border-color .1s linear;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-dislike{
+  // width: 20px;
+  // height: 20px;
+  // border-radius: 10px;
+  // padding: 6px;
+  // background-color: #fff;
   color: #000;
   border: 2px solid rgba(0,0,0,0);
   transition: background-color .1s linear,border-color .1s linear;

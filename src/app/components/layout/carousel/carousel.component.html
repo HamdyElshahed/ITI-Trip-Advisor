@@ -10,7 +10,7 @@
 <owl-carousel-o *ngIf=" carousel === 'search' " [options]="customOptionscarouselnav" class="">
   <ng-container *ngFor="let slide of arr"  style="width:auto !important;">
     <ng-template carouselSlide class="mx-1 px-2" >
-        <app-searchrecentitem [item]="slide" ></app-searchrecentitem>
+        <app-searchrecentitem [item]="slide" [type]="type" ></app-searchrecentitem>
     </ng-template>
   </ng-container>
 </owl-carousel-o>
@@ -18,7 +18,7 @@
 <owl-carousel-o *ngIf=" carousel === 'one' " [options]="customOptionscarousel1" class="carousel-one carousel-nav1s">
   <ng-container *ngFor="let slide of arr" >
     <ng-template carouselSlide class="mx-1 px-2 col-3">
-        <app-cardstyle1 [card]="slide" ></app-cardstyle1>
+        <app-cardstyle1 [card]="slide" [type]="type" ></app-cardstyle1>
     </ng-template>
   </ng-container>
 </owl-carousel-o>

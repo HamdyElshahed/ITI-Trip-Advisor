@@ -1,7 +1,7 @@
 <div class="px-1" style="width:310px" >
   <img class="img-fluid " style="height: 300px; width: 300px;" [src]="card.image_url">
-  <p class="py-0 m-0">{{card.name}} </p>
-  <app-cardrate></app-cardrate>
-  <app-cardbtn [card]="card" ></app-cardbtn>
+  <p class="py-0 m-0" [routerLink]="[type,card.id]">{{card.name}} </p>
+  <app-cardrate [card]="card"></app-cardrate>
+  <app-cardbtn [card]="card" [check]="false" ></app-cardbtn>
   <app-cardbadg></app-cardbadg>
 </div>

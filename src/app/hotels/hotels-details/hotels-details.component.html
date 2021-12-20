@@ -1,14 +1,14 @@
 <div class="container">
-  <h2 style="color: black; font-weight: 500; font-size: larger; margin-top: 15px;"> {{hotels[0].name}}</h2>
- <p><i> review count:{{hotels[0].reviewCount}}</i></p>
+  <h2 style="color: black; font-weight: 500; font-size: larger; margin-top: 15px;"> {{hotels.name}}</h2>
+ <p><i> review count:{{hotels.reviewCount}}</i></p>
   <div class="row">
 
-  <h2>{{'details.live photo'| translate}}</h2> <button class="book" routerLink="/booking" > Booking </button>
+  <h2>{{'details.live photo'| translate}}</h2> <button *ngIf="authservice.IsLoggedIn" class="book" routerLink="/booking" > Booking </button>
   <div>
-  <a href="#"><img  [src]="hotels[0].imgUrl[0]" alt="" width="20%"></a>
-   <a href="#"><img [src]="hotels[0].imgUrl[1]" alt="" width="20%"></a>
-  <a href="#"><img  [src]="hotels[0].imgUrl[2]" alt="" width="20%"></a>
-  <a href="#"><img  [src]="hotels[0].imgUrl[3]"  alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels.imgUrl[0]" alt="" width="20%"></a>
+   <a href="#"><img [src]="hotels.imgUrl[1]" alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels.imgUrl[2]" alt="" width="20%"></a>
+  <a href="#"><img  [src]="hotels.imgUrl[3]"  alt="" width="20%"></a>
   </div>
   </div>
   <div class="row mt-3">
@@ -17,7 +17,7 @@
   <div class="row">
       <div class="col-4 bg-light">
           <h3>
-            <h3 style="font-size:22px; color: #000;"> about:</h3>  {{hotels[0].About}}
+            <h3 style="font-size:22px; color: #000;"> about:</h3>  {{hotels.About}}
       </h3>
    <hr>
   <!-- <p style="font-size: 15px;">
@@ -28,10 +28,10 @@
         <ul>
           <div *ngIf="!langflag">
               <h3> feature of room</h3>
-             <li *ngFor="let feature of hotels[0].feature">{{feature}}</li>
+             <li *ngFor="let feature of hotels.feature">{{feature}}</li>
           </div>
           <div *ngIf="langflag">
-            <li *ngFor="let feature of hotels[0].featurear">{{feature}}</li>
+            <li *ngFor="let feature of hotels.featurear">{{feature}}</li>
          </div>
         </ul>
 
@@ -59,7 +59,7 @@
 <div class="container">
   <div class="row bg-light mt-3">
       <h2> <h3 style="font-size:22px; color: #000;">review:</h3>
-        {{hotels[0].review}}</h2>
+        {{hotels.review}}</h2>
   </div>
 
   <h3>

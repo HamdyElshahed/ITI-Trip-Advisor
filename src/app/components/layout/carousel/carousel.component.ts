@@ -9,6 +9,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class CarouselComponent implements OnInit {
   @Input() carousel!: string;
   @Input() arr!: any[];
+  @Input() type!: string;
   @Input() arrnav: any[] = [
     {name: 'Hotels', route : 'ht'},
     {name: 'Vacation Rentals' , route : 'vac'},

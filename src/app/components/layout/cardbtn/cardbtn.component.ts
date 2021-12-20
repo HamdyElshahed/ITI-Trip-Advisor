@@ -9,11 +9,16 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class CardbtnComponent implements OnInit {
   @Input() card! : any;
+  @Input() check! : boolean;
+
   constructor( public authservice: AuthService , private profileservice: ProfileService) { }
 
   ngOnInit(): void {
   }
   addFavorite(){
     this.profileservice.updateFavorites(this.card.id)
+  }
+  deleteFavorite(){
+    this.profileservice.deleteFavorites(this.card.id)
   }
 }

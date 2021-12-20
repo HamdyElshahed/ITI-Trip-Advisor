@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
  userData! : [];
  hotelsData!: [];
  restaurantData!: [];
+ userRecentlyView : [{}]=[{}];
  placesData!: [];
  topExplorer! : any;
   constructor(
@@ -26,23 +28,30 @@ export class HomeComponent implements OnInit {
      public searchservice : SearchService  ,
      private profileservice : ProfileService ,
      private homeService : HomeService ,
-     public authservice : AuthService
+     public authservice : AuthService ,
     ) { }
 
   async ngOnInit(): Promise<void> {
     let user = JSON.parse(`${localStorage.getItem('user')}`);
     if (user !== null) {
+      this.userRecentlyView =[{}];
       (await this.profileservice.getUserData()).subscribe(async (user : any) => {
         this.userData = await user.recentlysearch;
-        // for (let i = 0; i < this.userData.length; i++) {
-        //   const element : any = this.userData[i];
-        //   console.log(element);
-        //   (await this.searchservice.querySearchByDocId(element.category, element.uid)).subscribe((ele : any)=>{
-
-        //   })
-        // }
-      });
-    }
+        for (let i = 0; i < user.resentlyview.length; i++) {
+          const element = await user.resentlyview[i];
+          const collection = element.category;
+          const stringuid = element.views.toString();
+          (await this.searchservice.querySearchByDocId(collection ,  stringuid)).subscribe(async(data:any)=>{
+            console.log(data);
+            if (data !== undefined) {
+              this.userRecentlyView.push( await data);
+              console.log(this.userRecentlyView);
+            }
+          });
+          this.userRecentlyView.shift();
+        }
+       });
+      }
     (await this.homeService.querySearchTopRate('hotels' , "rate" , 4)).subscribe( async (data : any)=>{
       console.log(data);
       this.hotelsData = await data;

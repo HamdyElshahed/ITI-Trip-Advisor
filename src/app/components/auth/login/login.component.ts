@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
       email : this.email,
       password : this.password,
     }
-    // this.spinner.show()
+    this.spinner.show()
     setTimeout(() => {
-      window.location.reload();
       this.spinner.hide()
-    }, 1000);
+      window.location.reload();
+    }, 3000);
     this.authservice.Login(this.user)
     .then((res) =>{
       console.log(res.user);

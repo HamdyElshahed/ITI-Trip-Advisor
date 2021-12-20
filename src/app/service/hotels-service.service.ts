@@ -16,7 +16,7 @@ export class HotelsServiceService {
     return this.fs.collection('places').valueChanges();
   }
 
-  gethotelById(Id: number) {
+  gethotelById(Id: string) {
     return this.fs.collection('hotels').doc(`${Id}`).valueChanges();
   }
 }

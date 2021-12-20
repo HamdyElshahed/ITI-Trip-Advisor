@@ -7,6 +7,7 @@ import { NgbDateStruct, NgbModal, NgbTimeStruct } from '@ng-bootstrap/ng-bootstr
 import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 import { Observable, Subject } from 'rxjs';
 import { ALLRESTAURANTS, Dish, OpenTime, Restaurant, Table } from 'src/app/models/restaurant.model';
+import { ProfileService } from 'src/app/services/profile.service';
 import { FilterService } from 'src/app/services/restaurant-services/filter.service';
 import { RestaurantsMainServiceService } from 'src/app/services/restaurant-services/restaurants-main.service';
 
@@ -24,7 +25,7 @@ export class RestaurantDetailsComponent implements OnInit {
   reservatioinPrice!:number;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService) { }
+  constructor(private activatedRoute: ActivatedRoute, private filterService: FilterService, private mainService: RestaurantsMainServiceService , private profileservice : ProfileService) { }
 
   images: string[] = [];
   currentRate!: number;
@@ -41,6 +42,8 @@ export class RestaurantDetailsComponent implements OnInit {
       this.dishesList = val;
       console.log(this.dishesList);
     });
+
+    this.profileservice.updateResentlyView(this.restaurantId, 'restaurant')
 
   }
   addNewDish(dish: Dish) {
