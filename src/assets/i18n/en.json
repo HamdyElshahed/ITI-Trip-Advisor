@@ -80,7 +80,6 @@
    "Previous":"Previous",
    "Next":"Next"
 
-<<<<<<< HEAD
   },
 
   "home":{
@@ -117,7 +116,13 @@
     "Write some details about yourself" : "Write some details about yourself",
     "Share your travel advice" : "Share your travel advice",
     "Post photos" : "Post photos",
-    "Write Review" : "Write Review"
+    "Write Review" : "Write Review",
+    "Category" : "Category",
+    "place name" : "Place name",
+    "city" : "City",
+    "country" : "Country",
+    "Date" : "Date",
+    "price" : "Price"
   },
 
   "footer" : {
@@ -173,11 +178,9 @@
     "This is the version of our website addressed to speakers of English in the United States. If you are a resident of another country or region, please select the appropriate version of Tripadvisor for your country or region in the drop-down" : "This is the version of our website addressed to speakers of English in the United States. If you are a resident of another country or region, please select the appropriate version of Tripadvisor for your country or region in the drop-down",
     "TripAdvisor LLC makes no guarantees for availability of prices advertised on our sites and applications. Listed prices may require a stay of a particular length or have blackout dates, qualifications or other applicable restrictions. TripAdvisor LLC is not responsible for any content on external web sites that are not owned or operated by Tripadvisor. Indicative hotel prices displayed on our “Explore” pages are estimates extrapolated from historic pricing data." : "TripAdvisor LLC makes no guarantees for availability of prices advertised on our sites and applications. Listed prices may require a stay of a particular length or have blackout dates, qualifications or other applicable restrictions. TripAdvisor LLC is not responsible for any content on external web sites that are not owned or operated by Tripadvisor. Indicative hotel prices displayed on our “Explore” pages are estimates extrapolated from historic pricing data.",
     "TripAdvisor LLC is not a booking agent or tour operator. When you book with one of our partners, please be sure to check their site for a full disclosure of all applicable fees" : "TripAdvisor LLC is not a booking agent or tour operator. When you book with one of our partners, please be sure to check their site for a full disclosure of all applicable fees"
-  }
+  },
 
-=======
-},
-"restaurants":{
+  "restaurants":{
 "Add New Dish":"Add New Dish",
 "Dish Name":"Dish Name",
 "Dish Category":"Dish Category",
@@ -186,7 +189,5 @@
 "Save":"Save",
 "Close":"Close"
 
-}
->>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
-
+  }
 }

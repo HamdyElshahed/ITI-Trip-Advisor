@@ -44,3 +44,25 @@
     }
   }
 
+  body,
+  html { overflow-x: hidden; }
+  .animated-text-container {
+
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .animated-text-content {
+    display: block; /* Important to give the content a width */
+
+    width: 100%;
+    transform: translateX(90%); /* Animation start out of the screen */
+
+    /* Add the animation */
+    animation: move 30s linear infinite /* infinite make reapeat the animation indefinitely */;
+  }
+
+  /* Create the animation */
+  @keyframes move {
+    to { transform: translateX(-100%); }
+  }

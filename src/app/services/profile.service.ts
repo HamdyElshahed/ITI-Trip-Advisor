@@ -47,7 +47,6 @@ export class ProfileService {
      favorites: arrayUnion({uid: `${favoriteId}`})
    });
   }
-<<<<<<< HEAD
   async deleteFavorites(favoriteId : any ,){
   //   this.userId= JSON.parse(`${localStorage.getItem('user')}`);
     let userdata = this.angularfirestore.firestore.doc(`Users/${this.userId.uid}`);
@@ -70,14 +69,6 @@ export class ProfileService {
     });
   // })
    console.log('remove')
-=======
-  async deleteFavorites(favorites : any ,){
-    this.userId= JSON.parse(`${localStorage.getItem('user')}`);
-    let data = this.angularfirestore.firestore.doc(`Users/${this.userId.uid}`);
-    await updateDoc(data, {
-     favorites: favorites
-   });
->>>>>>> c4b16f4261e196e24f3a286b28d72182ec805302
   }
 
   async updateReservations(reservData : any , category : any){

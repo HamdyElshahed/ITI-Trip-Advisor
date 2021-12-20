@@ -103,24 +103,20 @@
           <ng-template ngbNavContent><table class="table">
             <thead>
               <tr>
-                <!-- <th scope="col">#</th> -->
-                <!-- <th scope="col">{{'profile.city'|translate}}</th>
                 <th scope="col">{{'profile.Category'|translate}}</th>
                 <th scope="col">{{'prpfile.place name'|translate}}</th>
+                <th scope="col">{{'profile.city'|translate}}</th>
+                <th scope="col">{{'profile.country'|translate}}</th>
                 <th scope="col">{{'profile.Date'|translate}}</th>
-                <th scope="col">status</th> -->
+                <th scope="col">{{'profile.price'|translate}}</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let reserv of userReservations ">
-              <td>{{reserv.email}}</td>
-              <td>{{reserv.firstName}}</td>
-              <td>{{reserv.lastName}}</td>
-              <td>{{reserv.startdate}}</td>
-              <td>Finished</td>
-              <tr>
-                <!-- <th scope="row">1</th> -->
-              </tr>
+              <td>{{reserv.category}}</td>
+              <td>{{reserv.data.name}}</td>
+              <td>{{reserv.data.location.city}}</td>
+              <td>{{reserv.data.location.country}}</td>
             </tbody>
           </table>
         </ng-template>
@@ -148,7 +144,7 @@
       <div class="col-3">
         <div class="row " style="flex-direction: column;">
           <div class="my-2" style="background-color: #ffffff;">
-            <h3>{{'profile.Intro'|translate}}</h3>
+            <h3 class="fs-4">{{'profile.Intro'|translate}}</h3>
             <ul style="list-style : none;">
               <li class="py-2 fs-6">
                 <svg viewBox="0 0 24 24" width="1em" height="1em" class="svgplus">
@@ -171,7 +167,7 @@
             </ul>
           </div>
           <div class="my-2" style="background-color: #ffffff;">
-            <h3>{{'profile.Share your travel advice'|translate}}</h3>
+            <h3 class="fs-4">{{'profile.Share your travel advice'|translate}}</h3>
             <ul style="list-style: none;">
               <li class="py-2 fs-6">
                 <i class="fas fa-camera"></i> <span class="px-2">{{'profile.Post photos'|translate}}</span>

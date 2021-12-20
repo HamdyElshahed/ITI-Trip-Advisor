@@ -7,7 +7,7 @@
   country with arrangment propgram to cover all places
 </p>
 <div class="row">
-<div class="col-3" *ngFor="let place of places, let i = index">
+<div class="col-3" *ngFor="let place of places , let i = index">
   <div  class="card one bg-light f-2">
     <img   [src]="place.img" class="card-img-top" alt="..." >
     <div class="card-body">

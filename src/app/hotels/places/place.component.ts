@@ -7,7 +7,7 @@ import { HotelsServiceService } from 'src/app/service/hotels-service.service';
   styleUrls: ['./place.component.scss'],
 })
 export class PlaceComponent implements OnInit {
-  places: place;
+  places: place | any;
 
   constructor(private hs: HotelsServiceService) {}
 
