@@ -54,7 +54,8 @@ export class ProfileComponent implements OnInit {
         const element = await user.reservations[i];
         const collection = element.category;
         const reserv = element.reserv;
-        (await this.searchservice.querySearchByDocId(collection ,  reserv.restaurantID)).subscribe(async(data:any)=>{
+        const Id = reserv.restaurantID || reserv.hotelId;
+        (await this.searchservice.querySearchByDocId(collection ,  Id)).subscribe(async(data:any)=>{
           console.log(data);
           if (reserv !== undefined) {
             this.userReservations.push({category : collection , reserv :reserv , data : data});

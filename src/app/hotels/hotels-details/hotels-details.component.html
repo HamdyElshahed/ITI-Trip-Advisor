@@ -3,7 +3,7 @@
  <p><i> review count:{{hotels.reviewCount}}</i></p>
   <div class="row">
 
-  <h2>{{'details.live photo'| translate}}</h2> <button *ngIf="authservice.IsLoggedIn" class="book" routerLink="/booking" > Booking </button>
+  <h2>{{'details.live photo'| translate}}</h2> <button *ngIf="authservice.IsLoggedIn" class="book" [routerLink]="['/booking/',hotelId]" > Booking </button>
   <div>
   <a href="#"><img  [src]="hotels.imgUrl[0]" alt="" width="20%"></a>
    <a href="#"><img [src]="hotels.imgUrl[1]" alt="" width="20%"></a>

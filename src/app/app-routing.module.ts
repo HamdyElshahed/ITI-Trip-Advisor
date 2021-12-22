@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'hotels', component: HotelsComponent },
   { path: 'visitsplaces', component: PlaceComponent },
   { path: 'hotels-details/:id', component: HotelsDetailsComponent },
-  { path: 'booking', component: BookingComponent , canActivate: [AuthGuard] },
+  { path: 'booking/:id', component: BookingComponent , canActivate: [AuthGuard] },
   { path: 'res', component: RestaurantsComponent },
   { path: 'restaurants', redirectTo: '', pathMatch: 'full' },
   { path: 'restaurant-detailes/:id', component: RestaurantDetailsComponent },

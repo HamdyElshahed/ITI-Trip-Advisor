@@ -2,6 +2,7 @@ import { booking } from './../../models/booking.model';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -9,20 +10,29 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent implements OnInit {
-  bookingdata?: booking;
-  constructor(private service: ProfileService) {}
+  bookingdata?: booking | any;
+  hotelId : any ;
+  constructor(private service: ProfileService , private activatedRoute: ActivatedRoute,
+    ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((res) => {
+      if (res && res?.id) {
+        this.hotelId = res.id;
+      }
+  })
+}
   book(form: NgForm) {
     let obj = {
       email: form.value.email,
-      firstName: form.value.firstName,
-      lastName: form.value.lastName,
+      fname: form.value.firstName,
+      lname: form.value.lastName,
       phone: form.value.phonenumber,
       startdate: form.value.startdate,
       enddate: form.value.enddate,
       roomCategory: form.value.category,
       numberofguest: form.value.numberofguest,
+      hotelId : this.hotelId
     };
     this.bookingdata = obj;
     this.submitdata();
